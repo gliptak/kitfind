@@ -6,6 +6,10 @@ requires-python = ">=3.11"
 dependencies = [
     "PyYAML>=6.0",
     "tomli>=2.0",
+    "huggingface-hub>=0.24",
+    "tokenizers>=0.19",
+    "onnxruntime>=1.18",
+    "numpy>=1.24",
 ]
 
 

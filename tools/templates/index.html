@@ -112,6 +112,10 @@
       <div class="num" id="statSources">-</div>
       <div class="label">Source Repos</div>
     </div>
+    <div class="stat-card">
+      <div class="num" id="statModelStatus">-</div>
+      <div class="label" id="statModelLabel">Semantic Search</div>
+    </div>
   </div>
 
   <input type="text" class="search-box" id="searchInput"
@@ -132,28 +136,186 @@
   </footer>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.20.1/dist/ort.min.js"></script>
 <script>
 let SKILLS = [];
-let TFIDF = null;
+let EMBEDDINGS = null;
+let EMBED_N = 0;
+let EMBED_DIM = 0;
+let MODEL_READY = false;
+let MODEL_LOADING = false;
+let ORT_SESSION = null;
+let VOCAB = null;
 
-const STOP_WORDS = new Set([
-  'the','a','an','is','are','was','were','be','been','being',
-  'have','has','had','do','does','did','will','would','could',
-  'should','may','might','can','shall','to','of','in','for',
-  'on','with','at','by','from','as','into','through','during',
-  'then','once','here','there','when','where','why','how',
-  'all','each','every','both','few','more','most','other',
-  'some','such','no','nor','not','only','own','same','so',
-  'than','too','very','just','about','which','who','whom',
-  'this','that','these','those','and','but','or','if','while',
-  'although','since','unless','until','like',
-  'it','its','you','your','we','our','they','them','their',
-]);
+// ── BERT WordPiece tokenizer ─────────────────────────────────────────
 
-function tokenize(text) {
-  const tokens = (text.toLowerCase().match(/[a-z0-9]+(?:[-.][a-z0-9]+)*/g) || []);
-  return tokens.filter(t => t.length >= 2 && t.length <= 40 && !STOP_WORDS.has(t));
+const SPECIAL = { '[PAD]': 0, '[CLS]': 101, '[SEP]': 102, '[UNK]': 100, '[MASK]': 103 };
+const MAX_LEN = 256;
+
+function tokenize(query) {
+  const tokens = [];
+  // Basic pre-tokenize: split on whitespace and punctuation
+  const words = query.toLowerCase().match(/[a-z0-9]+|[^\sa-z0-9]+/g) || [];
+  for (const word of words) {
+    const sub = wordpiece(word);
+    tokens.push(...sub);
+  }
+  // Truncate
+  if (tokens.length > MAX_LEN - 2) tokens.length = MAX_LEN - 2;
+  // Add special tokens
+  tokens.unshift('[CLS]');
+  tokens.push('[SEP]');
+  // Convert to ids, pad
+  const input_ids = tokens.map(t => VOCAB[t] ?? SPECIAL[t] ?? SPECIAL['[UNK]']);
+  const attention_mask = input_ids.map(() => 1);
+  while (input_ids.length < MAX_LEN) {
+    input_ids.push(0);
+    attention_mask.push(0);
+  }
+  return { input_ids, attention_mask };
 }
+
+function wordpiece(word) {
+  if (VOCAB[word] !== undefined) return [word];
+  const pieces = [];
+  let remaining = word;
+  while (remaining.length > 0) {
+    let found = false;
+    for (let i = remaining.length; i >= 1; i--) {
+      const sub = pieces.length === 0 ? remaining.slice(0, i) : '##' + remaining.slice(0, i);
+      if (VOCAB[sub] !== undefined) {
+        pieces.push(sub);
+        remaining = remaining.slice(i);
+        found = true;
+        break;
+      }
+    }
+    if (!found) {
+      remaining = remaining.slice(1); // skip unknown char
+    }
+  }
+  return pieces.length > 0 ? pieces : ['[UNK]'];
+}
+
+// ── Loaders ──────────────────────────────────────────────────────────
+
+async function loadEmbeddings() {
+  const res = await fetch('index.embeddings');
+  const buf = await res.arrayBuffer();
+  const header = new Int32Array(buf, 0, 3);
+  EMBED_DIM = header[1];
+  EMBED_N = header[2];
+  const mins = new Float32Array(buf, 12, EMBED_DIM);
+  const scales = new Float32Array(buf, 12 + EMBED_DIM * 4, EMBED_DIM);
+  const quantized = new Uint8Array(buf, 12 + EMBED_DIM * 8);
+  EMBEDDINGS = new Float32Array(EMBED_N * EMBED_DIM);
+  for (let i = 0; i < EMBED_N * EMBED_DIM; i++) {
+    const d = i % EMBED_DIM;
+    EMBEDDINGS[i] = quantized[i] * scales[d] + mins[d];
+  }
+}
+
+async function loadModel() {
+  MODEL_LOADING = true;
+  try {
+    // Load vocab
+    const vocabRes = await fetch('./model/vocab.json');
+    VOCAB = await vocabRes.json();
+
+    // Load ONNX model
+    ORT_SESSION = await ort.InferenceSession.create('./model/onnx/model_quantized.onnx');
+
+    MODEL_READY = true;
+    MODEL_LOADING = false;
+    const ms = document.getElementById('statModelStatus');
+    const ml = document.getElementById('statModelLabel');
+    if (ms) ms.textContent = 'Ready';
+    if (ml) ml.textContent = 'Semantic Search';
+  } catch (e) {
+    console.error('Kitfind model load failed:', e);
+    MODEL_LOADING = false;
+    const ms = document.getElementById('statModelStatus');
+    const ml = document.getElementById('statModelLabel');
+    if (ms) ms.textContent = 'Unavailable';
+    if (ml) ml.textContent = 'Semantic Search';
+  }
+}
+
+// ── Search ───────────────────────────────────────────────────────────
+
+function embedQuery(query) {
+  if (!ORT_SESSION || !VOCAB) return null;
+  const { input_ids, attention_mask } = tokenize(query);
+  const feeds = {
+    'input_ids': new ort.Tensor('int64', BigInt64Array.from(input_ids.map(BigInt)), [1, MAX_LEN]),
+    'attention_mask': new ort.Tensor('int64', BigInt64Array.from(attention_mask.map(BigInt)), [1, MAX_LEN]),
+    'token_type_ids': new ort.Tensor('int64', new BigInt64Array(MAX_LEN), [1, MAX_LEN]),
+  };
+  const embedResults = ORT_SESSION.run(feeds);
+  // results is a promise - return it to await later
+  return embedResults;
+}
+
+async function search(query) {
+  if (!ORT_SESSION || !VOCAB) return null;
+  try {
+    const feeds = makeFeeds(query);
+    const results = await ORT_SESSION.run(feeds);
+    // Get last_hidden_state
+    const hidden = results['last_hidden_state'];
+    const data = hidden.data; // Float32Array, [1, seq_len, 384]
+    const seqLen = MAX_LEN;
+    const dim = 384;
+    const mask = feeds['attention_mask'].data;
+
+    // Mean pool
+    const pooled = new Float32Array(dim);
+    let maskSum = 0;
+    for (let i = 0; i < seqLen; i++) {
+      if (mask[i] > 0) {
+        maskSum++;
+        for (let j = 0; j < dim; j++) {
+          pooled[j] += data[i * dim + j];
+        }
+      }
+    }
+    if (maskSum > 0) {
+      for (let j = 0; j < dim; j++) pooled[j] /= maskSum;
+    }
+
+    // L2 normalize
+    let norm = 0;
+    for (let j = 0; j < dim; j++) norm += pooled[j] * pooled[j];
+    norm = Math.sqrt(norm);
+    if (norm > 0) for (let j = 0; j < dim; j++) pooled[j] /= norm;
+
+    // Cosine similarity against all embeddings
+    const results2 = [];
+    for (let i = 0; i < EMBED_N; i++) {
+      let dot = 0;
+      const offset = i * dim;
+      for (let j = 0; j < dim; j++) {
+        dot += pooled[j] * EMBEDDINGS[offset + j];
+      }
+      results2.push(Math.max(0, dot));
+    }
+    return results2;
+  } catch (e) {
+    console.error('Kitfind search error:', e);
+    return null;
+  }
+}
+
+function makeFeeds(query) {
+  const { input_ids, attention_mask } = tokenize(query);
+  return {
+    'input_ids': new ort.Tensor('int64', BigInt64Array.from(input_ids.map(BigInt)), [1, MAX_LEN]),
+    'attention_mask': new ort.Tensor('int64', BigInt64Array.from(attention_mask.map(BigInt)), [1, MAX_LEN]),
+    'token_type_ids': new ort.Tensor('int64', new BigInt64Array(MAX_LEN), [1, MAX_LEN]),
+  };
+}
+
+// ── UI ───────────────────────────────────────────────────────────────
 
 async function init() {
   if (location.protocol === 'file:') {
@@ -161,20 +323,21 @@ async function init() {
     return;
   }
   try {
-    const [skillsRes, tfidfRes] = await Promise.all([
+    const [skillsRes, embedRes] = await Promise.all([
       fetch('index.json'),
-      fetch('index.tfidf').catch(() => null),
+      fetch('index.embeddings'),
     ]);
     const data = await skillsRes.json();
     SKILLS = data.skills || data;
-    TFIDF = tfidfRes ? await tfidfRes.json() : null;
+    await loadEmbeddings();
     document.getElementById('loading').classList.add('hidden');
     document.getElementById('results').classList.remove('hidden');
     showStats(data);
     onSearch();
     const gen = data.catalog?.generated_at || data.generated_at || '';
-    if (gen) document.getElementById('generatedAt').textContent = 'Generated ' + gen.replace('T', ' ').replace(/\..+/, '') + ' &middot; ';
+    if (gen) document.getElementById('generatedAt').textContent = 'Generated ' + gen.replace('T', ' ').replace(/\..+/, '') + ' · ';
     document.getElementById('searchInput').addEventListener('input', onSearch);
+    loadModel();
   } catch (e) {
     document.getElementById('loading').innerHTML = '<div class="empty"><p>Failed to load skill index</p><p class="hint">' + e.message + '</p></div>';
   }
@@ -200,37 +363,29 @@ function matches(skill, query) {
     skill.domain || '',
     skill.source?.url || '',
   ].join(' ').toLowerCase();
-  return query.split(/\s+/).every(term => haystack.includes(term));
+  return query.split(/\s+/).every(term => {
+    // Word-boundary match, not substring
+    const re = new RegExp('\\b' + term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b');
+    return re.test(haystack);
+  });
 }
 
-function tfidfSimilarity(queryTokens, skillIdx) {
-  if (!TFIDF || !queryTokens.length) return null;
-  const { vocab, idf, skills } = TFIDF;
-  const sv = skills[skillIdx];
-  if (!sv) return 0;
-  const qtf = {};
-  for (const t of queryTokens) qtf[t] = (qtf[t] || 0) + 1;
-  let dot = 0, qSq = 0;
-  for (const [term, tf] of Object.entries(qtf)) {
-    const idx = vocab.indexOf(term);
-    if (idx === -1) continue;
-    const qw = (1 + Math.log(tf)) * idf[idx];
-    qSq += qw * qw;
-    const pos = sv.indices.indexOf(idx);
-    if (pos !== -1) dot += qw * sv.values[pos];
-  }
-  if (qSq === 0) return 0;
-  return dot / Math.sqrt(qSq);
-}
-
-function renderResults(query) {
+async function renderResults(query) {
   const container = document.getElementById('results');
   const tip = document.getElementById('searchTip');
   let filtered = SKILLS.filter(s => matches(s, query));
 
   if (filtered.length === 0 && !query) {
     tip.textContent = '';
-    container.innerHTML = '<div class="empty"><p>No skills loaded</p></div>';
+    if (MODEL_LOADING && !MODEL_READY) {
+      const ms = document.getElementById('statModelStatus');
+      const ml = document.getElementById('statModelLabel');
+      if (ms) ms.textContent = '...';
+      if (ml) ml.textContent = 'Downloading model';
+      container.innerHTML = '<div class="empty"><p>Loading skills...</p></div>';
+    } else {
+      container.innerHTML = '<div class="empty"><p>No skills loaded</p></div>';
+    }
     return;
   }
   if (filtered.length === 0) {
@@ -239,28 +394,38 @@ function renderResults(query) {
     return;
   }
 
-  if (query && TFIDF) {
-    const qtokens = tokenize(query);
-    const scored = filtered.map(s => ({ skill: s, score: tfidfSimilarity(qtokens, SKILLS.indexOf(s)) || 0 }));
-    scored.sort((a, b) => b.score - a.score);
-    const maxScore = scored.length > 0 ? Math.max(scored[0].score, 0.001) : 1;
-    const pct = Math.round(filtered.length / SKILLS.length * 100);
-    tip.textContent = `${filtered.length} of ${SKILLS.length} skills match (${pct}%)`;
-    container.innerHTML = '';
-    let html = '';
-    const batch = scored.slice(0, 200);
-    batch.forEach(e => html += cardHtml(e.skill, Math.round(e.score / maxScore * 100)));
-    container.innerHTML = html;
-    if (filtered.length > 200) {
-      container.innerHTML += '<div style="text-align:center;padding:16px;color:var(--muted);font-size:13px">Showing first 200 of ' + filtered.length + ' results. Narrow your search.</div>';
+  const pct = filtered.length / SKILLS.length * 100;
+  const pctDisplay = pct < 0.1 ? '<0.1%' : (pct < 1 ? pct.toFixed(1) + '%' : Math.round(pct) + '%');
+
+  if (query && MODEL_READY && query.length >= 5) {
+    const scores = await search(query);
+    if (scores) {
+      const scored = filtered.map(s => {
+        const idx = SKILLS.indexOf(s);
+        return { skill: s, score: scores[idx] || 0 };
+      });
+      scored.sort((a, b) => b.score - a.score);
+      const maxScore = scored.length > 0 ? Math.max(scored[0].score, 0.001) : 1;
+      tip.textContent = `${filtered.length} of ${SKILLS.length} skills match (${pctDisplay}) · Semantic search`;
+      container.innerHTML = '';
+      const batch = scored.slice(0, 200);
+      let html = '';
+      batch.forEach(e => html += cardHtml(e.skill, Math.round(e.score / maxScore * 100)));
+      container.innerHTML = html;
+      if (filtered.length > 200) {
+        container.innerHTML += '<div style="text-align:center;padding:16px;color:var(--muted);font-size:13px">Showing first 200 of ' + filtered.length + ' results. Narrow your search.</div>';
+      }
+      return;
     }
-  } else {
-    tip.textContent = `${SKILLS.length} skills indexed`;
-    container.innerHTML = '';
-    let html = '';
-    filtered.slice(0, 200).forEach(s => html += cardHtml(s, null));
-    container.innerHTML = html;
   }
+
+  // Fallback: alphabetical
+  const status = MODEL_LOADING ? ' · Loading model...' : '';
+  tip.textContent = `${SKILLS.length} skills indexed${status}`;
+  container.innerHTML = '';
+  let html = '';
+  filtered.slice(0, 200).forEach(s => html += cardHtml(s, null));
+  container.innerHTML = html;
 }
 
 function cardHtml(s, score) {
@@ -272,7 +437,7 @@ function cardHtml(s, score) {
   const badge = score !== null ? '<span class="score">' + score + '%</span>' : '';
   return '<div class="skill-card">' +
     '<h3>' + esc(s.name) + badge + '</h3>' +
-    '<div class="source"><a href="' + esc(sourceUrl) + '" target="_blank">' + esc(sourcePath) + '</a> &middot; ' + esc(repoLabel) + '</div>' +
+    '<div class="source">' + esc(repoLabel) + ' · <a href="' + esc(sourceUrl) + '" target="_blank">' + esc(sourcePath) + '</a></div>' +
     '<div class="desc">' + esc(s.description) + '</div>' +
     '<div class="meta">' +
       harnesses.map(h => '<span class="tag harness">' + esc(h) + '</span>').join('') +

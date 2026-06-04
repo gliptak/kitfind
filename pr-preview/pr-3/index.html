@@ -144,7 +144,7 @@
 }
 </script>
 <script type="module">
-import { pipeline, env } from '@xenova/transformers';
+import { pipeline } from '@xenova/transformers';
 
 let SKILLS = [];
 let EMBEDDINGS = null;  // Flat Float32Array of skill embeddings
@@ -172,7 +172,6 @@ async function loadEmbeddings() {
 async function loadModel() {
   MODEL_LOADING = true;
   try {
-    env.localModelPath = './model/';
     const pipe = await pipeline('feature-extraction', './model/', {
       quantized: true,
       progress_callback: (p) => {
@@ -192,6 +191,7 @@ async function loadModel() {
     if (ml) ml.textContent = 'Semantic Search';
     window.__PIPE = pipe;
   } catch (e) {
+    console.error('Kitfind model load failed:', e);
     MODEL_LOADING = false;
     const ms = document.getElementById('statModelStatus');
     const ml = document.getElementById('statModelLabel');

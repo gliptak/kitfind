@@ -335,7 +335,7 @@ async function init() {
     showStats(data);
     onSearch();
     const gen = data.catalog?.generated_at || data.generated_at || '';
-    if (gen) document.getElementById('generatedAt').textContent = 'Generated ' + gen.replace('T', ' ').replace(/\..+/, '') + ' &middot; ';
+    if (gen) document.getElementById('generatedAt').textContent = 'Generated ' + gen.replace('T', ' ').replace(/\..+/, '') + ' · ';
     document.getElementById('searchInput').addEventListener('input', onSearch);
     loadModel();
   } catch (e) {
@@ -363,8 +363,11 @@ function matches(skill, query) {
     skill.domain || '',
     skill.source?.url || '',
   ].join(' ').toLowerCase();
-  return query.split(/\s+/).every(term => haystack.includes(term));
-}
+  return query.split(/\s+/).every(term => {
+    // Word-boundary match, not substring
+    const re = new RegExp('\\b' + term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b');
+    return re.test(haystack);
+  });
 
 async function renderResults(query) {
   const container = document.getElementById('results');
@@ -390,9 +393,10 @@ async function renderResults(query) {
     return;
   }
 
-  const pct = Math.round(filtered.length / SKILLS.length * 100);
+  const pct = filtered.length / SKILLS.length * 100;
+  const pctDisplay = pct < 0.1 ? '<0.1%' : (pct < 1 ? pct.toFixed(1) + '%' : Math.round(pct) + '%');
 
-  if (query && MODEL_READY) {
+  if (query && MODEL_READY && query.length >= 5) {
     const scores = await search(query);
     if (scores) {
       const scored = filtered.map(s => {
@@ -401,7 +405,7 @@ async function renderResults(query) {
       });
       scored.sort((a, b) => b.score - a.score);
       const maxScore = scored.length > 0 ? Math.max(scored[0].score, 0.001) : 1;
-      tip.textContent = `${filtered.length} of ${SKILLS.length} skills match (${pct}%) &middot; Semantic search`;
+      tip.textContent = `${filtered.length} of ${SKILLS.length} skills match (${pctDisplay}) · Semantic search`;
       container.innerHTML = '';
       const batch = scored.slice(0, 200);
       let html = '';
@@ -415,7 +419,7 @@ async function renderResults(query) {
   }
 
   // Fallback: alphabetical
-  const status = MODEL_LOADING ? ' &middot; Loading model...' : '';
+  const status = MODEL_LOADING ? ' · Loading model...' : '';
   tip.textContent = `${SKILLS.length} skills indexed${status}`;
   container.innerHTML = '';
   let html = '';
@@ -432,7 +436,7 @@ function cardHtml(s, score) {
   const badge = score !== null ? '<span class="score">' + score + '%</span>' : '';
   return '<div class="skill-card">' +
     '<h3>' + esc(s.name) + badge + '</h3>' +
-    '<div class="source"><a href="' + esc(sourceUrl) + '" target="_blank">' + esc(sourcePath) + '</a> &middot; ' + esc(repoLabel) + '</div>' +
+    '<div class="source">' + esc(repoLabel) + ' · <a href="' + esc(sourceUrl) + '" target="_blank">' + esc(sourcePath) + '</a></div>' +
     '<div class="desc">' + esc(s.description) + '</div>' +
     '<div class="meta">' +
       harnesses.map(h => '<span class="tag harness">' + esc(h) + '</span>').join('') +

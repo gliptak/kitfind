@@ -5,6 +5,7 @@
 
 import json
 import os
+import math
 import re
 import shutil
 import subprocess
@@ -93,9 +94,19 @@ def slugify(text: str) -> str:
 
 
 def extract_keywords(text: str, max_len: int = 40) -> list[str]:
-    """Extract meaningful keywords from a line of text."""
-    words = re.findall(r"[a-zA-Z][a-zA-Z0-9\-]{2,}", text)
-    return [w.lower() for w in words if len(w) <= max_len][:20]
+    """Extract meaningful keywords from a line of text, filtering stop words."""
+    _SW = frozenset({'the','a','an','is','are','was','were','be','been','being',
+        'have','has','had','do','does','did','will','would','could','should',
+        'may','might','can','shall','to','of','in','for','on','with','at','by',
+        'from','as','into','through','during','then','once','here','there',
+        'when','where','why','how','all','each','every','both','few','more',
+        'most','other','some','such','no','nor','not','only','own','same','so',
+        'than','too','very','just','about','which','who','whom','this','that',
+        'these','those','and','but','or','if','while','although','since',
+        'unless','until','like','it','its','you','your','we','our','they',
+        'them','their','common','use','using'})
+    words = re.findall(r"[a-zA-Z][a-zA-Z0-9\\-]{2,}", text)
+    return [w.lower() for w in words if len(w) <= max_len and w.lower() not in _SW][:20]
 
 
 def git_clone(url: str, ref: str, target: Path) -> str | None:
@@ -323,16 +334,22 @@ def discover_skills(repo_dir: Path) -> list[dict]:
                 pass
 
         # Extract tags/triggers
-        if "tags" in meta:
-            skill["tags"] = meta["tags"]
+        raw_tags = meta.get("tags")
+        if raw_tags and isinstance(raw_tags, str):
+            raw_tags = [t.strip() for t in raw_tags.replace("[", "").replace("]", "").split(",") if t.strip()]
+        skill["tags"] = raw_tags if isinstance(raw_tags, list) else []
         if "trigger" in meta:
-            skill["triggers"] = [meta["trigger"]]
+            raw = meta["trigger"]
+            skill["triggers"] = [raw] if isinstance(raw, str) else raw
         elif "triggers" in meta:
-            skill["triggers"] = meta["triggers"]
+            raw = meta["triggers"]
+            if isinstance(raw, str):
+                skill["triggers"] = [t.strip() for t in raw.replace("[", "").replace("]", "").split(",") if t.strip()]
+            else:
+                skill["triggers"] = raw if isinstance(raw, list) else []
         else:
             # Derive triggers from description keywords
             skill["triggers"] = extract_keywords(meta.get("description", ""))
-
         # Domain / category — keyword classifier (falls back to "uncategorized")
         skill["domain"] = classify_domain(
             name=skill["name"],
@@ -361,6 +378,91 @@ def discover_skills(repo_dir: Path) -> list[dict]:
         skills.append(skill)
 
     return skills
+
+# ── TF-IDF computation ─────────────────────────────────────────────────
+
+
+_STOP_WORDS = frozenset({
+    'the', 'a', 'an', 'is', 'are', 'was', 'were', 'be', 'been', 'being',
+    'have', 'has', 'had', 'do', 'does', 'did', 'will', 'would', 'could',
+    'should', 'may', 'might', 'can', 'shall', 'to', 'of', 'in', 'for',
+    'on', 'with', 'at', 'by', 'from', 'as', 'into', 'through', 'during',
+    'then', 'once', 'here', 'there', 'when', 'where', 'why', 'how',
+    'all', 'each', 'every', 'both', 'few', 'more', 'most', 'other',
+    'some', 'such', 'no', 'nor', 'not', 'only', 'own', 'same', 'so',
+    'than', 'too', 'very', 'just', 'about', 'which', 'who', 'whom',
+    'this', 'that', 'these', 'those', 'and', 'but', 'or', 'if', 'while',
+    'although', 'since', 'unless', 'until', 'like',
+    'it', 'its', 'you', 'your', 'we', 'our', 'they', 'them', 'their',
+})
+
+_TOKEN_RE = re.compile(r"[a-z0-9]+(?:[-.][a-z0-9]+)*")
+
+def _tokenize(text: str) -> list[str]:
+    """Lowercase, split on non-alnum, filter stop words and short tokens."""
+    tokens = _TOKEN_RE.findall(text.lower())
+    return [t for t in tokens if len(t) >= 2 and len(t) <= 40 and t not in _STOP_WORDS]
+
+def compute_tfidf(skills: list[dict]) -> dict:
+    """Compute sparse TF-IDF vectors for all skills."""
+    corpus: list[list[str]] = []
+    for s in skills:
+        text = " ".join([
+            s.get("name", "") or "",
+            s.get("description", "") or "",
+            " ".join(s.get("triggers") or []),
+            " ".join(s.get("tags") or []),
+            s.get("domain", "") or "",
+        ])
+        corpus.append(_tokenize(text))
+
+    vocab: dict[str, int] = {}
+    df: dict[str, int] = {}
+    for doc in corpus:
+        seen = set()
+        for t in doc:
+            if t not in seen:
+                seen.add(t)
+                df[t] = df.get(t, 0) + 1
+            if t not in vocab:
+                vocab[t] = len(vocab)
+
+    N = len(corpus)
+    idf: dict[str, float] = {}
+    for t, doc_count in df.items():
+        idf[t] = math.log((N + 1) / (doc_count + 1)) + 1.0
+
+    skill_vectors: list[dict] = []
+    for doc in corpus:
+        tf: dict[str, int] = {}
+        for t in doc:
+            tf[t] = tf.get(t, 0) + 1
+        vec: dict[str, float] = {}
+        sq_sum = 0.0
+        for t, count in tf.items():
+            w = (1.0 + math.log(count)) * idf[t]
+            vec[t] = w
+            sq_sum += w * w
+        norm = math.sqrt(sq_sum) if sq_sum > 0 else 1.0
+        indices: list[int] = []
+        values: list[float] = []
+        for t, w in vec.items():
+            indices.append(vocab[t])
+            values.append(round(w / norm, 6))
+        skill_vectors.append({"indices": indices, "values": values})
+
+    vocab_list = [""] * len(vocab)
+    idf_list = [0.0] * len(vocab)
+    for t, idx in vocab.items():
+        vocab_list[idx] = t
+        idf_list[idx] = idf[t]
+
+    return {
+        "version": 1,
+        "vocab": vocab_list,
+        "idf": idf_list,
+        "skills": skill_vectors,
+    }
 
 
 # ── Index generation ────────────────────────────────────────────────
@@ -532,6 +634,12 @@ def main():
         "generated_at": datetime.now(timezone.utc).isoformat(),
     }
 
+
+    # Compute TF-IDF vectors
+    print(f"  Computing TF-IDF vectors...")
+    tfidf = compute_tfidf(unique_skills)
+    (OUTPUT_DIR / "index.tfidf").write_text(json.dumps(tfidf))
+    print(f"  Wrote site/index.tfidf (vocab={len(tfidf['vocab'])})")
     # Generate static site
     print(f"\nGenerating site with {len(unique_skills)} skills...")
     build_site(unique_skills, stats, source_info)

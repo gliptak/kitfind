@@ -1,0 +1,16 @@
+# Generated output
+/site/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local

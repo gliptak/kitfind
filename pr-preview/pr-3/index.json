@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-06-04T17:31:54.411972+00:00",
+  "generated_at": "2026-06-04T19:56:07.148612+00:00",
   "catalog": {
     "sources": [
       {
@@ -8,7 +8,7 @@
         "ref": "main",
         "description": "Agentic skills framework & software development methodology",
         "commit": "6fd4507659784c351abbd2bc264c7162cfd386dc",
-        "fetched_at": "2026-06-04T17:30:53.562321+00:00",
+        "fetched_at": "2026-06-04T19:55:08.526112+00:00",
         "skill_count": 14
       },
       {
@@ -16,7 +16,7 @@
         "ref": "main",
         "description": "1,400+ agentic skills for Claude Code, Cursor, Codex, Gemini CLI, and more",
         "commit": "b806b97a9a48063f7bdbee5611caf40edd17e305",
-        "fetched_at": "2026-06-04T17:31:01.719908+00:00",
+        "fetched_at": "2026-06-04T19:55:14.718799+00:00",
         "skill_count": 4798
       },
       {
@@ -24,7 +24,7 @@
         "ref": "main",
         "description": "Skills for real engineers \u2014 TDD, design, debugging, productivity",
         "commit": "aaf2453fbdfe7a15c07f11d861224f34ab4b53cb",
-        "fetched_at": "2026-06-04T17:31:02.854754+00:00",
+        "fetched_at": "2026-06-04T19:55:15.503638+00:00",
         "skill_count": 29
       },
       {
@@ -32,7 +32,7 @@
         "ref": "main",
         "description": "ECC Tools \u2014 agent harness performance optimization system",
         "commit": "bc8e12bb80c904a5a9864797ef1fd1212aa82f3d",
-        "fetched_at": "2026-06-04T17:31:04.994962+00:00",
+        "fetched_at": "2026-06-04T19:55:17.129558+00:00",
         "skill_count": 730
       },
       {
@@ -40,7 +40,7 @@
         "ref": "main",
         "description": "Open-source registry of reusable Claude skills",
         "commit": "02370623a724900f1680baff4c6cdfed2d55fa89",
-        "fetched_at": "2026-06-04T17:31:05.623046+00:00",
+        "fetched_at": "2026-06-04T19:55:17.450530+00:00",
         "skill_count": 5
       }
     ],
@@ -119,7 +119,7 @@
         "database-processing": 1,
         "graphics-processing": 1
       },
-      "generated_at": "2026-06-04T17:31:05.631577+00:00"
+      "generated_at": "2026-06-04T19:55:17.459457+00:00"
     }
   },
   "skills": [

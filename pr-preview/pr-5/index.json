@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-06-05T18:00:50.875219+00:00",
+  "generated_at": "2026-06-05T18:43:46.737674+00:00",
   "catalog": {
     "sources": [
       {
@@ -8,23 +8,23 @@
         "ref": "main",
         "description": "Agentic skills framework & software development methodology",
         "commit": "6fd4507659784c351abbd2bc264c7162cfd386dc",
-        "fetched_at": "2026-06-05T17:59:42.443928+00:00",
+        "fetched_at": "2026-06-05T18:42:37.055019+00:00",
         "skill_count": 14
       },
       {
         "url": "https://github.com/sickn33/antigravity-awesome-skills",
         "ref": "main",
         "description": "1,400+ agentic skills for Claude Code, Cursor, Codex, Gemini CLI, and more",
-        "commit": "9854446018c68f40dc786f98395b3d81b7705a05",
-        "fetched_at": "2026-06-05T17:59:49.939173+00:00",
-        "skill_count": 4807
+        "commit": "6d3d66abc5b051926f4fd24980f93a7794795c9d",
+        "fetched_at": "2026-06-05T18:42:43.297893+00:00",
+        "skill_count": 4831
       },
       {
         "url": "https://github.com/mattpocock/skills",
         "ref": "main",
         "description": "Skills for real engineers \u2014 TDD, design, debugging, productivity",
         "commit": "aaf2453fbdfe7a15c07f11d861224f34ab4b53cb",
-        "fetched_at": "2026-06-05T17:59:50.720410+00:00",
+        "fetched_at": "2026-06-05T18:42:44.121314+00:00",
         "skill_count": 29
       },
       {
@@ -32,7 +32,7 @@
         "ref": "main",
         "description": "ECC Tools \u2014 agent harness performance optimization system",
         "commit": "bc8e12bb80c904a5a9864797ef1fd1212aa82f3d",
-        "fetched_at": "2026-06-05T17:59:52.375419+00:00",
+        "fetched_at": "2026-06-05T18:42:45.949764+00:00",
         "skill_count": 730
       },
       {
@@ -40,7 +40,7 @@
         "ref": "main",
         "description": "Open-source registry of reusable Claude skills",
         "commit": "02370623a724900f1680baff4c6cdfed2d55fa89",
-        "fetched_at": "2026-06-05T17:59:52.735137+00:00",
+        "fetched_at": "2026-06-05T18:42:46.287391+00:00",
         "skill_count": 5
       },
       {
@@ -48,23 +48,23 @@
         "ref": "main",
         "description": "Curated collection of Claude Code skills",
         "commit": "fcd4fa1b203a9a0dc44d2482af21adfb53b7a727",
-        "fetched_at": "2026-06-05T17:59:54.254799+00:00",
+        "fetched_at": "2026-06-05T18:42:47.708815+00:00",
         "skill_count": 347
       }
     ],
     "stats": {
-      "total_skills": 2142,
+      "total_skills": 2150,
       "total_sources": 6,
       "by_domain": {
-        "code-review": 444,
-        "ai-ml": 304,
+        "code-review": 446,
+        "ai-ml": 305,
         "frontend": 291,
-        "backend": 178,
-        "security": 141,
-        "productivity": 104,
+        "backend": 179,
+        "security": 142,
+        "productivity": 105,
         "design": 95,
+        "data": 67,
         "writing": 66,
-        "data": 66,
         "devops": 65,
         "testing": 64,
         "project-management": 48,
@@ -76,12 +76,12 @@
         "development": 16,
         "uncategorized": 12,
         "workflow-bundle": 10,
+        "api-integration": 5,
         "meta": 5,
         "content": 5,
         "marketing": 5,
         "data-ai": 4,
         "automation": 4,
-        "api-integration": 4,
         "framework": 3,
         "seo": 3,
         "andruia": 3,
@@ -129,7 +129,7 @@
         "general": 1,
         "Engineering / Code Quality": 1
       },
-      "generated_at": "2026-06-05T17:59:54.416715+00:00"
+      "generated_at": "2026-06-05T18:42:47.873215+00:00"
     }
   },
   "skills": [
@@ -7991,6 +7991,57 @@
       "install_hint": "kitout install sickn33/antigravity-awesome-skills"
     },
     {
+      "name": "2slides-ppt-generator",
+      "description": "AI-powered presentation generation via the 2slides API \u2014 create slides from text, match a reference image style, summarize documents into decks, add AI voice narration, and export pages/audio. Use for any \"make slides\", \"create a deck\", or \"slides from this document\" request.",
+      "body_preview": "# 2slides Presentation Generation\n\n## Overview\n\nGenerate professional presentations using the 2slides AI API. The skill supports content-based generation (theme-driven Fast PPT), style matching from a reference image, custom PDF design, document summarization, AI voice narration, and exporting pages/audio. It returns both an interactive slide URL and a downloadable PDF.\n\nThis skill is adapted from the official 2slides skill repository ([`2slides/slides-generation-2slides-skills`](https://github.",
+      "tags": [
+        "presentations",
+        "slides",
+        "powerpoint",
+        "ai",
+        "api-integration",
+        "pdf",
+        "narration",
+        "document-summarization"
+      ],
+      "triggers": [
+        "ai-powered",
+        "presentation",
+        "generation",
+        "via",
+        "slides",
+        "api",
+        "create",
+        "slides",
+        "text",
+        "match",
+        "reference",
+        "image",
+        "style",
+        "summarize",
+        "documents",
+        "decks",
+        "add",
+        "voice",
+        "narration",
+        "export"
+      ],
+      "domain": "api-integration",
+      "harnesses": [
+        "claude-code"
+      ],
+      "risk": "safe",
+      "source_name": "community",
+      "date_added": "2026-06-05",
+      "source": {
+        "url": "https://github.com/sickn33/antigravity-awesome-skills",
+        "ref": "main",
+        "path": "plugins/antigravity-awesome-skills-claude/skills/2slides-ppt-generator"
+      },
+      "id": "antigravity-awesome-skills/plugins/antigravity-awesome-skills-claude/skills/2slides-ppt-generator",
+      "install_hint": "kitout install sickn33/antigravity-awesome-skills"
+    },
+    {
       "name": "fal-audio",
       "description": "Text-to-speech and speech-to-text using fal.ai audio models",
       "body_preview": "# Fal Audio\n\n## Overview\n\nText-to-speech and speech-to-text using fal.ai audio models\n\n## When to Use This Skill\n\nUse this skill when you need to work with text-to-speech and speech-to-text using fal.ai audio models.\n\n## Instructions\n\nThis skill provides guidance and patterns for text-to-speech and speech-to-text using fal.ai audio models.\n\nFor more information, see the [source repository](https://github.com/fal-ai-community/skills/blob/main/skills/claude.ai/fal-audio/SKILL.md).\n\n## Limitations\n",
@@ -10443,6 +10494,41 @@
       "install_hint": "kitout install sickn33/antigravity-awesome-skills"
     },
     {
+      "name": "permission-manager",
+      "description": "Manage opencode permissions: review always-allow lists, suggest safe read-only commands, configure permission patterns",
+      "body_preview": "## What I do\n- Review and summarize currently always-allowed commands\n- Suggest safe read-only commands for auto-approval\n- Add or remove commands from the allow list in opencode.json\n- Configure skill-level permissions (allow/deny/ask) with wildcard patterns\n- Audit permission configs for security and usability\n\n## When to Use\nUse this when optimizing opencode's permission settings, reviewing allowed commands, or configuring skill access controls.\n\n## Workflow Steps\n\n1. **Read current config**:",
+      "tags": [],
+      "triggers": [
+        "manage",
+        "opencode",
+        "permissions",
+        "review",
+        "always-allow",
+        "lists",
+        "suggest",
+        "safe",
+        "read-only",
+        "commands",
+        "configure",
+        "permission",
+        "patterns"
+      ],
+      "domain": "security",
+      "harnesses": [
+        "claude-code"
+      ],
+      "risk": "critical",
+      "source_name": "community",
+      "date_added": "2026-06-05",
+      "source": {
+        "url": "https://github.com/sickn33/antigravity-awesome-skills",
+        "ref": "main",
+        "path": "plugins/antigravity-awesome-skills-claude/skills/permission-manager"
+      },
+      "id": "antigravity-awesome-skills/plugins/antigravity-awesome-skills-claude/skills/permission-manager",
+      "install_hint": "kitout install sickn33/antigravity-awesome-skills"
+    },
+    {
       "name": "hubspot-automation",
       "description": "Automate HubSpot CRM operations (contacts, companies, deals, tickets, properties) via Rube MCP using Composio integration.",
       "body_preview": "# HubSpot CRM Automation via Rube MCP\n\nAutomate HubSpot CRM workflows including contact/company management, deal pipeline tracking, ticket search, and custom property creation through Composio's HubSpot toolkit.\n\n## Prerequisites\n\n- Rube MCP must be connected (RUBE_SEARCH_TOOLS available)\n- Active HubSpot connection via `RUBE_MANAGE_CONNECTIONS` with toolkit `hubspot`\n- Always call `RUBE_SEARCH_TOOLS` first to get current tool schemas\n\n## Setup\n\n**Get Rube MCP**: Add `https://rube.app/mcp` as an",
@@ -11510,6 +11596,56 @@
         "path": "plugins/antigravity-awesome-skills-claude/skills/akf-trust-metadata"
       },
       "id": "antigravity-awesome-skills/plugins/antigravity-awesome-skills-claude/skills/akf-trust-metadata",
+      "install_hint": "kitout install sickn33/antigravity-awesome-skills"
+    },
+    {
+      "name": "examprep-ai",
+      "description": "Exam preparation assistant that converts syllabi, past papers, or notes into a ranked High Score Roadmap. Covers theory, numericals, MCQs, coding, and lab prep, ordered Easy \u2192 Medium \u2192 Hard. Use for last-minute revision, important topics, and question prediction.",
+      "body_preview": "# ExamPrep AI\n\n## \ud83c\udfaf Selective Reading Rule \u2014 Read ONLY the section matching the request\n\n| What the student asks for | Jump to |\n|--------------------------|---------|\n| Full roadmap / \"what to study\" / syllabus + past papers uploaded | [Full Roadmap Mode](#full-roadmap-mode) |\n| Theory questions only / definitions / explanations | [Theory Notes](#theory-notes) |\n| Numerical / calculation / derivation problems | [Numerical Notes](#numerical-notes) |\n| MCQ / True-False / objective practice | [MCQ",
+      "tags": [
+        "education",
+        "exam-prep",
+        "study-guide",
+        "question-prediction",
+        "syllabus-analysis",
+        "revision",
+        "students"
+      ],
+      "triggers": [
+        "exam",
+        "preparation",
+        "assistant",
+        "converts",
+        "syllabi",
+        "past",
+        "papers",
+        "notes",
+        "ranked",
+        "high",
+        "score",
+        "roadmap",
+        "covers",
+        "theory",
+        "numericals",
+        "mcqs",
+        "coding",
+        "lab",
+        "prep",
+        "ordered"
+      ],
+      "domain": "code-review",
+      "harnesses": [
+        "claude-code"
+      ],
+      "risk": "safe",
+      "source_name": "community",
+      "date_added": "2026-06-05",
+      "source": {
+        "url": "https://github.com/sickn33/antigravity-awesome-skills",
+        "ref": "main",
+        "path": "plugins/antigravity-awesome-skills-claude/skills/examprep-ai"
+      },
+      "id": "antigravity-awesome-skills/plugins/antigravity-awesome-skills-claude/skills/examprep-ai",
       "install_hint": "kitout install sickn33/antigravity-awesome-skills"
     },
     {
@@ -36587,6 +36723,37 @@
       "install_hint": "kitout install sickn33/antigravity-awesome-skills"
     },
     {
+      "name": "smart-git-automation",
+      "description": "Smart change detection, auto branch naming, and streamlined commit/PR workflow",
+      "body_preview": "## What I do\n- Intelligently detect and group related changes\n- Auto-generate descriptive branch names from changes\n- Streamlined workflow: scan \u2192 branch \u2192 commit \u2192 push \u2192 PR with fewer prompts\n\n## When to Use\nUse this when you want a faster, smarter git workflow that groups changes logically and reduces manual confirmation overhead.\n\n## Workflow Steps\n\n### 1. Smart Detection & Grouping\nRun in parallel:\n- `git status` - check what's changed\n- `git diff --stat` - see file modification summary\n- `",
+      "tags": [],
+      "triggers": [
+        "smart",
+        "change",
+        "detection",
+        "auto",
+        "branch",
+        "naming",
+        "streamlined",
+        "commit",
+        "workflow"
+      ],
+      "domain": "productivity",
+      "harnesses": [
+        "claude-code"
+      ],
+      "risk": "critical",
+      "source_name": "community",
+      "date_added": "2026-06-05",
+      "source": {
+        "url": "https://github.com/sickn33/antigravity-awesome-skills",
+        "ref": "main",
+        "path": "plugins/antigravity-awesome-skills-claude/skills/smart-git-automation"
+      },
+      "id": "antigravity-awesome-skills/plugins/antigravity-awesome-skills-claude/skills/smart-git-automation",
+      "install_hint": "kitout install sickn33/antigravity-awesome-skills"
+    },
+    {
       "name": "orchestrate-batch-refactor",
       "description": "Plan and execute large refactors with dependency-aware work packets and parallel analysis.",
       "body_preview": "# Orchestrate Batch Refactor\n\n## Overview\n\nUse this skill to run high-throughput refactors safely.\nAnalyze scope in parallel, synthesize a single plan, then execute independent work packets with sub-agents.\n\n## When to Use\n- When a refactor spans many files or subsystems and needs clear work partitioning.\n- When you need dependency-aware planning before parallel implementation.\n\n## Inputs\n\n- Repo path and target scope (paths, modules, or feature area)\n- Goal type: refactor, rewrite, or hybrid\n- ",
@@ -42211,6 +42378,40 @@
       "install_hint": "kitout install sickn33/antigravity-awesome-skills"
     },
     {
+      "name": "skill-suggester",
+      "description": "Scan prompt history for recurring patterns and unmet needs, then propose new skills or command templates",
+      "body_preview": "## What I do\n\nReads your opencode prompt history, finds repeated multi-step workflows, and recommends skill-worthy candidates. Saves you from having the same conversation twice.\n\n## When to Use\n\nUse this skill when the user wants to mine opencode prompt history for repeated workflows, recurring unmet needs, or candidates for new reusable skills.\n\n## How to invoke\n\nRun `/skill skill-suggester` to scan the full history. Optionally pass `--since <date>` (e.g. `--since 2026-05-01`) to limit the wind",
+      "tags": [],
+      "triggers": [
+        "scan",
+        "prompt",
+        "history",
+        "recurring",
+        "patterns",
+        "unmet",
+        "needs",
+        "propose",
+        "new",
+        "skills",
+        "command",
+        "templates"
+      ],
+      "domain": "code-review",
+      "harnesses": [
+        "claude-code"
+      ],
+      "risk": "safe",
+      "source_name": "community",
+      "date_added": "2026-06-05",
+      "source": {
+        "url": "https://github.com/sickn33/antigravity-awesome-skills",
+        "ref": "main",
+        "path": "plugins/antigravity-awesome-skills-claude/skills/skill-suggester"
+      },
+      "id": "antigravity-awesome-skills/plugins/antigravity-awesome-skills-claude/skills/skill-suggester",
+      "install_hint": "kitout install sickn33/antigravity-awesome-skills"
+    },
+    {
       "name": "ui-setup",
       "description": "Interactive StyleSeed setup wizard for choosing app type, brand color, visual style, typography, and the first screen scaffold.",
       "body_preview": "# UI Setup\n\n## Overview\n\nPart of [StyleSeed](https://github.com/bitjaru/styleseed), this setup wizard turns a raw project into a design-system-guided workspace. It collects the minimum brand and product context needed to configure tokens, pick a visual direction, and generate an initial page without drifting into generic UI.\n\n## When to Use\n- Use when you are starting a new app with the StyleSeed Toss seed\n- Use when you copied the seed into an existing project and need to personalize it\n- Use w",
@@ -42995,6 +43196,37 @@
         "path": "plugins/antigravity-awesome-skills-claude/skills/rich-elicitation"
       },
       "id": "antigravity-awesome-skills/plugins/antigravity-awesome-skills-claude/skills/rich-elicitation",
+      "install_hint": "kitout install sickn33/antigravity-awesome-skills"
+    },
+    {
+      "name": "anti-sycophancy",
+      "description": "Eliminate sycophantic agreement patterns in AI responses. Load via /skill anti-sycophancy.",
+      "body_preview": "## When to Use\n\nUse this skill when an AI coding assistant needs to challenge user claims independently, avoid agreement bias, and state evidence before deference.\n\n## Process\n\nFor every response when this skill is active:\n\n1. **Extract** the user's core claim from their framing. State it in one sentence stripped of premises.\n2. **Assess** that claim independently \u2014 evidence for/against, without referencing user agreement or authority.\n3. **Conclude** based solely on step 2.\n4. **Respond** with ",
+      "tags": [],
+      "triggers": [
+        "eliminate",
+        "sycophantic",
+        "agreement",
+        "patterns",
+        "responses",
+        "load",
+        "via",
+        "skill",
+        "anti-sycophancy"
+      ],
+      "domain": "ai-ml",
+      "harnesses": [
+        "claude-code"
+      ],
+      "risk": "safe",
+      "source_name": "community",
+      "date_added": "2026-06-05",
+      "source": {
+        "url": "https://github.com/sickn33/antigravity-awesome-skills",
+        "ref": "main",
+        "path": "plugins/antigravity-awesome-skills-claude/skills/anti-sycophancy"
+      },
+      "id": "antigravity-awesome-skills/plugins/antigravity-awesome-skills-claude/skills/anti-sycophancy",
       "install_hint": "kitout install sickn33/antigravity-awesome-skills"
     },
     {
@@ -53153,6 +53385,35 @@
       "install_hint": "kitout install sickn33/antigravity-awesome-skills"
     },
     {
+      "name": "hasdata-cli",
+      "description": "Command-line access to search, scraping, and structured web data.",
+      "body_preview": "# hasdata\n\nUse the `hasdata` CLI for real-time web data. One subcommand per API \u2014 flags, enums, defaults are derived from the live schema at `api.hasdata.com/apis`.\n\n## When to Use\n\nUse this skill when:\n\n- The user wants to use the HasData CLI.\n- The user needs current web data from the command line.\n- The user wants to automate data collection in scripts.\n- The user wants to retrieve search, ecommerce, travel, or local business data.\n- The user needs web-page scraping through the CLI.\n\n## Prere",
+      "tags": [],
+      "triggers": [
+        "command-line",
+        "access",
+        "search",
+        "scraping",
+        "structured",
+        "web",
+        "data"
+      ],
+      "domain": "data",
+      "harnesses": [
+        "claude-code"
+      ],
+      "risk": "safe",
+      "source_name": "official",
+      "date_added": "2026-06-04",
+      "source": {
+        "url": "https://github.com/sickn33/antigravity-awesome-skills",
+        "ref": "main",
+        "path": "plugins/antigravity-awesome-skills-claude/skills/hasdata-cli"
+      },
+      "id": "antigravity-awesome-skills/plugins/antigravity-awesome-skills-claude/skills/hasdata-cli",
+      "install_hint": "kitout install sickn33/antigravity-awesome-skills"
+    },
+    {
       "name": "privilege-escalation-methods",
       "description": "Provide comprehensive techniques for escalating privileges from a low-privileged user to root/administrator access on compromised Linux and Windows systems. Essential for penetration testing post-exploitation phase and red team operations.",
       "body_preview": "# Privilege Escalation Methods\n\n## Purpose\n\nProvide comprehensive techniques for escalating privileges from a low-privileged user to root/administrator access on compromised Linux and Windows systems. Essential for penetration testing post-exploitation phase and red team operations.\n\n## Inputs/Prerequisites\n\n- Initial low-privilege shell access on target system\n- Kali Linux or penetration testing distribution\n- Tools: Mimikatz, PowerView, PowerUpSQL, Responder, Impacket, Rubeus\n- Understanding o",
@@ -54651,6 +54912,36 @@
         "path": "plugins/antigravity-awesome-skills-claude/skills/skill-sentinel"
       },
       "id": "antigravity-awesome-skills/plugins/antigravity-awesome-skills-claude/skills/skill-sentinel",
+      "install_hint": "kitout install sickn33/antigravity-awesome-skills"
+    },
+    {
+      "name": "hasdata",
+      "description": "Use HasData APIs for web scraping and structured web data extraction.",
+      "body_preview": "# HasData\n\nCloud platform for extracting public web data. One API key, three execution modes. All endpoints sit under `https://api.hasdata.com` and authenticate with `x-api-key`.\n\n```bash\ncurl -G 'https://api.hasdata.com/scrape/google/serp' \\\n  --data-urlencode 'q=coffee' \\\n  -H 'x-api-key: <your-api-key>'\n```\n\n`401` invalid key, `403` quota exhausted, `429` concurrency cap, `500` server error (retry).\n\n## When to Use\n\nUse this skill when:\n\n- The user needs web scraping.\n- The user needs search ",
+      "tags": [],
+      "triggers": [
+        "hasdata",
+        "apis",
+        "web",
+        "scraping",
+        "structured",
+        "web",
+        "data",
+        "extraction"
+      ],
+      "domain": "backend",
+      "harnesses": [
+        "claude-code"
+      ],
+      "risk": "safe",
+      "source_name": "official",
+      "date_added": "2026-06-04",
+      "source": {
+        "url": "https://github.com/sickn33/antigravity-awesome-skills",
+        "ref": "main",
+        "path": "plugins/antigravity-awesome-skills-claude/skills/hasdata"
+      },
+      "id": "antigravity-awesome-skills/plugins/antigravity-awesome-skills-claude/skills/hasdata",
       "install_hint": "kitout install sickn33/antigravity-awesome-skills"
     },
     {

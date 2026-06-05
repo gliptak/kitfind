@@ -504,12 +504,12 @@ async function renderResults(query) {
   // Semantic path: score ALL skills, BERT handles plural/synonym naturally
   if (query && query.length >= 5 && MODEL_READY) {
     const scores = await search(query);
+    if (scores) {
       const scored = SKILLS.map((s, i) => ({ skill: s, score: scores[i] || 0 }));
       scored.sort((a, b) => b.score - a.score);
       const maxScore = Math.max(scored[0].score, 0.001);
       tip.textContent = `${SKILLS.length} skills \u00b7 Semantic search`;
       container.innerHTML = scored.map(e => cardHtml(e.skill, Math.round(e.score / maxScore * 100))).join('');
-      return;
       return;
     }
   }

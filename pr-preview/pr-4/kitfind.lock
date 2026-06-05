@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-06-05T01:38:13.562332+00:00",
+  "generated_at": "2026-06-05T14:36:32.284924+00:00",
   "sources": [
     {
       "url": "https://github.com/obra/superpowers",
@@ -10,7 +10,7 @@
     {
       "url": "https://github.com/sickn33/antigravity-awesome-skills",
       "ref": "main",
-      "commit": "b806b97a9a48063f7bdbee5611caf40edd17e305"
+      "commit": "96e6849b1d8f69b8dbe7907fcc0f890b00476eb9"
     },
     {
       "url": "https://github.com/mattpocock/skills",

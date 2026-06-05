@@ -11,5 +11,12 @@ dependencies = [
     "onnxruntime>=1.18",
     "numpy>=1.24",
 ]
+[project.optional-dependencies]
+dev = ["mypy>=1.14"]
+
+[tool.mypy]
+strict = false
+ignore_missing_imports = true
+warn_unused_ignores = true
 
 

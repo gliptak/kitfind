@@ -161,8 +161,8 @@ def spotcheck_embeddings(model_dir: Path, embed_path: Path, skills_path: Path) -
     quantized = np.frombuffer(data[12 + dim * 8 :], dtype=np.uint8)
 
     # Load skills list
-    with open(skills_path) as f:
-        skills_data = json.load(f)
+    with open(skills_path) as sf:
+        skills_data = json.load(sf)
     skills = skills_data.get("skills", [])
 
     def embed(text: str) -> np.ndarray:

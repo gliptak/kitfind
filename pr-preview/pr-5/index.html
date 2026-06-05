@@ -504,17 +504,12 @@ async function renderResults(query) {
   // Semantic path: score ALL skills, BERT handles plural/synonym naturally
   if (query && query.length >= 5 && MODEL_READY) {
     const scores = await search(query);
-    if (scores) {
       const scored = SKILLS.map((s, i) => ({ skill: s, score: scores[i] || 0 }));
       scored.sort((a, b) => b.score - a.score);
       const maxScore = Math.max(scored[0].score, 0.001);
-      tip.textContent = `${SKILLS.length} skills indexed \u00b7 Semantic search`;
-      let html = '';
-      scored.slice(0, 200).forEach(e => html += cardHtml(e.skill, Math.round(e.score / maxScore * 100)));
-      container.innerHTML = html;
-      if (scored.length > 200) {
-        container.innerHTML += '<div style="text-align:center;padding:16px;color:var(--muted);font-size:13px">Showing first 200 of ' + SKILLS.length + ' skills.</div>';
-      }
+      tip.textContent = `${SKILLS.length} skills \u00b7 Semantic search`;
+      container.innerHTML = scored.map(e => cardHtml(e.skill, Math.round(e.score / maxScore * 100))).join('');
+      return;
       return;
     }
   }
@@ -538,9 +533,7 @@ async function renderResults(query) {
       const maxScore = Math.max(scored[0].score, 0.001);
       const pct = (filtered.length / SKILLS.length * 100).toFixed(filtered.length / SKILLS.length < 0.01 ? 2 : 0);
       tip.textContent = `${filtered.length} of ${SKILLS.length} skills match (${pct}%) \u00b7 Keyword search`;
-      let html = '';
-      scored.slice(0, 200).forEach(e => html += cardHtml(e.skill, Math.round(e.score / maxScore * 100)));
-      container.innerHTML = html;
+      container.innerHTML = scored.map(e => cardHtml(e.skill, Math.round(e.score / maxScore * 100))).join('');
       return;
     }
   }
@@ -554,9 +547,7 @@ async function renderResults(query) {
   }
   const pct = (filtered.length / SKILLS.length * 100).toFixed(filtered.length / SKILLS.length < 0.01 ? 2 : 0);
   tip.textContent = `${filtered.length} of ${SKILLS.length} skills match (${pct}%)`;
-  let html = '';
-  filtered.slice(0, 200).forEach(s => html += cardHtml(s, null));
-  container.innerHTML = html;
+  container.innerHTML = filtered.map(s => cardHtml(s, null)).join('');
 }
 
 function cardHtml(s, score) {

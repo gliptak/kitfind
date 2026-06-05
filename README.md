@@ -1,9 +1,16 @@
 # Kitfind
 
+[![CI](https://github.com/gliptak/kitfind/actions/workflows/ci.yml/badge.svg)](https://github.com/gliptak/kitfind/actions/workflows/ci.yml)
+[![Deploy](https://github.com/gliptak/kitfind/actions/workflows/deploy.yml/badge.svg)](https://github.com/gliptak/kitfind/actions/workflows/deploy.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Python >=3.11](https://img.shields.io/badge/Python-%3E%3D3.11-blue.svg)](pyproject.toml)
+[![Last commit](https://img.shields.io/github/last-commit/gliptak/kitfind)](https://github.com/gliptak/kitfind)
+
 A searchable index of AI coding agent skills, deployed as a GitHub Pages static site.
 
 Kitfind crawls popular skills repos at build time, parses their SKILL.md files, generates a unified search blob (`index.json`), and creates a searchable static site.
 
+See [AGENTS.md](AGENTS.md) for full architecture, search modes, blob schema, and development guide.
 ## Usage
 
 ### Web
@@ -26,19 +33,6 @@ Kitout and other tools can consume this blob for local search and recommendation
 
 See [`kitfind.toml`](kitfind.toml) — the curated list of repos is the single source of truth.
 
-## Architecture
-
-```
-kitfind.toml  ──>  tools/build.py  ──>  site/index.json  ──>  GitHub Pages
-(curated            (Python aggregator)   (search blob)        (static site)
- repo list)              │
-                         ├─ clones repos at pinned refs
-                         ├─ parses SKILL.md frontmatter
-                         ├─ classifies domains (keyword matcher)
-                         ├─ deduplicates skills
-                         └─ generates HTML + index.json
-```
-
 ## Adding a repo
 
 Edit `kitfind.toml` and add an entry:
@@ -55,16 +49,20 @@ Then run `uv run tools/build.py` to regenerate.
 ## Development
 
 ```bash
+# Build the site
 uv run tools/build.py
-# Output in site/
+
+# Validate structural checks
+uv run python tools/validate.py --all
+
+# Type check (all function signatures annotated)
+uv run mypy tools/build.py tools/validate.py
+
+# Run JS tests (pure Node.js, no browser)
+node --test tools/tests/search.test.mjs
+
+# Validate template HTML JS syntax (fast, no build needed)
+uv run python tools/validate.py --html
 ```
 
-### Validate output
-
-```bash
-uv run python tools/validate.py
-# Validated: 1806 skills, 5 sources, 70 domains
-```
-
-Checks that `site/index.json` has the right structure — required fields, non-empty arrays, valid version. Runs in CI on every PR.
-
+JS tests run in pure Node.js with the built-in test runner, covering `matches()`, `tfidfTokenize()`, `tokenizeBERT()`, and `wordpieceEncode()`. Runs in CI on every PR.

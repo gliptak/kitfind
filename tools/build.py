@@ -401,10 +401,69 @@ def _extract_vocab(model_dir: Path):
         print("  WARNING: tokenizer.json not found")
 
 
+def _github_repo_slug() -> str | None:
+    """Infer owner/repo for the current checkout when available."""
+    repo = os.environ.get("GITHUB_REPOSITORY", "").strip()
+    if re.match(r"^[^/]+/[^/]+$", repo):
+        return repo
+
+    try:
+        remote = subprocess.run(
+            ["git", "config", "--get", "remote.origin.url"],
+            capture_output=True,
+            text=True,
+            timeout=5,
+            check=True,
+        ).stdout.strip()
+    except Exception:
+        return None
+
+    match = re.match(
+        r"^(?:https://github\.com/|git@github\.com:)([^/]+/[^/.]+?)(?:\.git)?$",
+        remote,
+    )
+    return match.group(1) if match else None
+
+
+def _model_base_urls() -> list[str]:
+    """Return candidate base URLs for model assets, preferring existing gh-pages files."""
+    bases: list[str] = []
+    override = os.environ.get("KITFIND_MODEL_BASE_URL", "").strip().rstrip("/")
+    if override:
+        bases.append(override)
+
+    repo = _github_repo_slug()
+    if repo:
+        bases.append(f"https://raw.githubusercontent.com/{repo}/gh-pages/model")
+
+    bases.append("https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main")
+    return list(dict.fromkeys(bases))
+
+
+def _download_file(url: str, dest: Path):
+    """Download a file atomically to avoid leaving partial artifacts behind."""
+    import urllib.request
+
+    req = urllib.request.Request(url, headers={"User-Agent": "kitfind-build/1.0"})
+    tmp_path = None
+    try:
+        with urllib.request.urlopen(req, timeout=60) as src:
+            with tempfile.NamedTemporaryFile(dir=dest.parent, delete=False) as tmp:
+                shutil.copyfileobj(src, tmp)
+                tmp_path = Path(tmp.name)
+        tmp_path.replace(dest)
+    except Exception:
+        if tmp_path and tmp_path.exists():
+            tmp_path.unlink()
+        if dest.exists():
+            dest.unlink()
+        raise
+
+
 def _ensure_model(model_dir: Path) -> Path:
     """Download Xenova all-MiniLM-L6-v2 ONNX model files if not present.
 
-    Uses raw HF CDN URLs with retry + exponential backoff.
+    Prefer the repo's existing gh-pages copy, then fall back to Hugging Face.
     Returns path to the .onnx file.
     """
     global _MODEL_DOWNLOADED
@@ -414,11 +473,10 @@ def _ensure_model(model_dir: Path) -> Path:
             return target
 
     import time
-    import urllib.request
+    import urllib.error
     model_dir.mkdir(parents=True, exist_ok=True)
     _MODEL_DOWNLOADED = True
 
-    base = "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main"
     files = [
         "onnx/model_quantized.onnx",
         "tokenizer.json",
@@ -426,23 +484,44 @@ def _ensure_model(model_dir: Path) -> Path:
         "tokenizer_config.json",
         "special_tokens_map.json",
     ]
+    bases = _model_base_urls()
     for rel in files:
         dest = model_dir / rel
         if dest.exists():
             continue
         dest.parent.mkdir(parents=True, exist_ok=True)
-        url = f"{base}/{rel}"
-        for attempt in range(6):
-            try:
-                print(f"    Downloading {url.split('/')[-1]}...")
-                urllib.request.urlretrieve(url, dest)
+        errors: list[str] = []
+        for base in bases:
+            url = f"{base}/{rel}"
+            for attempt in range(6):
+                try:
+                    print(f"    Downloading {url.split('/')[-1]} from {base}...")
+                    _download_file(url, dest)
+                    errors = []
+                    break
+                except urllib.error.HTTPError as e:
+                    if e.code == 404:
+                        errors.append(f"{url} -> HTTP 404")
+                        break
+                    if attempt == 5:
+                        errors.append(f"{url} -> HTTP {e.code}")
+                        break
+                    wait = 2 ** attempt
+                    print(f"      Retry {attempt + 1}/5 after {wait}s (HTTP {e.code})")
+                    time.sleep(wait)
+                except Exception as e:
+                    if attempt == 5:
+                        errors.append(f"{url} -> {e}")
+                        break
+                    wait = 2 ** attempt
+                    print(f"      Retry {attempt + 1}/5 after {wait}s ({e})")
+                    time.sleep(wait)
+            if dest.exists():
                 break
-            except Exception as e:
-                if attempt == 5:
-                    raise
-                wait = 2 ** attempt
-                print(f"      Retry {attempt + 1}/5 after {wait}s (429 or transient error)")
-                time.sleep(wait)
+        if not dest.exists():
+            raise RuntimeError(
+                f"Failed to download {rel} from any source:\n  " + "\n  ".join(errors)
+            )
 
     # Extract vocab from tokenizer.json for client-side tokenizer
     _extract_vocab(model_dir)
@@ -672,6 +751,16 @@ def build_site(skills: list[dict], stats: dict, sources: list[dict]):
         skills_json=json.dumps(skills, indent=2),
         total=len(skills),
     )
+    # Inline search.js into the template (shared between site and tests)
+    search_js_path = REPO_ROOT / "tools" / "search.js"
+    if search_js_path.exists():
+        search_js = search_js_path.read_text(encoding="utf-8")
+        # Strip CommonJS exports block
+        search_js = re.sub(
+            r'\n// ── Exports ────────────────────────────────────────────.*',
+            '', search_js, flags=re.DOTALL
+        )
+        html = html.replace('<!-- SEARCH_JS -->', search_js)
     (OUTPUT_DIR / "index.html").write_text(html)
     print(f"  Wrote site/index.html")
 

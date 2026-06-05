@@ -1,6 +1,8 @@
 name: CI + Preview
 
 on:
+  push:
+    branches: [main]
   pull_request:
     branches: [main]
     types: [opened, reopened, synchronize, closed]
@@ -24,6 +26,10 @@ jobs:
         run: uv sync --all-extras && uv run tools/build.py && uv run python tools/validate.py --all
       - name: Type check
         run: uv run mypy tools/build.py tools/validate.py
+      - name: JS tests
+        run: node --test tools/tests/search.test.mjs
+      - name: Template JS syntax
+        run: uv run python tools/validate.py --html
       - name: Deploy preview
         uses: rossjrw/pr-preview-action@v1
         with:

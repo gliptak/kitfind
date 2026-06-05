@@ -6,6 +6,7 @@ Usage:
     python tools/validate.py path/to/index.json # custom path
 """
 
+from typing import Optional
 import json
 import struct
 import sys
@@ -130,6 +131,89 @@ def validate_model(model_dir: Path) -> list[str]:
 
     return errors
 
+def validate_html_js(html_path: Path) -> list[str]:
+    import re
+    import subprocess
+    import tempfile
+    import os
+    errors = []
+    try:
+        text = html_path.read_text(encoding="utf-8")
+        match = re.search(r"<script>\s*\n(.*?)\n\s*</script>", text, re.DOTALL)
+        if not match:
+            errors.append("index.html: no <script> block found")
+            return errors
+        js_code = match.group(1)
+        if not js_code.strip():
+            errors.append("index.html: empty <script> block")
+            return errors
+        tmp = tempfile.NamedTemporaryFile(suffix=".js", mode="w", delete=False, encoding="utf-8")
+        try:
+            tmp.write(js_code)
+            tmp.close()
+            result = subprocess.run(["node", "--check", tmp.name], capture_output=True, text=True)
+            if result.returncode != 0:
+                errors.append(f"index.html JS syntax: {result.stderr.strip()}")
+            else:
+                print(f"  HTML JS: syntax OK")
+        finally:
+            os.unlink(tmp.name)
+    except Exception as e:
+        errors.append(f"HTML JS check failed: {e}")
+    return errors
+
+def validate_template_html(repo_root: Optional[Path] = None) -> list[str]:
+    """Validate JS syntax in the template HTML (without building).
+    Inlines search.js at the placeholder, then checks script content.
+    """
+    if repo_root is None:
+        repo_root = Path(__file__).resolve().parent.parent
+    import re
+    import subprocess
+    import tempfile
+    import os
+    errors = []
+    try:
+        template_path = repo_root / "tools" / "templates" / "index.html"
+        search_js_path = repo_root / "tools" / "search.js"
+        if not template_path.exists():
+            errors.append(f"Template not found: {template_path}")
+            return errors
+        if not search_js_path.exists():
+            errors.append(f"search.js not found: {search_js_path}")
+            return errors
+        text = template_path.read_text(encoding="utf-8")
+        search_js = search_js_path.read_text(encoding="utf-8")
+        search_js = re.sub(
+            r"\n// ── Exports ────────────────────────────────────────────.*",
+            "", search_js, flags=re.DOTALL
+        )
+        if "<!-- SEARCH_JS -->" not in text:
+            errors.append("Template missing <!-- SEARCH_JS --> placeholder")
+            return errors
+        text = text.replace("<!-- SEARCH_JS -->", search_js)
+        match = re.search(r"<script>\s*\n(.*?)\n\s*</script>", text, re.DOTALL)
+        if not match:
+            errors.append("Template: no <script> block found")
+            return errors
+        js_code = match.group(1)
+        if not js_code.strip():
+            errors.append("Template: empty <script> block")
+            return errors
+        tmp = tempfile.NamedTemporaryFile(suffix=".js", mode="w", delete=False, encoding="utf-8")
+        try:
+            tmp.write(js_code)
+            tmp.close()
+            result = subprocess.run(["node", "--check", tmp.name], capture_output=True, text=True)
+            if result.returncode != 0:
+                errors.append(f"Template JS syntax: {result.stderr.strip()}")
+            else:
+                print(f"  Template JS: syntax OK")
+        finally:
+            os.unlink(tmp.name)
+    except Exception as e:
+        errors.append(f"Template JS check failed: {e}")
+    return errors
 
 def spotcheck_embeddings(model_dir: Path, embed_path: Path, skills_path: Path) -> list[str]:
     """Run a few queries and verify that cosine similarities make sense."""
@@ -237,6 +321,10 @@ def validate_all() -> int:
         print("Validating model/...")
         all_errors.extend(validate_model(model_dir))
 
+        # 3b. HTML JS syntax
+        print("Validating index.html JS...")
+        all_errors.extend(validate_html_js(site_dir / "index.html"))
+
         # 4. Spot-check
         print("Spot-checking queries...")
         all_errors.extend(spotcheck_embeddings(model_dir, embed_path, json_path))
@@ -261,8 +349,14 @@ def validate(path: Path) -> int:
 
 
 if __name__ == "__main__":
+    import sys
     if "--all" in sys.argv:
         sys.exit(validate_all())
+    elif "--html" in sys.argv:
+        errors = validate_template_html()
+        for e in errors:
+            print(f"ERROR: {e}", file=sys.stderr)
+        sys.exit(1 if errors else 0)
     else:
         repo_root = Path(__file__).resolve().parent.parent
         path = (

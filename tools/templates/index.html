@@ -113,7 +113,7 @@
       <div class="label">Source Repos</div>
     </div>
     <div class="stat-card">
-      <div class="num" id="statModelStatus">-</div>
+      <div class="num" id="statModelStatus">...</div>
       <div class="label" id="statModelLabel">Semantic Search</div>
     </div>
   </div>
@@ -138,6 +138,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.20.1/dist/ort.min.js"></script>
 <script>
+<!-- SEARCH_JS -->
 let SKILLS = [];
 let EMBEDDINGS = null;
 let EMBED_N = 0;
@@ -145,6 +146,7 @@ let EMBED_DIM = 0;
 let MODEL_READY = false;
 let MODEL_LOADING = false;
 let ORT_SESSION = null;
+const TERM_BOOST = 0.5;  // Per-term score multiplier for exact query term matches
 let VOCAB = null;
 
 // ── BERT WordPiece tokenizer ─────────────────────────────────────────
@@ -252,20 +254,6 @@ async function loadTfidf() {
   tfidfData = await res.json();
 }
 
-function tfidfTokenize(text) {
-  const words = text.toLowerCase().match(/[a-zA-Z][a-zA-Z0-9]{2,}/g) || [];
-  const sw = new Set(['the','a','an','is','are','was','were','be','been','being',
-    'have','has','had','do','does','did','will','would','could','should',
-    'may','might','can','shall','to','of','in','for','on','with','at','by',
-    'from','as','','through','during','then','once','here','there',
-    'when','where','why','how','all','each','every','both','few','more',
-    'most','other','some','such','no','nor','not','only','own','same','so',
-    'than','too','very','just','about','which','who','whom','this','that',
-    'these','those','and','but','or','if','while','although','since',
-    'unless','until','like','it','its','you','your','we','our','they',
-    'them','their','common','use','using']);
-  return words.filter(w => w.length > 2 && w.length <= 30 && !sw.has(w));
-}
 
 function tfidfScoreQuery(query) {
   if (!tfidfData) return null;
@@ -309,18 +297,6 @@ function tfidfScoreQuery(query) {
 
 // ── Search ───────────────────────────────────────────────────────────
 
-function embedQuery(query) {
-  if (!ORT_SESSION || !VOCAB) return null;
-  const { input_ids, attention_mask } = tokenize(query);
-  const feeds = {
-    'input_ids': new ort.Tensor('int64', BigInt64Array.from(input_ids.map(BigInt)), [1, MAX_LEN]),
-    'attention_mask': new ort.Tensor('int64', BigInt64Array.from(attention_mask.map(BigInt)), [1, MAX_LEN]),
-    'token_type_ids': new ort.Tensor('int64', new BigInt64Array(MAX_LEN), [1, MAX_LEN]),
-  };
-  const embedResults = ORT_SESSION.run(feeds);
-  // results is a promise - return it to await later
-  return embedResults;
-}
 
 async function search(query) {
   if (!ORT_SESSION || !VOCAB) return null;
@@ -398,6 +374,7 @@ async function init() {
     await loadEmbeddings();
     document.getElementById('loading').classList.add('hidden');
     document.getElementById('results').classList.remove('hidden');
+    MODEL_LOADING = true;
     showStats(data);
     onSearch();
     const gen = data.catalog?.generated_at || data.generated_at || '';
@@ -413,6 +390,9 @@ function showStats(data) {
   const stats = data.catalog?.stats || {};
   document.getElementById('statSkills').textContent = (stats.total_skills || SKILLS.length).toLocaleString();
   document.getElementById('statSources').textContent = (stats.total_sources || 0).toLocaleString();
+  const ms = document.getElementById('statModelStatus');
+  const ml = document.getElementById('statModelLabel');
+  if (ms) ms.textContent = MODEL_READY ? 'Ready' : MODEL_LOADING ? '...' : '-';
 }
 
 function onSearch() {
@@ -420,28 +400,12 @@ function onSearch() {
   renderResults(q);
 }
 
-function matches(skill, query) {
-  if (!query) return true;
-  const haystack = [
-    skill.name, skill.description,
-    ...(skill.triggers || []),
-    ...(skill.tags || []),
-    skill.domain || '',
-    skill.source?.url || '',
-  ].join(' ').toLowerCase();
-  return query.split(/\s+/).every(term => {
-    // Word-boundary match, not substring
-    const re = new RegExp('\\b' + term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b');
-    return re.test(haystack);
-  });
-}
 
 async function renderResults(query) {
   const container = document.getElementById('results');
   const tip = document.getElementById('searchTip');
-  let filtered = SKILLS.filter(s => matches(s, query));
 
-  if (filtered.length === 0 && !query) {
+  if (!SKILLS || SKILLS.length === 0) {
     tip.textContent = '';
     if (MODEL_LOADING && !MODEL_READY) {
       const ms = document.getElementById('statModelStatus');
@@ -454,66 +418,68 @@ async function renderResults(query) {
     }
     return;
   }
+
+  // Semantic path: score ALL skills, BERT handles plural/synonym naturally
+  if (query && query.length >= 5 && MODEL_READY) {
+    const scores = await search(query);
+    if (scores) {
+      const scored = SKILLS.map((s, i) => ({ skill: s, score: scores[i] || 0 }));
+      // Term boost: increase score for skills containing exact query terms
+      const terms = query.split(/\s+/).filter(t => t);
+      for (const item of scored) {
+        const text = (item.skill.name + ' ' + item.skill.description + ' ' +
+          (item.skill.triggers || []).join(' ') + ' ' +
+          (item.skill.tags || []).join(' ')).toLowerCase();
+        let matches = 0;
+        for (const t of terms) {
+          if (text.includes(t)) matches++;
+        }
+        if (matches > 0) item.score *= (1.0 + TERM_BOOST * matches);
+      }
+      scored.sort((a, b) => b.score - a.score);
+      const maxScore = Math.max(scored[0].score, 0.001);
+      const matchedCount = scored.filter(s => s.score > 0.01).length;
+      const pct = (matchedCount / SKILLS.length * 100).toFixed(matchedCount / SKILLS.length < 0.01 ? 2 : 0);
+      tip.textContent = `${matchedCount} of ${SKILLS.length} skills match (${pct}%) \u00b7 Semantic search`;
+      container.innerHTML = scored.map(e => cardHtml(e.skill, Math.round(e.score / maxScore * 100))).join('');
+      return;
+    }
+  }
+
+  // TF-IDF + AND filter for short queries
+  if (query && query.length < 5) {
+    const filtered = SKILLS.filter(s => matches(s, query));
+    if (filtered.length === 0) {
+      tip.textContent = '';
+      container.innerHTML = '<div class="empty"><p>No skills found</p><p class="hint">Try a different search term</p></div>';
+      return;
+    }
+    await loadTfidf();
+    const scores = tfidfScoreQuery(query);
+    if (scores) {
+      const scored = filtered.map(s => {
+        const idx = SKILLS.findIndex(x => x.name === s.name && x.sourceUrl === s.sourceUrl);
+        return { skill: s, score: idx >= 0 ? (scores[idx] || 0) : 0 };
+      });
+      scored.sort((a, b) => b.score - a.score);
+      const maxScore = Math.max(scored[0].score, 0.001);
+      const pct = (filtered.length / SKILLS.length * 100).toFixed(filtered.length / SKILLS.length < 0.01 ? 2 : 0);
+      tip.textContent = `${filtered.length} of ${SKILLS.length} skills match (${pct}%) \u00b7 Keyword search`;
+      container.innerHTML = scored.map(e => cardHtml(e.skill, Math.round(e.score / maxScore * 100))).join('');
+      return;
+    }
+  }
+
+  // Fallback: AND filter + alphabetical
+  const filtered = query ? SKILLS.filter(s => matches(s, query)) : SKILLS;
   if (filtered.length === 0) {
     tip.textContent = '';
     container.innerHTML = '<div class="empty"><p>No skills found</p><p class="hint">Try a different search term</p></div>';
     return;
   }
-
-  const pct = filtered.length / SKILLS.length * 100;
-  const pctDisplay = pct < 0.1 ? '<0.1%' : (pct < 1 ? pct.toFixed(1) + '%' : Math.round(pct) + '%');
-
-  if (query && MODEL_READY && query.length >= 5) {
-    const scores = await search(query);
-    if (scores) {
-      const scored = filtered.map(s => {
-        const idx = SKILLS.indexOf(s);
-        return { skill: s, score: scores[idx] || 0 };
-      });
-      scored.sort((a, b) => b.score - a.score);
-      const maxScore = scored.length > 0 ? Math.max(scored[0].score, 0.001) : 1;
-      tip.textContent = `${filtered.length} of ${SKILLS.length} skills match (${pctDisplay}) · Semantic search`;
-      container.innerHTML = '';
-      const batch = scored.slice(0, 200);
-      let html = '';
-      batch.forEach(e => html += cardHtml(e.skill, Math.round(e.score / maxScore * 100)));
-      container.innerHTML = html;
-      if (filtered.length > 200) {
-        container.innerHTML += '<div style="text-align:center;padding:16px;color:var(--muted);font-size:13px">Showing first 200 of ' + filtered.length + ' results. Narrow your search.</div>';
-      }
-      return;
-    }
-  }
-  if (query && query.length < 5) {
-    await loadTfidf();
-    const scores = tfidfScoreQuery(query);
-    if (scores) {
-      const scored = filtered.map(s => {
-        const idx = SKILLS.indexOf(s);
-        return { skill: s, score: scores[idx] || 0 };
-      });
-      scored.sort((a, b) => b.score - a.score);
-      const maxScore = scored.length > 0 ? Math.max(scored[0].score, 0.001) : 1;
-      tip.textContent = `${filtered.length} of ${SKILLS.length} skills match (${pctDisplay}) · Keyword search`;
-      container.innerHTML = '';
-      const batch = scored.slice(0, 200);
-      let html = '';
-      batch.forEach(e => html += cardHtml(e.skill, Math.round(e.score / maxScore * 100)));
-      container.innerHTML = html;
-      if (filtered.length > 200) {
-        container.innerHTML += '<div style="text-align:center;padding:16px;color:var(--muted);font-size:13px">Showing first 200 of ' + filtered.length + ' results. Narrow your search.</div>';
-      }
-      return;
-    }
-  }
-
-  // Fallback: alphabetical
-  const status = MODEL_LOADING ? ' · Loading model...' : '';
-  tip.textContent = `${SKILLS.length} skills indexed${status}`;
-  container.innerHTML = '';
-  let html = '';
-  filtered.slice(0, 200).forEach(s => html += cardHtml(s, null));
-  container.innerHTML = html;
+  const pct = (filtered.length / SKILLS.length * 100).toFixed(filtered.length / SKILLS.length < 0.01 ? 2 : 0);
+  tip.textContent = `${filtered.length} of ${SKILLS.length} skills match (${pct}%)`;
+  container.innerHTML = filtered.map(s => cardHtml(s, null)).join('');
 }
 
 function cardHtml(s, score) {

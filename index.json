@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-06-04T02:25:02.972393+00:00",
+  "generated_at": "2026-06-05T01:25:23.086505+00:00",
   "catalog": {
     "sources": [
       {
@@ -8,15 +8,15 @@
         "ref": "main",
         "description": "Agentic skills framework & software development methodology",
         "commit": "6fd4507659784c351abbd2bc264c7162cfd386dc",
-        "fetched_at": "2026-06-04T02:24:51.266816+00:00",
+        "fetched_at": "2026-06-05T01:24:22.155599+00:00",
         "skill_count": 14
       },
       {
         "url": "https://github.com/sickn33/antigravity-awesome-skills",
         "ref": "main",
         "description": "1,400+ agentic skills for Claude Code, Cursor, Codex, Gemini CLI, and more",
-        "commit": "519aa98f9afe08a5494017d5540925473d428374",
-        "fetched_at": "2026-06-04T02:24:58.915831+00:00",
+        "commit": "b806b97a9a48063f7bdbee5611caf40edd17e305",
+        "fetched_at": "2026-06-05T01:24:30.339327+00:00",
         "skill_count": 4798
       },
       {
@@ -24,28 +24,28 @@
         "ref": "main",
         "description": "Skills for real engineers \u2014 TDD, design, debugging, productivity",
         "commit": "aaf2453fbdfe7a15c07f11d861224f34ab4b53cb",
-        "fetched_at": "2026-06-04T02:24:59.983014+00:00",
+        "fetched_at": "2026-06-05T01:24:31.454325+00:00",
         "skill_count": 29
       },
       {
         "url": "https://github.com/affaan-m/everything-claude-code",
         "ref": "main",
         "description": "ECC Tools \u2014 agent harness performance optimization system",
-        "commit": "0f84c0e2796703fbda87d577b2636351418c7442",
-        "fetched_at": "2026-06-04T02:25:02.243952+00:00",
-        "skill_count": 728
+        "commit": "bc8e12bb80c904a5a9864797ef1fd1212aa82f3d",
+        "fetched_at": "2026-06-05T01:24:33.888703+00:00",
+        "skill_count": 730
       },
       {
         "url": "https://github.com/le-diegz/claude-skills-registry",
         "ref": "main",
         "description": "Open-source registry of reusable Claude skills",
         "commit": "02370623a724900f1680baff4c6cdfed2d55fa89",
-        "fetched_at": "2026-06-04T02:25:02.848482+00:00",
+        "fetched_at": "2026-06-05T01:24:34.575064+00:00",
         "skill_count": 5
       }
     ],
     "stats": {
-      "total_skills": 1806,
+      "total_skills": 1808,
       "total_sources": 5,
       "by_domain": {
         "code-review": 343,
@@ -53,14 +53,14 @@
         "ai-ml": 253,
         "backend": 164,
         "security": 107,
-        "productivity": 90,
+        "productivity": 91,
         "design": 74,
         "testing": 56,
         "data": 55,
         "writing": 51,
         "devops": 51,
+        "project-management": 40,
         "debugging": 40,
-        "project-management": 39,
         "cli": 34,
         "mobile": 27,
         "game-development": 23,
@@ -119,7 +119,7 @@
         "database-processing": 1,
         "graphics-processing": 1
       },
-      "generated_at": "2026-06-04T02:25:02.856690+00:00"
+      "generated_at": "2026-06-05T01:24:34.583791+00:00"
     }
   },
   "skills": [
@@ -66020,6 +66020,74 @@
         "path": "skills/frontend-slides"
       },
       "id": "everything-claude-code/skills/frontend-slides",
+      "install_hint": "kitout install affaan-m/everything-claude-code"
+    },
+    {
+      "name": "team-agent-orchestration",
+      "description": "Run team-based orchestration for agent squads using work items, ownership, agent Kanban, merge gates, and control pane handoffs.",
+      "body_preview": "# Team Agent Orchestration\n\nUse this skill when agents are being managed like a team rather than a single assistant. The purpose is to make team-based orchestration reliable: clear work items, explicit ownership, agent Kanban state, branch isolation, control pane visibility, and merge gates.\n\n## When To Activate\n\n- The task spans multiple agents, tools, harnesses, branches, or worktrees.\n- The user mentions team orchestration, agent Kanban, squad, conductor, control pane, manager, desktop app, Z",
+      "tags": [],
+      "triggers": [
+        "run",
+        "team-based",
+        "orchestration",
+        "agent",
+        "squads",
+        "work",
+        "items",
+        "ownership",
+        "agent",
+        "kanban",
+        "merge",
+        "gates",
+        "control",
+        "pane",
+        "handoffs"
+      ],
+      "domain": "project-management",
+      "harnesses": [
+        "claude-code"
+      ],
+      "source": {
+        "url": "https://github.com/affaan-m/everything-claude-code",
+        "ref": "main",
+        "path": "skills/team-agent-orchestration"
+      },
+      "id": "everything-claude-code/skills/team-agent-orchestration",
+      "install_hint": "kitout install affaan-m/everything-claude-code"
+    },
+    {
+      "name": "dynamic-workflow-mode",
+      "description": "Design task-local harnesses, eval gates, and reusable skill extraction for Claude dynamic workflow mode and other adaptive agent harnesses.",
+      "body_preview": "# Dynamic Workflow Mode\n\nUse this skill when a coding agent can generate or adapt a task-local harness instead of only following a static command flow. The goal is to turn dynamic workflow mode into a disciplined system: temporary harnesses for one-off work, shared skill extraction for repeated work, and observable control pane checkpoints for teams.\n\n## When To Activate\n\n- The user mentions dynamic workflows, custom harnesses, harness-per-task, adaptive workflows, or Claude Code dynamic workflo",
+      "tags": [],
+      "triggers": [
+        "design",
+        "task-local",
+        "harnesses",
+        "eval",
+        "gates",
+        "reusable",
+        "skill",
+        "extraction",
+        "claude",
+        "dynamic",
+        "workflow",
+        "mode",
+        "adaptive",
+        "agent",
+        "harnesses"
+      ],
+      "domain": "productivity",
+      "harnesses": [
+        "claude-code"
+      ],
+      "source": {
+        "url": "https://github.com/affaan-m/everything-claude-code",
+        "ref": "main",
+        "path": "skills/dynamic-workflow-mode"
+      },
+      "id": "everything-claude-code/skills/dynamic-workflow-mode",
       "install_hint": "kitout install affaan-m/everything-claude-code"
     },
     {

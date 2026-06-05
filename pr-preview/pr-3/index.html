@@ -251,12 +251,9 @@ function embedQuery(query) {
     'attention_mask': new ort.Tensor('int64', BigInt64Array.from(attention_mask.map(BigInt)), [1, MAX_LEN]),
     'token_type_ids': new ort.Tensor('int64', new BigInt64Array(MAX_LEN), [1, MAX_LEN]),
   };
-  const results = ORT_SESSION.run(feeds);
+  const embedResults = ORT_SESSION.run(feeds);
   // results is a promise - return it to await later
-  return results;
-  const results = ORT_SESSION.run(feeds);
-  // results is a promise - return it to await later
-  return results;
+  return embedResults;
 }
 
 async function search(query) {
@@ -371,6 +368,7 @@ function matches(skill, query) {
     const re = new RegExp('\\b' + term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b');
     return re.test(haystack);
   });
+}
 
 async function renderResults(query) {
   const container = document.getElementById('results');

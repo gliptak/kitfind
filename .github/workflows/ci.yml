@@ -21,12 +21,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v5
       - name: Build and validate
-        run: uv sync && uv run tools/build.py && uv run python tools/validate.py --all
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: site
-          path: site/
+        run: uv sync --all-extras && uv run tools/build.py && uv run python tools/validate.py --all
+      - name: Type check
+        run: uv run mypy tools/build.py tools/validate.py
       - name: Deploy preview
         uses: rossjrw/pr-preview-action@v1
         with:

@@ -30,3 +30,8 @@ description = "ECC Tools — agent harness performance optimization system"
 url = "https://github.com/le-diegz/claude-skills-registry"
 ref = "main"
 description = "Open-source registry of reusable Claude skills"
+
+[[repos]]
+url = "https://github.com/alirezarezvani/claude-skills"
+ref = "main"
+description = "Curated collection of Claude Code skills"

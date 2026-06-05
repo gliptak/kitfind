@@ -9,6 +9,7 @@ import re
 import shutil
 import subprocess
 import sys
+import numpy as np
 import tempfile
 import tomli
 from pathlib import Path
@@ -29,7 +30,7 @@ def parse_yaml_frontmatter(text: str, filepath: str = "") -> tuple[dict, str]:
     """Extract YAML frontmatter and body from a markdown file.
     Tries strict YAML first, falls back to regex extraction on parse errors.
     """
-    frontmatter = {}
+    frontmatter: dict = {}
     body = text
 
     # Match --- ... --- at the start
@@ -353,7 +354,7 @@ def discover_skills(repo_dir: Path) -> list[dict]:
         skill["domain"] = classify_domain(
             name=skill["name"],
             description=skill["description"],
-            triggers=skill.get("triggers", []),
+            triggers=(lambda t: t if isinstance(t, list) else [])(skill.get("triggers")),
             body_preview=skill.get("body_preview", ""),
             current_domain=meta.get("domain") or meta.get("category") or "",
         )
@@ -383,7 +384,7 @@ def discover_skills(repo_dir: Path) -> list[dict]:
 _MODEL_DOWNLOADED = False
 
 
-def _extract_vocab(model_dir):
+def _extract_vocab(model_dir: Path):
     """Extract word -> id vocab from tokenizer.json as a flat JSON."""
     import json
     tok_path = model_dir / "tokenizer.json"
@@ -403,9 +404,8 @@ def _extract_vocab(model_dir):
 def _ensure_model(model_dir: Path) -> Path:
     """Download Xenova all-MiniLM-L6-v2 ONNX model files if not present.
 
-    Uses huggingface_hub to download the pre-exported ONNX model
-    (no torch needed). Returns path to the .onnx file.
-    After download, removes large unused model variants to save space.
+    Uses raw HF CDN URLs with retry + exponential backoff.
+    Returns path to the .onnx file.
     """
     global _MODEL_DOWNLOADED
     if _MODEL_DOWNLOADED and model_dir.exists():
@@ -413,6 +413,7 @@ def _ensure_model(model_dir: Path) -> Path:
         if target.exists():
             return target
 
+    import time
     import urllib.request
     model_dir.mkdir(parents=True, exist_ok=True)
     _MODEL_DOWNLOADED = True
@@ -431,14 +432,21 @@ def _ensure_model(model_dir: Path) -> Path:
             continue
         dest.parent.mkdir(parents=True, exist_ok=True)
         url = f"{base}/{rel}"
-        print(f"    Downloading {url.split('/')[-1]}...")
-        urllib.request.urlretrieve(url, dest)
+        for attempt in range(6):
+            try:
+                print(f"    Downloading {url.split('/')[-1]}...")
+                urllib.request.urlretrieve(url, dest)
+                break
+            except Exception as e:
+                if attempt == 5:
+                    raise
+                wait = 2 ** attempt
+                print(f"      Retry {attempt + 1}/5 after {wait}s (429 or transient error)")
+                time.sleep(wait)
 
     # Extract vocab from tokenizer.json for client-side tokenizer
     _extract_vocab(model_dir)
     return model_dir / "onnx" / "model_quantized.onnx"
-
-
 def _pool_and_normalize(hidden: "np.ndarray", mask: "np.ndarray") -> "np.ndarray":
     """Mean pool and L2-normalize transformer output."""
     import numpy as np
@@ -454,6 +462,7 @@ def compute_embeddings(skills: list[dict], model_path: Path) -> "np.ndarray":
     import numpy as np
     import onnxruntime
     from tokenizers import Tokenizer
+    import sys
 
     tok_dir = model_path.parent.parent  # model/onnx/model_quantized.onnx -> model/
     tokenizer = Tokenizer.from_file(str(tok_dir / "tokenizer.json"))
@@ -471,7 +480,6 @@ def compute_embeddings(skills: list[dict], model_path: Path) -> "np.ndarray":
             s.get("domain", "") or "",
         ])
         encoded = tokenizer.encode(text)
-        # Tokenizer may pad to 128 by default; use attention_mask to find real tokens
         attn = encoded.attention_mask
         real_len = sum(attn) if attn and any(attn) else min(len(encoded.ids), 256)
         tokens = encoded.ids[:256] if len(encoded.ids) > 0 else [0]
@@ -493,10 +501,9 @@ def compute_embeddings(skills: list[dict], model_path: Path) -> "np.ndarray":
 
 def save_embeddings(embeddings: "np.ndarray", path: Path):
     """Save uint8-quantized embeddings to a compact binary file.
-
-    Format: int32 header (version=1, dim=384, n) +
-            float32 mins (dim) + float32 scales (dim) +
-            uint8 data (n x dim)
+    Format: int32 header (version=1, dim=384, count=N) +
+            float32 mins (384) + float32 scales (384) +
+            uint8 data (N x 384)
     """
     import numpy as np
 
@@ -513,8 +520,107 @@ def save_embeddings(embeddings: "np.ndarray", path: Path):
         scales.astype(np.float32).tofile(f)
         quantized.tofile(f)
     print(f"  Wrote site/index.embeddings ({len(embeddings)} skills, {embeddings.nbytes // 1024} KB raw)")
+# ── TF-IDF fallback for short queries ───────────────────────────────────
 
 
+def _tokenize_tfidf(text: str) -> list[str]:
+    """Tokenize text for TF-IDF: lowercase, word chars only, filter stop words."""
+    import re
+    words = re.findall(r"[a-zA-Z][a-zA-Z0-9]{2,}", text.lower())
+    _SW = frozenset({
+        'the','a','an','is','are','was','were','be','been','being',
+        'have','has','had','do','does','did','will','would','could','should',
+        'may','might','can','shall','to','of','in','for','on','with','at','by',
+        'from','as','into','through','during','then','once','here','there',
+        'when','where','why','how','all','each','every','both','few','more',
+        'most','other','some','such','no','nor','not','only','own','same','so',
+        'than','too','very','just','about','which','who','whom','this','that',
+        'these','those','and','but','or','if','while','although','since',
+        'unless','until','like','it','its','you','your','we','our','they',
+        'them','their','common','use','using',
+    })
+    return [w for w in words if w not in _SW and len(w) <= 30]
+
+
+def compute_tfidf(skills: list[dict]) -> dict:
+    """Compute TF-IDF vectors for all skills.
+    Returns {vocab, idf (array len=V), vectors (sparse rows), n_docs}.
+    """
+    import math
+    from collections import Counter
+
+    n = len(skills)
+    term_doc_count: Counter = Counter()
+    docs: list[set] = []
+
+    for s in skills:
+        text = " ".join([
+            s.get("name", "") or "",
+            s.get("description", "") or "",
+            " ".join(s.get("triggers") or []),
+            " ".join(s.get("tags") or []),
+            s.get("domain", "") or "",
+        ])
+        tokens = _tokenize_tfidf(text)
+        uniq = set(tokens)
+        docs.append(uniq)
+        for t in uniq:
+            term_doc_count[t] += 1
+
+    # Build vocab: keep terms that appear in 1..80% of skills
+    vocab: dict[str, int] = {}
+    idf: list[float] = []
+    for term, df in sorted(term_doc_count.items()):
+        if 1 <= df <= n * 0.8:
+            idx = len(vocab)
+            vocab[term] = idx
+            idf.append(math.log(n / (1 + df)))
+
+    # Build sparse TF vectors (pre-normalized)
+    vectors: list[list] = []
+    for s in skills:
+        text = " ".join([
+            s.get("name", "") or "",
+            s.get("description", "") or "",
+            " ".join(s.get("triggers") or []),
+            " ".join(s.get("tags") or []),
+            s.get("domain", "") or "",
+        ])
+        tokens = _tokenize_tfidf(text)
+        tf: Counter = Counter(tokens)
+        indices: list[int] = []
+        values: list[float] = []
+        for term, count in tf.items():
+            vidx = vocab.get(term)
+            if vidx is not None:
+                indices.append(vidx)
+                tf_weight = 1.0 + (math.log(count) if count > 0 else 0)
+                values.append(tf_weight * idf[vidx])
+        vectors.append([indices, values])
+
+    # L2-normalize each vector
+    for row in vectors:
+        norm = math.sqrt(sum(v * v for v in row[1]))
+        if norm > 0:
+            inv = 1.0 / norm
+            row[1] = [v * inv for v in row[1]]
+
+    print(f"  TF-IDF vocab: {len(vocab)} terms, {len(vectors)} vectors")
+    return {"vocab": vocab, "idf": idf, "vectors": vectors, "n_docs": n}
+
+
+def save_tfidf(data: dict, path: Path):
+    """Write TF-IDF sidecar as compact JSON."""
+    path.write_text(json.dumps(
+        {
+            "vocab": data["vocab"],
+            "idf": data["idf"],
+            "vectors": data["vectors"],
+            "n_docs": data["n_docs"],
+        },
+        separators=(",", ":"),
+    ))
+    print(f"  Wrote site/index.tfidf ({path.stat().st_size // 1024} KB)")
 # ── Index generation ────────────────────────────────────────────────
 
 
@@ -691,6 +797,9 @@ def main():
     model_path = _ensure_model(OUTPUT_DIR / "model")
     embeddings = compute_embeddings(unique_skills, model_path)
     save_embeddings(embeddings, OUTPUT_DIR / "index.embeddings")
+    # TF-IDF sidecar for short queries
+    tfidf = compute_tfidf(unique_skills)
+    save_tfidf(tfidf, OUTPUT_DIR / "index.tfidf")
 
     print(f"\nGenerating site with {len(unique_skills)} skills...")
     build_site(unique_skills, stats, source_info)

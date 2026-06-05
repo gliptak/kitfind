@@ -508,7 +508,9 @@ async function renderResults(query) {
       const scored = SKILLS.map((s, i) => ({ skill: s, score: scores[i] || 0 }));
       scored.sort((a, b) => b.score - a.score);
       const maxScore = Math.max(scored[0].score, 0.001);
-      tip.textContent = `${SKILLS.length} skills \u00b7 Semantic search`;
+      const matchedCount = scored.filter(s => s.score > 0.01).length;
+      const pct = (matchedCount / SKILLS.length * 100).toFixed(matchedCount / SKILLS.length < 0.01 ? 2 : 0);
+      tip.textContent = `${matchedCount} of ${SKILLS.length} skills match (${pct}%) \u00b7 Semantic search`;
       container.innerHTML = scored.map(e => cardHtml(e.skill, Math.round(e.score / maxScore * 100))).join('');
       return;
     }

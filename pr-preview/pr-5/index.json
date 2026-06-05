@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-06-05T18:43:46.737674+00:00",
+  "generated_at": "2026-06-05T20:17:10.067380+00:00",
   "catalog": {
     "sources": [
       {
@@ -8,15 +8,15 @@
         "ref": "main",
         "description": "Agentic skills framework & software development methodology",
         "commit": "6fd4507659784c351abbd2bc264c7162cfd386dc",
-        "fetched_at": "2026-06-05T18:42:37.055019+00:00",
+        "fetched_at": "2026-06-05T20:15:59.448728+00:00",
         "skill_count": 14
       },
       {
         "url": "https://github.com/sickn33/antigravity-awesome-skills",
         "ref": "main",
         "description": "1,400+ agentic skills for Claude Code, Cursor, Codex, Gemini CLI, and more",
-        "commit": "6d3d66abc5b051926f4fd24980f93a7794795c9d",
-        "fetched_at": "2026-06-05T18:42:43.297893+00:00",
+        "commit": "43af20cbe0dc298c40ff709993d8b4f7b4a274b6",
+        "fetched_at": "2026-06-05T20:16:07.588260+00:00",
         "skill_count": 4831
       },
       {
@@ -24,15 +24,15 @@
         "ref": "main",
         "description": "Skills for real engineers \u2014 TDD, design, debugging, productivity",
         "commit": "aaf2453fbdfe7a15c07f11d861224f34ab4b53cb",
-        "fetched_at": "2026-06-05T18:42:44.121314+00:00",
+        "fetched_at": "2026-06-05T20:16:08.701209+00:00",
         "skill_count": 29
       },
       {
         "url": "https://github.com/affaan-m/everything-claude-code",
         "ref": "main",
         "description": "ECC Tools \u2014 agent harness performance optimization system",
-        "commit": "bc8e12bb80c904a5a9864797ef1fd1212aa82f3d",
-        "fetched_at": "2026-06-05T18:42:45.949764+00:00",
+        "commit": "7113b5bf63694b716f8b2413c5919824a82fc095",
+        "fetched_at": "2026-06-05T20:16:10.565576+00:00",
         "skill_count": 730
       },
       {
@@ -40,7 +40,7 @@
         "ref": "main",
         "description": "Open-source registry of reusable Claude skills",
         "commit": "02370623a724900f1680baff4c6cdfed2d55fa89",
-        "fetched_at": "2026-06-05T18:42:46.287391+00:00",
+        "fetched_at": "2026-06-05T20:16:11.212533+00:00",
         "skill_count": 5
       },
       {
@@ -48,7 +48,7 @@
         "ref": "main",
         "description": "Curated collection of Claude Code skills",
         "commit": "fcd4fa1b203a9a0dc44d2482af21adfb53b7a727",
-        "fetched_at": "2026-06-05T18:42:47.708815+00:00",
+        "fetched_at": "2026-06-05T20:16:13.206962+00:00",
         "skill_count": 347
       }
     ],
@@ -129,7 +129,7 @@
         "general": 1,
         "Engineering / Code Quality": 1
       },
-      "generated_at": "2026-06-05T18:42:47.873215+00:00"
+      "generated_at": "2026-06-05T20:16:13.367508+00:00"
     }
   },
   "skills": [

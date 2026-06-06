@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-06-05T20:17:10.067380+00:00",
+  "generated_at": "2026-06-06T20:47:08.521321+00:00",
   "catalog": {
     "sources": [
       {
@@ -8,23 +8,23 @@
         "ref": "main",
         "description": "Agentic skills framework & software development methodology",
         "commit": "6fd4507659784c351abbd2bc264c7162cfd386dc",
-        "fetched_at": "2026-06-05T20:15:59.448728+00:00",
+        "fetched_at": "2026-06-06T20:45:59.576792+00:00",
         "skill_count": 14
       },
       {
         "url": "https://github.com/sickn33/antigravity-awesome-skills",
         "ref": "main",
         "description": "1,400+ agentic skills for Claude Code, Cursor, Codex, Gemini CLI, and more",
-        "commit": "43af20cbe0dc298c40ff709993d8b4f7b4a274b6",
-        "fetched_at": "2026-06-05T20:16:07.588260+00:00",
+        "commit": "9d486d0899e0c4474939861469ac43339f128344",
+        "fetched_at": "2026-06-06T20:46:07.320545+00:00",
         "skill_count": 4831
       },
       {
         "url": "https://github.com/mattpocock/skills",
         "ref": "main",
         "description": "Skills for real engineers \u2014 TDD, design, debugging, productivity",
-        "commit": "aaf2453fbdfe7a15c07f11d861224f34ab4b53cb",
-        "fetched_at": "2026-06-05T20:16:08.701209+00:00",
+        "commit": "be55a7970319ede7965edbb02b5e41cba1ca82c9",
+        "fetched_at": "2026-06-06T20:46:08.211686+00:00",
         "skill_count": 29
       },
       {
@@ -32,7 +32,7 @@
         "ref": "main",
         "description": "ECC Tools \u2014 agent harness performance optimization system",
         "commit": "7113b5bf63694b716f8b2413c5919824a82fc095",
-        "fetched_at": "2026-06-05T20:16:10.565576+00:00",
+        "fetched_at": "2026-06-06T20:46:10.218500+00:00",
         "skill_count": 730
       },
       {
@@ -40,7 +40,7 @@
         "ref": "main",
         "description": "Open-source registry of reusable Claude skills",
         "commit": "02370623a724900f1680baff4c6cdfed2d55fa89",
-        "fetched_at": "2026-06-05T20:16:11.212533+00:00",
+        "fetched_at": "2026-06-06T20:46:10.611901+00:00",
         "skill_count": 5
       },
       {
@@ -48,7 +48,7 @@
         "ref": "main",
         "description": "Curated collection of Claude Code skills",
         "commit": "fcd4fa1b203a9a0dc44d2482af21adfb53b7a727",
-        "fetched_at": "2026-06-05T20:16:13.206962+00:00",
+        "fetched_at": "2026-06-06T20:46:12.341339+00:00",
         "skill_count": 347
       }
     ],
@@ -129,7 +129,7 @@
         "general": 1,
         "Engineering / Code Quality": 1
       },
-      "generated_at": "2026-06-05T20:16:13.367508+00:00"
+      "generated_at": "2026-06-06T20:46:12.504046+00:00"
     }
   },
   "skills": [
@@ -58281,7 +58281,7 @@
     {
       "name": "teach",
       "description": "Teach the user a new skill or concept, within this workspace.",
-      "body_preview": "The user has asked you to teach them something. This is a stateful request - they intend to learn the topic over multiple sessions.\n\n## Teaching Workspace\n\nTreat the current directory as a teaching workspace. The state of their learning is captured in this directory in several files:\n\n- `MISSION.md`: A document capturing the _reason_ the user is interested in the topic. This should be used to ground all teaching. Use the format in [MISSION-FORMAT.md](./MISSION-FORMAT.md).\n- `GLOSSARY.md`: A glos",
+      "body_preview": "The user has asked you to teach them something. This is a stateful request - they intend to learn the topic over multiple sessions.\n\n## Teaching Workspace\n\nTreat the current directory as a teaching workspace. The state of their learning is captured in this directory in several files:\n\n- `MISSION.md`: A document capturing the _reason_ the user is interested in the topic. This should be used to ground all teaching. Use the format in [MISSION-FORMAT.md](./MISSION-FORMAT.md).\n- `./reference/*.html`:",
       "tags": [],
       "triggers": [
         "teach",

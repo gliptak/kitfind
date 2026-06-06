@@ -233,6 +233,7 @@ let EMBED_DIM = 0;
 let MODEL_READY = false;
 let MODEL_LOADING = false;
 let ORT_SESSION = null;
+const TERM_BOOST = 0.5;  // Per-term score multiplier for exact query term matches
 let VOCAB = null;
 
 // ── BERT WordPiece tokenizer ─────────────────────────────────────────
@@ -506,6 +507,18 @@ async function renderResults(query) {
     const scores = await search(query);
     if (scores) {
       const scored = SKILLS.map((s, i) => ({ skill: s, score: scores[i] || 0 }));
+      // Term boost: increase score for skills containing exact query terms
+      const terms = query.split(/\s+/).filter(t => t);
+      for (const item of scored) {
+        const text = (item.skill.name + ' ' + item.skill.description + ' ' +
+          (item.skill.triggers || []).join(' ') + ' ' +
+          (item.skill.tags || []).join(' ')).toLowerCase();
+        let matches = 0;
+        for (const t of terms) {
+          if (text.includes(t)) matches++;
+        }
+        if (matches > 0) item.score *= (1.0 + TERM_BOOST * matches);
+      }
       scored.sort((a, b) => b.score - a.score);
       const maxScore = Math.max(scored[0].score, 0.001);
       const matchedCount = scored.filter(s => s.score > 0.01).length;

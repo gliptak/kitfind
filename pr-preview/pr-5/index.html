@@ -461,6 +461,7 @@ async function init() {
     await loadEmbeddings();
     document.getElementById('loading').classList.add('hidden');
     document.getElementById('results').classList.remove('hidden');
+    MODEL_LOADING = true;
     showStats(data);
     onSearch();
     const gen = data.catalog?.generated_at || data.generated_at || '';
@@ -476,6 +477,9 @@ function showStats(data) {
   const stats = data.catalog?.stats || {};
   document.getElementById('statSkills').textContent = (stats.total_skills || SKILLS.length).toLocaleString();
   document.getElementById('statSources').textContent = (stats.total_sources || 0).toLocaleString();
+  const ms = document.getElementById('statModelStatus');
+  const ml = document.getElementById('statModelLabel');
+  if (ms) ms.textContent = MODEL_READY ? 'Ready' : MODEL_LOADING ? '...' : '-';
 }
 
 function onSearch() {

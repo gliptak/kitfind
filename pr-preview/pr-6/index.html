@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kitfind — Skill Discovery Index</title>
+<link rel="icon" type="image/png" href="kitfind-logo.png">
+<style>
+  :root {
+    --bg: #0f172a;
+    --surface: #1e293b;
+    --border: #334155;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --teal: #2dd4bf;
+    --teal-dim: rgba(45,212,191,0.1);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.5;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 24px 16px; }
+  header {
+    display: flex; align-items: center; gap: 16px;
+    padding: 24px 0; border-bottom: 1px solid var(--border); margin-bottom: 24px;
+  }
+  header img { width: 48px; height: 48px; border-radius: 12px; }
+  header h1 { font-size: 24px; color: var(--teal); }
+  header span { color: var(--muted); font-size: 14px; }
+  .stats { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 24px; }
+  .stat-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 16px 24px; flex: 1; min-width: 120px;
+  }
+  .stat-card .num { font-size: 28px; font-weight: 700; color: var(--teal); }
+  .stat-card .label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
+  .search-box {
+    width: 100%; padding: 14px 18px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; color: var(--text); font-size: 16px;
+    outline: none; transition: border-color 0.15s; margin-bottom: 8px;
+  }
+  .search-box:focus { border-color: var(--teal); }
+  .search-box::placeholder { color: var(--muted); }
+  .search-tip {
+    font-size: 12px; color: var(--muted); margin-bottom: 20px;
+  }
+  .skill-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 16px 20px; margin-bottom: 12px;
+    transition: border-color 0.15s;
+  }
+  .skill-card:hover { border-color: var(--teal); }
+  .skill-card h3 { font-size: 16px; color: var(--teal); margin-bottom: 4px; }
+  .skill-card .score {
+    float: right; font-size: 11px; color: var(--muted); margin-top: 2px;
+  }
+  .skill-card .source {
+    font-size: 12px; color: var(--muted); margin-bottom: 8px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+  }
+  .skill-card .source a { color: var(--muted); }
+  .skill-card .source a:hover { color: var(--teal); }
+  .skill-card .desc { font-size: 14px; color: var(--text); margin-bottom: 8px; }
+  .skill-card .meta { display: flex; gap: 6px; flex-wrap: wrap; }
+  .skill-card .tag {
+    padding: 2px 8px; border-radius: 4px; font-size: 11px;
+    background: var(--teal-dim); color: var(--teal);
+  }
+  .skill-card .tag.harness { background: rgba(99,102,241,0.1); color: #818cf8; }
+  .empty { text-align: center; padding: 60px 20px; color: var(--muted); }
+  .empty p { font-size: 16px; }
+  .empty .hint { font-size: 13px; margin-top: 8px; }
+  .loading {
+    text-align: center; padding: 60px 20px; color: var(--muted);
+  }
+  .loading .spinner {
+    width: 32px; height: 32px; border: 3px solid var(--border);
+    border-top-color: var(--teal); border-radius: 50%;
+    animation: spin 0.8s linear infinite; margin: 0 auto 12px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  footer {
+    margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--border);
+    font-size: 12px; color: var(--muted); text-align: center;
+  }
+  footer a { color: var(--teal); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <img src="kitfind-logo.png" alt="Kitfind">
+    <div>
+      <h1>Kitfind</h1>
+      <span>Skill discovery index — find the right skill for any task</span>
+    </div>
+  </header>
+
+  <div class="stats" id="stats">
+    <div class="stat-card">
+      <div class="num" id="statSkills">-</div>
+      <div class="label">Skills Indexed</div>
+    </div>
+    <div class="stat-card">
+      <div class="num" id="statSources">-</div>
+      <div class="label">Source Repos</div>
+    </div>
+    <div class="stat-card">
+      <div class="num" id="statModelStatus">...</div>
+      <div class="label" id="statModelLabel">Semantic Search</div>
+    </div>
+  </div>
+
+  <input type="text" class="search-box" id="searchInput"
+         placeholder="Search skills... e.g. 'debug async python worker'">
+  <div class="search-tip" id="searchTip"></div>
+
+  <div id="loading" class="loading">
+    <div class="spinner"></div>
+    <p>Loading skill index...</p>
+  </div>
+
+  <div id="results" class="hidden"></div>
+
+  <footer>
+    <span id="generatedAt"></span>
+    <a href="https://github.com/gliptak/kitfind">gliptak/kitfind</a> &middot;
+    Blob: <a href="index.json">index.json</a>
+  </footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.20.1/dist/ort.min.js"></script>
+<script>
+// Pure search functions for Kitfind.
+// Shared between the static site (inlined into index.html) and Node.js tests.
+
+// ── AND filter ──────────────────────────────────────────────────────────
+
+function matches(skill, query) {
+  if (!query || !query.trim()) return true;
+  const haystack = [
+    skill.name || '',
+    skill.description || '',
+    (skill.triggers || []).join(' '),
+    (skill.tags || []).join(' '),
+    skill.domain || '',
+    skill.source?.url || '',
+  ].join(' ').toLowerCase();
+  return query.toLowerCase().split(/\s+/).every(term => {
+    const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const re = new RegExp('\\b' + escaped + '\\b');
+    return re.test(haystack);
+  });
+}
+
+// ── TF-IDF tokenizer ────────────────────────────────────────────────────
+
+const TFIDF_STOP_WORDS = new Set([
+  'the','a','an','is','are','was','were','be','been','being',
+  'have','has','had','do','does','did','will','would','could','should',
+  'may','might','can','shall','to','of','in','for','on','with','at','by',
+  'from','as','','through','during','then','once','here','there',
+  'when','where','why','how','all','each','every','both','few','more',
+  'most','other','some','such','no','nor','not','only','own','same','so',
+  'than','too','very','just','about','which','who','whom','this','that',
+  'these','those','and','but','or','if','while','although','since',
+  'unless','until','like','it','its','you','your','we','our','they',
+  'them','their','common','use','using',
+]);
+
+function tfidfTokenize(text) {
+  const words = text.toLowerCase().match(/[a-zA-Z][a-zA-Z0-9]{2,}/g) || [];
+  return words.filter(w => w.length > 2 && w.length <= 30 && !TFIDF_STOP_WORDS.has(w));
+}
+
+// ── BERT WordPiece tokenizer ────────────────────────────────────────────
+
+function tokenizeBERT(text, vocab) {
+  // vocab is a Map<string, number> mapping tokens to IDs
+  const cleaned = text.toLowerCase().replace(/[^a-z0-9 ]/g, '').trim();
+  const words = cleaned.split(/\s+/).filter(w => w);
+  const tokens = ['[CLS]'];
+  for (const word of words) {
+    if (vocab.has(word)) {
+      tokens.push(word);
+    } else {
+      let remaining = word;
+      let subwords = 0;
+      while (remaining.length > 0 && subwords < 10) {
+        let found = false;
+        for (let len = remaining.length; len >= 2; len--) {
+          const sub = remaining.slice(0, len);
+          const key = subwords === 0 ? sub : '##' + sub;
+          if (vocab.has(key)) {
+            tokens.push(key);
+            remaining = remaining.slice(len);
+            subwords++;
+            found = true;
+            break;
+          }
+        }
+        if (!found) {
+          tokens.push('[UNK]');
+          break;
+        }
+      }
+    }
+  }
+  tokens.push('[SEP]');
+  return tokens;
+}
+
+function wordpieceEncode(query, vocab, maxLen) {
+  const tokens = tokenizeBERT(query, vocab);
+  const inputIds = tokens.slice(0, maxLen).map(t => vocab.get(t) || vocab.get('[UNK]') || 0);
+  while (inputIds.length < maxLen) inputIds.push(0);
+  const attentionMask = tokens.slice(0, maxLen).map(() => 1);
+  while (attentionMask.length < maxLen) attentionMask.push(0);
+  return { input_ids: inputIds, attention_mask: attentionMask };
+}
+
+let SKILLS = [];
+let EMBEDDINGS = null;
+let EMBED_N = 0;
+let EMBED_DIM = 0;
+let MODEL_READY = false;
+let MODEL_LOADING = false;
+let ORT_SESSION = null;
+const TERM_BOOST = 0.5;  // Per-term score multiplier for exact query term matches
+let VOCAB = null;
+
+// ── BERT WordPiece tokenizer ─────────────────────────────────────────
+
+const SPECIAL = { '[PAD]': 0, '[CLS]': 101, '[SEP]': 102, '[UNK]': 100, '[MASK]': 103 };
+const MAX_LEN = 256;
+
+function tokenize(query) {
+  const tokens = [];
+  // Basic pre-tokenize: split on whitespace and punctuation
+  const words = query.toLowerCase().match(/[a-z0-9]+|[^\sa-z0-9]+/g) || [];
+  for (const word of words) {
+    const sub = wordpiece(word);
+    tokens.push(...sub);
+  }
+  // Truncate
+  if (tokens.length > MAX_LEN - 2) tokens.length = MAX_LEN - 2;
+  // Add special tokens
+  tokens.unshift('[CLS]');
+  tokens.push('[SEP]');
+  // Convert to ids, pad
+  const input_ids = tokens.map(t => VOCAB[t] ?? SPECIAL[t] ?? SPECIAL['[UNK]']);
+  const attention_mask = input_ids.map(() => 1);
+  while (input_ids.length < MAX_LEN) {
+    input_ids.push(0);
+    attention_mask.push(0);
+  }
+  return { input_ids, attention_mask };
+}
+
+function wordpiece(word) {
+  if (VOCAB[word] !== undefined) return [word];
+  const pieces = [];
+  let remaining = word;
+  while (remaining.length > 0) {
+    let found = false;
+    for (let i = remaining.length; i >= 1; i--) {
+      const sub = pieces.length === 0 ? remaining.slice(0, i) : '##' + remaining.slice(0, i);
+      if (VOCAB[sub] !== undefined) {
+        pieces.push(sub);
+        remaining = remaining.slice(i);
+        found = true;
+        break;
+      }
+    }
+    if (!found) {
+      remaining = remaining.slice(1); // skip unknown char
+    }
+  }
+  return pieces.length > 0 ? pieces : ['[UNK]'];
+}
+
+// ── Loaders ──────────────────────────────────────────────────────────
+
+async function loadEmbeddings() {
+  const res = await fetch('index.embeddings');
+  const buf = await res.arrayBuffer();
+  const header = new Int32Array(buf, 0, 3);
+  EMBED_DIM = header[1];
+  EMBED_N = header[2];
+  const mins = new Float32Array(buf, 12, EMBED_DIM);
+  const scales = new Float32Array(buf, 12 + EMBED_DIM * 4, EMBED_DIM);
+  const quantized = new Uint8Array(buf, 12 + EMBED_DIM * 8);
+  EMBEDDINGS = new Float32Array(EMBED_N * EMBED_DIM);
+  for (let i = 0; i < EMBED_N * EMBED_DIM; i++) {
+    const d = i % EMBED_DIM;
+    EMBEDDINGS[i] = quantized[i] * scales[d] + mins[d];
+  }
+}
+
+async function loadModel() {
+  MODEL_LOADING = true;
+  try {
+    // Load vocab
+    const vocabRes = await fetch('./model/vocab.json');
+    VOCAB = await vocabRes.json();
+
+    // Load ONNX model
+    ORT_SESSION = await ort.InferenceSession.create('./model/onnx/model_quantized.onnx');
+
+    MODEL_READY = true;
+    MODEL_LOADING = false;
+    const ms = document.getElementById('statModelStatus');
+    const ml = document.getElementById('statModelLabel');
+    if (ms) ms.textContent = 'Ready';
+    if (ml) ml.textContent = 'Semantic Search';
+  } catch (e) {
+    console.error('Kitfind model load failed:', e);
+    MODEL_LOADING = false;
+    const ms = document.getElementById('statModelStatus');
+    const ml = document.getElementById('statModelLabel');
+    if (ms) ms.textContent = 'Unavailable';
+    if (ml) ml.textContent = 'Semantic Search';
+  }
+}
+
+// ── TF-IDF fallback for short queries ─────────────────────────────────
+
+let tfidfData = null;
+
+async function loadTfidf() {
+  if (tfidfData) return;
+  const res = await fetch('index.tfidf');
+  if (!res.ok) return;
+  tfidfData = await res.json();
+}
+
+
+function tfidfScoreQuery(query) {
+  if (!tfidfData) return null;
+  const terms = tfidfTokenize(query);
+  if (terms.length === 0) return null;
+  const { vocab, idf, vectors } = tfidfData;
+
+  // Build query sparse vector (term -> TF-IDF weight)
+  const tfCnt = {};
+  for (const t of terms) tfCnt[t] = (tfCnt[t] || 0) + 1;
+  const qv = {};
+  for (const [t, c] of Object.entries(tfCnt)) {
+    const idx = vocab[t];
+    if (idx === undefined) continue;
+    const weight = (1.0 + (c > 1 ? Math.log(c) : 0)) * idf[idx];
+    qv[idx] = (qv[idx] || 0) + weight;
+  }
+
+  if (Object.keys(qv).length === 0) return null;
+
+  // L2-normalize query vector
+  let qn = 0;
+  for (const v of Object.values(qv)) qn += v * v;
+  qn = Math.sqrt(qn);
+  for (const k in qv) qv[k] /= qn;
+
+  // Score each skill
+  const scores = new Float32Array(SKILLS.length);
+  for (let i = 0; i < SKILLS.length; i++) {
+    const [indices, values] = vectors[i];
+    let dot = 0;
+    for (let j = 0; j < indices.length; j++) {
+      const idx = indices[j];
+      const w = qv[idx];
+      if (w !== undefined) dot += values[j] * w;
+    }
+    scores[i] = dot;
+  }
+  return scores;
+}
+
+// ── Search ───────────────────────────────────────────────────────────
+
+
+async function search(query) {
+  if (!ORT_SESSION || !VOCAB) return null;
+  try {
+    const feeds = makeFeeds(query);
+    const results = await ORT_SESSION.run(feeds);
+    // Get last_hidden_state
+    const hidden = results['last_hidden_state'];
+    const data = hidden.data; // Float32Array, [1, seq_len, 384]
+    const seqLen = MAX_LEN;
+    const dim = 384;
+    const mask = feeds['attention_mask'].data;
+
+    // Mean pool
+    const pooled = new Float32Array(dim);
+    let maskSum = 0;
+    for (let i = 0; i < seqLen; i++) {
+      if (mask[i] > 0) {
+        maskSum++;
+        for (let j = 0; j < dim; j++) {
+          pooled[j] += data[i * dim + j];
+        }
+      }
+    }
+    if (maskSum > 0) {
+      for (let j = 0; j < dim; j++) pooled[j] /= maskSum;
+    }
+
+    // L2 normalize
+    let norm = 0;
+    for (let j = 0; j < dim; j++) norm += pooled[j] * pooled[j];
+    norm = Math.sqrt(norm);
+    if (norm > 0) for (let j = 0; j < dim; j++) pooled[j] /= norm;
+
+    // Cosine similarity against all embeddings
+    const results2 = [];
+    for (let i = 0; i < EMBED_N; i++) {
+      let dot = 0;
+      const offset = i * dim;
+      for (let j = 0; j < dim; j++) {
+        dot += pooled[j] * EMBEDDINGS[offset + j];
+      }
+      results2.push(Math.max(0, dot));
+    }
+    return results2;
+  } catch (e) {
+    console.error('Kitfind search error:', e);
+    return null;
+  }
+}
+
+function makeFeeds(query) {
+  const { input_ids, attention_mask } = tokenize(query);
+  return {
+    'input_ids': new ort.Tensor('int64', BigInt64Array.from(input_ids.map(BigInt)), [1, MAX_LEN]),
+    'attention_mask': new ort.Tensor('int64', BigInt64Array.from(attention_mask.map(BigInt)), [1, MAX_LEN]),
+    'token_type_ids': new ort.Tensor('int64', new BigInt64Array(MAX_LEN), [1, MAX_LEN]),
+  };
+}
+
+// ── UI ───────────────────────────────────────────────────────────────
+
+async function init() {
+  if (location.protocol === 'file:') {
+    document.getElementById('loading').innerHTML = '<div class="empty"><p>Serve via HTTP to load skills</p><p class="hint">Run <code>python3 -m http.server 8080 --directory site</code> then open <code>http://localhost:8080</code></p></div>';
+    return;
+  }
+  try {
+    const [skillsRes, embedRes] = await Promise.all([
+      fetch('index.json'),
+      fetch('index.embeddings'),
+    ]);
+    const data = await skillsRes.json();
+    SKILLS = data.skills || data;
+    await loadEmbeddings();
+    document.getElementById('loading').classList.add('hidden');
+    document.getElementById('results').classList.remove('hidden');
+    MODEL_LOADING = true;
+    showStats(data);
+    onSearch();
+    const gen = data.catalog?.generated_at || data.generated_at || '';
+    if (gen) document.getElementById('generatedAt').textContent = 'Generated ' + gen.replace('T', ' ').replace(/\..+/, '') + ' · ';
+    document.getElementById('searchInput').addEventListener('input', onSearch);
+    loadModel();
+  } catch (e) {
+    document.getElementById('loading').innerHTML = '<div class="empty"><p>Failed to load skill index</p><p class="hint">' + e.message + '</p></div>';
+  }
+}
+
+function showStats(data) {
+  const stats = data.catalog?.stats || {};
+  document.getElementById('statSkills').textContent = (stats.total_skills || SKILLS.length).toLocaleString();
+  document.getElementById('statSources').textContent = (stats.total_sources || 0).toLocaleString();
+  const ms = document.getElementById('statModelStatus');
+  const ml = document.getElementById('statModelLabel');
+  if (ms) ms.textContent = MODEL_READY ? 'Ready' : MODEL_LOADING ? '...' : '-';
+}
+
+function onSearch() {
+  const q = document.getElementById('searchInput').value.toLowerCase().trim();
+  renderResults(q);
+}
+
+
+async function renderResults(query) {
+  const container = document.getElementById('results');
+  const tip = document.getElementById('searchTip');
+
+  if (!SKILLS || SKILLS.length === 0) {
+    tip.textContent = '';
+    if (MODEL_LOADING && !MODEL_READY) {
+      const ms = document.getElementById('statModelStatus');
+      const ml = document.getElementById('statModelLabel');
+      if (ms) ms.textContent = '...';
+      if (ml) ml.textContent = 'Downloading model';
+      container.innerHTML = '<div class="empty"><p>Loading skills...</p></div>';
+    } else {
+      container.innerHTML = '<div class="empty"><p>No skills loaded</p></div>';
+    }
+    return;
+  }
+
+  // Semantic path: score ALL skills, BERT handles plural/synonym naturally
+  if (query && query.length >= 5 && MODEL_READY) {
+    const scores = await search(query);
+    if (scores) {
+      const scored = SKILLS.map((s, i) => ({ skill: s, score: scores[i] || 0 }));
+      // Term boost: increase score for skills containing exact query terms
+      const terms = query.split(/\s+/).filter(t => t);
+      for (const item of scored) {
+        const text = (item.skill.name + ' ' + item.skill.description + ' ' +
+          (item.skill.triggers || []).join(' ') + ' ' +
+          (item.skill.tags || []).join(' ')).toLowerCase();
+        let matches = 0;
+        for (const t of terms) {
+          if (text.includes(t)) matches++;
+        }
+        if (matches > 0) item.score *= (1.0 + TERM_BOOST * matches);
+      }
+      scored.sort((a, b) => b.score - a.score);
+      const maxScore = Math.max(scored[0].score, 0.001);
+      const matchedCount = scored.filter(s => s.score > 0.01).length;
+      const pct = (matchedCount / SKILLS.length * 100).toFixed(matchedCount / SKILLS.length < 0.01 ? 2 : 0);
+      tip.textContent = `${matchedCount} of ${SKILLS.length} skills match (${pct}%) \u00b7 Semantic search`;
+      container.innerHTML = scored.map(e => cardHtml(e.skill, Math.round(e.score / maxScore * 100))).join('');
+      return;
+    }
+  }
+
+  // TF-IDF + AND filter for short queries
+  if (query && query.length < 5) {
+    const filtered = SKILLS.filter(s => matches(s, query));
+    if (filtered.length === 0) {
+      tip.textContent = '';
+      container.innerHTML = '<div class="empty"><p>No skills found</p><p class="hint">Try a different search term</p></div>';
+      return;
+    }
+    await loadTfidf();
+    const scores = tfidfScoreQuery(query);
+    if (scores) {
+      const scored = filtered.map(s => {
+        const idx = SKILLS.findIndex(x => x.name === s.name && x.sourceUrl === s.sourceUrl);
+        return { skill: s, score: idx >= 0 ? (scores[idx] || 0) : 0 };
+      });
+      scored.sort((a, b) => b.score - a.score);
+      const maxScore = Math.max(scored[0].score, 0.001);
+      const pct = (filtered.length / SKILLS.length * 100).toFixed(filtered.length / SKILLS.length < 0.01 ? 2 : 0);
+      tip.textContent = `${filtered.length} of ${SKILLS.length} skills match (${pct}%) \u00b7 Keyword search`;
+      container.innerHTML = scored.map(e => cardHtml(e.skill, Math.round(e.score / maxScore * 100))).join('');
+      return;
+    }
+  }
+
+  // Fallback: AND filter + alphabetical
+  const filtered = query ? SKILLS.filter(s => matches(s, query)) : SKILLS;
+  if (filtered.length === 0) {
+    tip.textContent = '';
+    container.innerHTML = '<div class="empty"><p>No skills found</p><p class="hint">Try a different search term</p></div>';
+    return;
+  }
+  const pct = (filtered.length / SKILLS.length * 100).toFixed(filtered.length / SKILLS.length < 0.01 ? 2 : 0);
+  tip.textContent = `${filtered.length} of ${SKILLS.length} skills match (${pct}%)`;
+  container.innerHTML = filtered.map(s => cardHtml(s, null)).join('');
+}
+
+function cardHtml(s, score) {
+  const triggers = (s.triggers || []).slice(0, 5);
+  const harnesses = (s.harnesses || []).slice(0, 4);
+  const sourcePath = s.source ? s.source.path : '';
+  const sourceUrl = s.source ? githubBlobUrl(s.source) : '';
+  const repoLabel = s.source ? s.source.url.replace('https://github.com/', '') : '';
+  const repoUrl = s.source ? s.source.url : '';
+  const badge = score !== null ? '<span class="score">' + score + '%</span>' : '';
+  return '<div class="skill-card">' +
+    '<h3>' + esc(s.name) + badge + '</h3>' +
+    '<div class="source"><a href="' + esc(repoUrl) + '" target="_blank">' + esc(repoLabel) + '</a> · <a href="' + esc(sourceUrl) + '" target="_blank">' + esc(sourcePath) + '</a></div>' +
+    '<div class="desc">' + esc(s.description) + '</div>' +
+    '<div class="meta">' +
+      harnesses.map(h => '<span class="tag harness">' + esc(h) + '</span>').join('') +
+      triggers.map(t => '<span class="tag">' + esc(t) + '</span>').join('') +
+    '</div>' +
+  '</div>';
+}
+
+function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+function githubBlobUrl(source) {
+  const ownerRepo = source.url.replace('https://github.com/', '');
+  return `https://github.com/${ownerRepo}/blob/${source.ref}/${source.path}/SKILL.md`;
+}
+
+init();
+</script>
+
+</body>
+</html>

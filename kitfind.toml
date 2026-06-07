@@ -35,3 +35,58 @@ description = "Open-source registry of reusable Claude skills"
 url = "https://github.com/alirezarezvani/claude-skills"
 ref = "main"
 description = "Curated collection of Claude Code skills"
+
+[[repos]]
+url = "https://github.com/K-Dense-AI/scientific-agent-skills"
+ref = "main"
+description = "AI scientist skills — biology, chemistry, medicine, and drug discovery"
+
+[[repos]]
+url = "https://github.com/addyosmani/agent-skills"
+ref = "main"
+description = "Production-grade engineering skills for AI coding agents"
+
+[[repos]]
+url = "https://github.com/ComposioHQ/awesome-claude-skills"
+ref = "master"
+description = "Curated list of Claude skills and tools for workflow automation"
+
+[[repos]]
+url = "https://github.com/coreyhaines31/marketingskills"
+ref = "main"
+description = "Marketing skills — CRO, copywriting, SEO, analytics, and growth engineering"
+
+[[repos]]
+url = "https://github.com/anthropics/skills"
+ref = "main"
+description = "Anthropic's official public Agent Skills repository"
+
+[[repos]]
+url = "https://github.com/kepano/obsidian-skills"
+ref = "main"
+description = "Skills for Obsidian — Markdown, Bases, JSON Canvas, and CLI tools"
+
+[[repos]]
+url = "https://github.com/Imbad0202/academic-research-skills"
+ref = "main"
+description = "Academic research pipeline: research → write → review → revise → finalize"
+
+[[repos]]
+url = "https://github.com/vercel-labs/agent-skills"
+ref = "main"
+description = "Vercel's official collection of agent skills"
+
+[[repos]]
+url = "https://github.com/zarazhangrui/frontend-slides"
+ref = "main"
+description = "Create beautiful slides using a coding agent's frontend skills"
+
+[[repos]]
+url = "https://github.com/Orchestra-Research/AI-Research-SKILLs"
+ref = "main"
+description = "Comprehensive AI research and engineering skills library"
+
+[[repos]]
+url = "https://github.com/trailofbits/skills"
+ref = "main"
+description = "Security research, vulnerability detection, and audit workflow skills"

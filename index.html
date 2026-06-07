@@ -65,12 +65,25 @@
   .skill-card .source a { color: var(--muted); }
   .skill-card .source a:hover { color: var(--teal); }
   .skill-card .desc { font-size: 14px; color: var(--text); margin-bottom: 8px; }
+.source-detail {
+  position: absolute; top: 100%; left: 0; right: 0;
+  background: var(--bg); border: 1px solid var(--border); border-radius: 6px;
+  padding: 8px 12px; z-index: 10; box-shadow: 0 4px 12px rgba(0,0,0,.15);
+  display: none; font-size: 12px;
+}
+.source-detail a {
+  display: block; color: var(--teal); text-decoration: none;
+  padding: 3px 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.source-detail a:hover { text-decoration: underline; }
+.src-count { font-size: 11px; color: var(--muted); margin-left: 4px; }
+.stat-card { position: relative; cursor: default; }
+.stat-card .num { cursor: pointer; }
   .skill-card .meta { display: flex; gap: 6px; flex-wrap: wrap; }
   .skill-card .tag {
     padding: 2px 8px; border-radius: 4px; font-size: 11px;
     background: var(--teal-dim); color: var(--teal);
   }
-  .skill-card .tag.harness { background: rgba(99,102,241,0.1); color: #818cf8; }
   .empty { text-align: center; padding: 60px 20px; color: var(--muted); }
   .empty p { font-size: 16px; }
   .empty .hint { font-size: 13px; margin-top: 8px; }
@@ -111,6 +124,7 @@
     <div class="stat-card">
       <div class="num" id="statSources">-</div>
       <div class="label">Source Repos</div>
+      <div class="source-detail" id="sourceDetail"></div>
     </div>
     <div class="stat-card">
       <div class="num" id="statModelStatus">...</div>
@@ -480,6 +494,21 @@ function showStats(data) {
   const ms = document.getElementById('statModelStatus');
   const ml = document.getElementById('statModelLabel');
   if (ms) ms.textContent = MODEL_READY ? 'Ready' : MODEL_LOADING ? '...' : '-';
+  // Populate source detail
+  const srcs = data.catalog?.sources || [];
+  const detail = document.getElementById('sourceDetail');
+  if (detail) {
+    detail.innerHTML = srcs.map(s => {
+      const url = s.url.replace(/\/$/, '');
+      const count = s.skill_count || 0;
+      return '<a href="' + url + '" target="_blank">' + esc(url.replace('https://github.com/', '')) + ' <span class="src-count">(' + count + ' skills)</span></a>';
+    }).join('');
+    document.getElementById('statSources').onclick = function(e) {
+      detail.style.display = detail.style.display === 'block' ? 'none' : 'block';
+      e.stopPropagation();
+    };
+    document.addEventListener('click', function() { detail.style.display = 'none'; });
+  }
 }
 
 function onSearch() {
@@ -571,7 +600,6 @@ async function renderResults(query) {
 
 function cardHtml(s, score) {
   const triggers = (s.triggers || []).slice(0, 5);
-  const harnesses = (s.harnesses || []).slice(0, 4);
   const sourcePath = s.source ? s.source.path : '';
   const sourceUrl = s.source ? githubBlobUrl(s.source) : '';
   const repoLabel = s.source ? s.source.url.replace('https://github.com/', '') : '';
@@ -582,7 +610,7 @@ function cardHtml(s, score) {
     '<div class="source"><a href="' + esc(repoUrl) + '" target="_blank">' + esc(repoLabel) + '</a> · <a href="' + esc(sourceUrl) + '" target="_blank">' + esc(sourcePath) + '</a></div>' +
     '<div class="desc">' + esc(s.description) + '</div>' +
     '<div class="meta">' +
-      harnesses.map(h => '<span class="tag harness">' + esc(h) + '</span>').join('') +
+      triggers.map(t => '<span class="tag">' + esc(t) + '</span>').join('') +
       triggers.map(t => '<span class="tag">' + esc(t) + '</span>').join('') +
     '</div>' +
   '</div>';

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-06-06T22:59:33.291486+00:00",
+  "generated_at": "2026-06-07T15:02:45.400185+00:00",
   "catalog": {
     "sources": [
       {
@@ -8,39 +8,39 @@
         "ref": "main",
         "description": "Agentic skills framework & software development methodology",
         "commit": "6fd4507659784c351abbd2bc264c7162cfd386dc",
-        "fetched_at": "2026-06-06T22:58:19.668969+00:00",
+        "fetched_at": "2026-06-07T15:01:34.392476+00:00",
         "skill_count": 14
       },
       {
         "url": "https://github.com/sickn33/antigravity-awesome-skills",
         "ref": "main",
         "description": "1,400+ agentic skills for Claude Code, Cursor, Codex, Gemini CLI, and more",
-        "commit": "9d486d0899e0c4474939861469ac43339f128344",
-        "fetched_at": "2026-06-06T22:58:28.093258+00:00",
-        "skill_count": 4831
+        "commit": "d89c349f775bff02124a1bbd345450115c1c8705",
+        "fetched_at": "2026-06-07T15:01:42.255220+00:00",
+        "skill_count": 4844
       },
       {
         "url": "https://github.com/mattpocock/skills",
         "ref": "main",
         "description": "Skills for real engineers \u2014 TDD, design, debugging, productivity",
         "commit": "be55a7970319ede7965edbb02b5e41cba1ca82c9",
-        "fetched_at": "2026-06-06T22:58:29.199208+00:00",
+        "fetched_at": "2026-06-07T15:01:43.357357+00:00",
         "skill_count": 29
       },
       {
         "url": "https://github.com/affaan-m/everything-claude-code",
         "ref": "main",
         "description": "ECC Tools \u2014 agent harness performance optimization system",
-        "commit": "7113b5bf63694b716f8b2413c5919824a82fc095",
-        "fetched_at": "2026-06-06T22:58:31.498262+00:00",
-        "skill_count": 730
+        "commit": "90dfd9505dc860714cf3cc8216ad7bbb96d93365",
+        "fetched_at": "2026-06-07T15:01:45.500088+00:00",
+        "skill_count": 778
       },
       {
         "url": "https://github.com/le-diegz/claude-skills-registry",
         "ref": "main",
         "description": "Open-source registry of reusable Claude skills",
         "commit": "02370623a724900f1680baff4c6cdfed2d55fa89",
-        "fetched_at": "2026-06-06T22:58:32.339417+00:00",
+        "fetched_at": "2026-06-07T15:01:46.116662+00:00",
         "skill_count": 5
       },
       {
@@ -48,37 +48,37 @@
         "ref": "main",
         "description": "Curated collection of Claude Code skills",
         "commit": "fcd4fa1b203a9a0dc44d2482af21adfb53b7a727",
-        "fetched_at": "2026-06-06T22:58:34.817385+00:00",
+        "fetched_at": "2026-06-07T15:01:48.078358+00:00",
         "skill_count": 347
       }
     ],
     "stats": {
-      "total_skills": 2150,
+      "total_skills": 2165,
       "total_sources": 6,
       "by_domain": {
-        "code-review": 446,
-        "ai-ml": 305,
-        "frontend": 291,
-        "backend": 179,
+        "code-review": 449,
+        "ai-ml": 306,
+        "frontend": 292,
+        "backend": 180,
         "security": 142,
         "productivity": 105,
-        "design": 95,
+        "design": 96,
+        "devops": 67,
         "data": 67,
         "writing": 66,
-        "devops": 65,
-        "testing": 64,
+        "testing": 63,
         "project-management": 48,
-        "debugging": 44,
+        "debugging": 46,
         "cli": 37,
         "mobile": 28,
         "game-development": 23,
+        "development": 17,
         "granular-workflow-bundle": 16,
-        "development": 16,
         "uncategorized": 12,
         "workflow-bundle": 10,
+        "content": 6,
         "api-integration": 5,
         "meta": 5,
-        "content": 5,
         "marketing": 5,
         "data-ai": 4,
         "automation": 4,
@@ -86,6 +86,7 @@
         "seo": 3,
         "andruia": 3,
         "growth": 3,
+        "ai-agents": 3,
         "business-strategy": 2,
         "mcp": 2,
         "finance": 2,
@@ -94,16 +95,15 @@
         "research": 2,
         "planning": 2,
         "code": 2,
-        "ai-agents": 2,
         "test-automation": 1,
         "ai-research": 1,
+        "creative": 1,
         "personal-development": 1,
         "prompt-engineering": 1,
         "collaboration": 1,
         "fullstack": 1,
         "data-engineering": 1,
         "education": 1,
-        "orchestration": 1,
         "business": 1,
         "agent-orchestration": 1,
         "core-dev": 1,
@@ -111,6 +111,7 @@
         "voice-agents": 1,
         "tool-quality": 1,
         "memory": 1,
+        "media-processing": 1,
         "coding": 1,
         "ai-testing": 1,
         "browser-automation": 1,
@@ -126,10 +127,11 @@
         "spreadsheet-processing": 1,
         "database-processing": 1,
         "graphics-processing": 1,
+        "orchestration": 1,
         "general": 1,
         "Engineering / Code Quality": 1
       },
-      "generated_at": "2026-06-06T22:58:34.976174+00:00"
+      "generated_at": "2026-06-07T15:01:48.239377+00:00"
     }
   },
   "skills": [
@@ -10636,6 +10638,46 @@
       "install_hint": "kitout install sickn33/antigravity-awesome-skills"
     },
     {
+      "name": "article-illustrations",
+      "description": "Generate hand-drawn 16:9 article illustrations with the Grav character IP, sparse annotations, and absurd but clear visual metaphors.",
+      "body_preview": "# Article Illustrations \u2014 Grav Hand-Drawn Style\n\n## Overview\n\nGenerate 16:9 landscape hand-drawn illustrations for articles, blog posts, and technical content. Each illustration captures one cognitive anchor point from an article and turns it into a clean, absurd, memorable whiteboard-sketch explanation.\n\nThe skill uses a recurring character IP called **Grav**: a small, round, always-floating figure with dot eyes and a thin antenna. Grav participates in the core action of every illustration \u2014 ne",
+      "tags": [
+        "illustration",
+        "article-graphics",
+        "visual-metaphors",
+        "image-generation",
+        "whiteboard-sketch"
+      ],
+      "triggers": [
+        "generate",
+        "hand-drawn",
+        "article",
+        "illustrations",
+        "grav",
+        "character",
+        "sparse",
+        "annotations",
+        "absurd",
+        "clear",
+        "visual",
+        "metaphors"
+      ],
+      "domain": "creative",
+      "harnesses": [
+        "claude-code"
+      ],
+      "risk": "safe",
+      "source_name": "community",
+      "date_added": "2026-06-06",
+      "source": {
+        "url": "https://github.com/sickn33/antigravity-awesome-skills",
+        "ref": "main",
+        "path": "plugins/antigravity-awesome-skills-claude/skills/article-illustrations"
+      },
+      "id": "antigravity-awesome-skills/plugins/antigravity-awesome-skills-claude/skills/article-illustrations",
+      "install_hint": "kitout install sickn33/antigravity-awesome-skills"
+    },
+    {
       "name": "wrike-automation",
       "description": "Automate Wrike project management via Rube MCP (Composio): create tasks/folders, manage projects, assign work, and track progress. Always search tools first for current schemas.",
       "body_preview": "# Wrike Automation via Rube MCP\n\nAutomate Wrike project management operations through Composio's Wrike toolkit via Rube MCP.\n\n## Prerequisites\n\n- Rube MCP must be connected (RUBE_SEARCH_TOOLS available)\n- Active Wrike connection via `RUBE_MANAGE_CONNECTIONS` with toolkit `wrike`\n- Always call `RUBE_SEARCH_TOOLS` first to get current tool schemas\n\n## Setup\n\n**Get Rube MCP**: Add `https://rube.app/mcp` as an MCP server in your client configuration. No API keys needed \u2014 just add the endpoint and it",
@@ -11601,7 +11643,7 @@
     {
       "name": "examprep-ai",
       "description": "Exam preparation assistant that converts syllabi, past papers, or notes into a ranked High Score Roadmap. Covers theory, numericals, MCQs, coding, and lab prep, ordered Easy \u2192 Medium \u2192 Hard. Use for last-minute revision, important topics, and question prediction.",
-      "body_preview": "# ExamPrep AI\n\n## \ud83c\udfaf Selective Reading Rule \u2014 Read ONLY the section matching the request\n\n| What the student asks for | Jump to |\n|--------------------------|---------|\n| Full roadmap / \"what to study\" / syllabus + past papers uploaded | [Full Roadmap Mode](#full-roadmap-mode) |\n| Theory questions only / definitions / explanations | [Theory Notes](#theory-notes) |\n| Numerical / calculation / derivation problems | [Numerical Notes](#numerical-notes) |\n| MCQ / True-False / objective practice | [MCQ",
+      "body_preview": "# ExamPrep AI\n\n## When to Use\n\nUse this skill when you need to:\n- Convert a syllabus, past papers, or study notes into a prioritized roadmap.\n- Focus on specific types of exam questions (Theory, Numerical, MCQ, Coding, Lab).\n- Create flashcards, predicted exam papers, or check your overall exam readiness.\n- Perform last-minute revision or deep-dive into important exam topics.\n\n## \ud83c\udfaf Selective Reading Rule \u2014 Read ONLY the section matching the request\n\n| What the student asks for | Jump to |\n|-----",
       "tags": [
         "education",
         "exam-prep",
@@ -15947,7 +15989,7 @@
     {
       "name": "hugging-face-cli",
       "description": "Use the Hugging Face Hub CLI (`hf`) to download, upload, and manage models, datasets, and Spaces.",
-      "body_preview": "Install by downloading the installer script first, reviewing it, and then running it locally. Example:\n`curl -LsSf https://hf.co/cli/install.sh -o /tmp/hf-install.sh && less /tmp/hf-install.sh && bash /tmp/hf-install.sh`\n\n## When to Use\nUse this skill when you need the `hf` CLI for Hub authentication, downloads, uploads, repo management, or basic compute operations.\n\nThe Hugging Face Hub CLI tool `hf` is available. IMPORTANT: The `hf` command replaces the deprecated `huggingface-cli` command.\n\nU",
+      "body_preview": "Install by downloading the installer script first, reviewing it, and then running it locally. Example:\n`tmpdir=\"$(mktemp -d)\" && trap 'rm -rf \"$tmpdir\"' EXIT && curl -LsSf https://hf.co/cli/install.sh -o \"$tmpdir/hf-install.sh\" && less \"$tmpdir/hf-install.sh\" && bash \"$tmpdir/hf-install.sh\"`\n\n## When to Use\nUse this skill when you need the `hf` CLI for Hub authentication, downloads, uploads, repo management, or basic compute operations.\n\nThe Hugging Face Hub CLI tool `hf` is available. IMPORTANT",
       "tags": [],
       "triggers": [
         "hugging",
@@ -25841,6 +25883,55 @@
       "install_hint": "kitout install sickn33/antigravity-awesome-skills"
     },
     {
+      "name": "cv-generator",
+      "description": "Generate professional, ATS-optimized CVs for FlowCV, Canva, Google Docs, or Word. Handles multi-source merging, JD targeting, seniority adaptation, and humanized rewriting. Outputs paste-ready text with an ATS flaw report and improvement suggestions.",
+      "body_preview": "# CV Generator Skill \u2014 FlowCV / Canva Edition\n\n## When to Use\n\nUse this skill when you need to:\n- Generate a professional, ATS-optimized CV from multiple sources (LinkedIn, GitHub, Portfolio).\n- Tailor an existing CV for a specific Job Description (JD).\n- Improve the language, metrics, and structure of a draft resume.\n- Prepare a paste-ready version of your CV for tools like FlowCV or Canva.\n\nTurns raw profile data into a polished, ATS-ready CV. Outputs a paste-ready plain-text\nversion formatted",
+      "tags": [
+        "cv",
+        "resume",
+        "ats",
+        "career",
+        "job-application",
+        "career-change"
+      ],
+      "triggers": [
+        "generate",
+        "professional",
+        "ats-optimized",
+        "cvs",
+        "flowcv",
+        "canva",
+        "google",
+        "docs",
+        "word",
+        "handles",
+        "multi-source",
+        "merging",
+        "targeting",
+        "seniority",
+        "adaptation",
+        "humanized",
+        "rewriting",
+        "outputs",
+        "paste-ready",
+        "text"
+      ],
+      "domain": "content",
+      "harnesses": [
+        "claude-code"
+      ],
+      "risk": "safe",
+      "source_name": "community",
+      "date_added": "2026-06-06",
+      "source": {
+        "url": "https://github.com/sickn33/antigravity-awesome-skills",
+        "ref": "main",
+        "path": "plugins/antigravity-awesome-skills-claude/skills/cv-generator"
+      },
+      "id": "antigravity-awesome-skills/plugins/antigravity-awesome-skills-claude/skills/cv-generator",
+      "install_hint": "kitout install sickn33/antigravity-awesome-skills"
+    },
+    {
       "name": "semgrep-rule-variant-creator",
       "description": "Creates language variants of existing Semgrep rules. Use when porting a Semgrep rule to specified target languages. Takes an existing rule and target languages as input, produces independent rule+test directories for each language.",
       "body_preview": "# Semgrep Rule Variant Creator\n\nPort existing Semgrep rules to new target languages with proper applicability analysis and test-driven validation.\n\n## When to Use\n**Ideal scenarios:**\n- Porting an existing Semgrep rule to one or more target languages\n- Creating language-specific variants of a universal vulnerability pattern\n- Expanding rule coverage across a polyglot codebase\n- Translating rules between languages with equivalent constructs\n\n## When NOT to Use\n\nDo NOT use this skill for:\n- Creati",
@@ -26282,50 +26373,6 @@
         "path": "plugins/antigravity-awesome-skills-claude/skills/gitops-workflow"
       },
       "id": "antigravity-awesome-skills/plugins/antigravity-awesome-skills-claude/skills/gitops-workflow",
-      "install_hint": "kitout install sickn33/antigravity-awesome-skills"
-    },
-    {
-      "name": "polis-protocol",
-      "description": "Coordinate multi-vendor AI agents as a self-improving team \u2014 a learning router assigns work by track record and citizens can amend the protocol's own rules.",
-      "body_preview": "# Polis Protocol \u2014 a team of agents that develops\n\n## Overview\n\nMost agent coordination is a passive board: claim a task, do it, mark it done. It records, but it never gets smarter, and its rules are frozen. Polis Protocol is the active alternative \u2014 a folder of markdown where each agent is a \"citizen\" with a capability card, work is routed by a learning bandit to whoever has the best track record on the task's tags, settled work files lessons that update the routing, and citizens can propose an",
-      "tags": [
-        "multi-agent",
-        "coordination",
-        "routing",
-        "orchestration",
-        "governance",
-        "vendor-agnostic"
-      ],
-      "triggers": [
-        "coordinate",
-        "multi-vendor",
-        "agents",
-        "self-improving",
-        "team",
-        "learning",
-        "router",
-        "assigns",
-        "work",
-        "track",
-        "record",
-        "citizens",
-        "amend",
-        "protocol",
-        "rules"
-      ],
-      "domain": "orchestration",
-      "harnesses": [
-        "claude-code"
-      ],
-      "risk": "safe",
-      "source_name": "community",
-      "date_added": "2026-06-02",
-      "source": {
-        "url": "https://github.com/sickn33/antigravity-awesome-skills",
-        "ref": "main",
-        "path": "plugins/antigravity-awesome-skills-claude/skills/polis-protocol"
-      },
-      "id": "antigravity-awesome-skills/plugins/antigravity-awesome-skills-claude/skills/polis-protocol",
       "install_hint": "kitout install sickn33/antigravity-awesome-skills"
     },
     {
@@ -33880,6 +33927,54 @@
         "path": "plugins/antigravity-awesome-skills-claude/skills/deployment-pipeline-design"
       },
       "id": "antigravity-awesome-skills/plugins/antigravity-awesome-skills-claude/skills/deployment-pipeline-design",
+      "install_hint": "kitout install sickn33/antigravity-awesome-skills"
+    },
+    {
+      "name": "video-content-extractor",
+      "description": "Extract key frames from MP4 videos at configurable intervals, run Tesseract OCR, and generate structured Markdown reports with video metadata and timestamped text transcripts.",
+      "body_preview": "# Video Content Extractor\n\n## Overview\n\nAutomatically extracts key frames from MP4 video files at configurable time intervals, performs OCR text recognition on each frame, and generates a structured Markdown report. The report includes video metadata (duration, resolution, codecs) and frame-by-frame OCR transcripts with timestamp references.\n\nThis skill is designed for Codex CLI and requires FFmpeg and Tesseract OCR installed on the local machine.\n\n## When to Use This Skill\n\n- Use when you need ",
+      "tags": [
+        "video",
+        "ocr",
+        "ffmpeg",
+        "tesseract",
+        "frame-extraction",
+        "media"
+      ],
+      "triggers": [
+        "extract",
+        "key",
+        "frames",
+        "mp4",
+        "videos",
+        "configurable",
+        "intervals",
+        "run",
+        "tesseract",
+        "ocr",
+        "generate",
+        "structured",
+        "markdown",
+        "reports",
+        "video",
+        "metadata",
+        "timestamped",
+        "text",
+        "transcripts"
+      ],
+      "domain": "media-processing",
+      "harnesses": [
+        "claude-code"
+      ],
+      "risk": "safe",
+      "source_name": "community",
+      "date_added": "2026-06-06",
+      "source": {
+        "url": "https://github.com/sickn33/antigravity-awesome-skills",
+        "ref": "main",
+        "path": "plugins/antigravity-awesome-skills-claude/skills/video-content-extractor"
+      },
+      "id": "antigravity-awesome-skills/plugins/antigravity-awesome-skills-claude/skills/video-content-extractor",
       "install_hint": "kitout install sickn33/antigravity-awesome-skills"
     },
     {
@@ -45386,6 +45481,44 @@
       "install_hint": "kitout install sickn33/antigravity-awesome-skills"
     },
     {
+      "name": "runapi-cli",
+      "description": "Generate AI images, videos, and music/audio from agents using the RunAPI CLI.",
+      "body_preview": "# RunAPI CLI\n\n## Overview\n\nThe `runapi` CLI is the execution layer for RunAPI model tasks. Use it when an agent needs to generate AI images, videos, or music/audio, run a one-off model job, pass a JSON request body, wait for an async task, or script RunAPI from a terminal, server, or CI job.\n\nSource repository: [github.com/runapi-ai/cli-skill](https://github.com/runapi-ai/cli-skill) (Apache-2.0)\n\n## When to Use This Skill\n\n- Use when the user asks to run a RunAPI model from an agent.\n- Use when ",
+      "tags": [
+        "runapi",
+        "cli",
+        "models",
+        "automation",
+        "codex",
+        "claude",
+        "gemini"
+      ],
+      "triggers": [
+        "generate",
+        "images",
+        "videos",
+        "music",
+        "audio",
+        "agents",
+        "runapi",
+        "cli"
+      ],
+      "domain": "development",
+      "harnesses": [
+        "claude-code"
+      ],
+      "risk": "critical",
+      "source_name": "official",
+      "date_added": "2026-06-07",
+      "source": {
+        "url": "https://github.com/sickn33/antigravity-awesome-skills",
+        "ref": "main",
+        "path": "plugins/antigravity-awesome-skills-claude/skills/runapi-cli"
+      },
+      "id": "antigravity-awesome-skills/plugins/antigravity-awesome-skills-claude/skills/runapi-cli",
+      "install_hint": "kitout install sickn33/antigravity-awesome-skills"
+    },
+    {
       "name": "azure-mgmt-apicenter-dotnet",
       "description": "Azure API Center SDK for .NET. Centralized API inventory management with governance, versioning, and discovery.",
       "body_preview": "# Azure.ResourceManager.ApiCenter (.NET)\n\nCentralized API inventory and governance SDK for managing APIs across your organization.\n\n## Installation\n\n```bash\ndotnet add package Azure.ResourceManager.ApiCenter\ndotnet add package Azure.Identity\n```\n\n**Current Version**: v1.0.0 (GA)  \n**API Version**: 2024-03-01\n\n## Environment Variables\n\n```bash\nAZURE_SUBSCRIPTION_ID=<your-subscription-id>\nAZURE_RESOURCE_GROUP=<your-resource-group>\nAZURE_APICENTER_SERVICE_NAME=<your-apicenter-service>\n```\n\n## Authe",
@@ -47789,6 +47922,45 @@
         "path": "plugins/antigravity-awesome-skills-claude/skills/email-sequence"
       },
       "id": "antigravity-awesome-skills/plugins/antigravity-awesome-skills-claude/skills/email-sequence",
+      "install_hint": "kitout install sickn33/antigravity-awesome-skills"
+    },
+    {
+      "name": "open-dynamic-workflows",
+      "description": "Plan, orchestrate, and adversarially verify parallel AI coding agents with a dynamic multi-agent workflow engine.",
+      "body_preview": "# Open Dynamic Workflows\n\n## Overview\n\nOpen Dynamic Workflows (ODW) is an open-source dynamic multi-agent workflow engine for AI coding agents such as OpenCode, Codex, Antigravity, and VS Code. It lets you plan a task, orchestrate multiple agents working in parallel, and adversarially verify their output before it lands. ODW ships a Codex/Antigravity skill folder (`SKILL.md` plus a daemon bridge) and an OpenCode plugin, and it is bring-your-own-model (Anthropic, OpenAI-compatible, or Ollama). Th",
+      "tags": [
+        "multi-agent",
+        "orchestration",
+        "workflow",
+        "adversarial-verification",
+        "coding-agents"
+      ],
+      "triggers": [
+        "plan",
+        "orchestrate",
+        "adversarially",
+        "verify",
+        "parallel",
+        "coding",
+        "agents",
+        "dynamic",
+        "multi-agent",
+        "workflow",
+        "engine"
+      ],
+      "domain": "ai-agents",
+      "harnesses": [
+        "claude-code"
+      ],
+      "risk": "critical",
+      "source_name": "community",
+      "date_added": "2026-06-06",
+      "source": {
+        "url": "https://github.com/sickn33/antigravity-awesome-skills",
+        "ref": "main",
+        "path": "plugins/antigravity-awesome-skills-claude/skills/open-dynamic-workflows"
+      },
+      "id": "antigravity-awesome-skills/plugins/antigravity-awesome-skills-claude/skills/open-dynamic-workflows",
       "install_hint": "kitout install sickn33/antigravity-awesome-skills"
     },
     {
@@ -56289,6 +56461,50 @@
       "install_hint": "kitout install sickn33/antigravity-awesome-skills"
     },
     {
+      "name": "polis-protocol",
+      "description": "Coordinate multi-vendor AI agents as a self-improving team \u2014 a learning router assigns work by track record and citizens can amend the protocol's own rules.",
+      "body_preview": "# Polis Protocol \u2014 a team of agents that develops\n\n## Overview\n\nMost agent coordination is a passive board: claim a task, do it, mark it done. It records, but it never gets smarter, and its rules are frozen. Polis Protocol is the active alternative \u2014 a folder of markdown where each agent is a \"citizen\" with a capability card, work is routed by a learning bandit to whoever has the best track record on the task's tags, settled work files lessons that update the routing, and citizens can propose an",
+      "tags": [
+        "multi-agent",
+        "coordination",
+        "routing",
+        "orchestration",
+        "governance",
+        "vendor-agnostic"
+      ],
+      "triggers": [
+        "coordinate",
+        "multi-vendor",
+        "agents",
+        "self-improving",
+        "team",
+        "learning",
+        "router",
+        "assigns",
+        "work",
+        "track",
+        "record",
+        "citizens",
+        "amend",
+        "protocol",
+        "rules"
+      ],
+      "domain": "orchestration",
+      "harnesses": [
+        "claude-code"
+      ],
+      "risk": "critical",
+      "source_name": "community",
+      "date_added": "2026-06-02",
+      "source": {
+        "url": "https://github.com/sickn33/antigravity-awesome-skills",
+        "ref": "main",
+        "path": "skills/polis-protocol"
+      },
+      "id": "antigravity-awesome-skills/skills/polis-protocol",
+      "install_hint": "kitout install sickn33/antigravity-awesome-skills"
+    },
+    {
       "name": "ejentum-reasoning-harness",
       "description": "MCP server exposing four cognitive harness modes (reasoning, code, anti-deception, memory). Each call returns an engineered scaffold (failure pattern, procedure, suppression vectors, falsification test) the agent ingests before generating.",
       "body_preview": "# Ejentum Reasoning Harness\n\nThe Ejentum Reasoning Harness is a library of 679 cognitive operations engineered in natural language, organized across four harnesses (`reasoning`, `code`, `anti-deception`, `memory`) and exposed as MCP tools the agent can call when the task matches their trigger conditions. It targets four mechanism failures common in long agentic chains: attention decay (losing the original task), reasoning decay (compounding errors), sycophantic collapse (agreeing with the user's",
@@ -59450,6 +59666,45 @@
       "install_hint": "kitout install affaan-m/everything-claude-code"
     },
     {
+      "name": "orch-pipeline",
+      "description": "Shared orchestration engine for the orch-* skill family. Defines the gated Research-Plan-TDD-Review-Commit pipeline, the size classifier, the agent map, and the two human gates that the orch-* operation skills delegate to. Not usually invoked directly.",
+      "body_preview": "# Orchestrator Pipeline (shared engine)\n\nThe `orch-*` skills are thin wrappers. They do not re-implement any work \u2014 they\nclassify the request, choose which phases of *this* pipeline run, and delegate\neach phase to an existing ECC agent or command. This file is that pipeline.\n\n> Invoke an operation skill (`orch-add-feature`, `orch-fix-defect`, \u2026) rather\n> than this engine directly. This file is the reference they point at.\n\n## When to Use\n\n- Loaded indirectly whenever an `orch-*` operation skill ",
+      "tags": [],
+      "triggers": [
+        "shared",
+        "orchestration",
+        "engine",
+        "orch-",
+        "skill",
+        "family",
+        "defines",
+        "gated",
+        "research-plan-tdd-review-commit",
+        "pipeline",
+        "size",
+        "classifier",
+        "agent",
+        "map",
+        "two",
+        "human",
+        "gates",
+        "orch-",
+        "operation",
+        "skills"
+      ],
+      "domain": "devops",
+      "harnesses": [
+        "claude-code"
+      ],
+      "source": {
+        "url": "https://github.com/affaan-m/everything-claude-code",
+        "ref": "main",
+        "path": "skills/orch-pipeline"
+      },
+      "id": "everything-claude-code/skills/orch-pipeline",
+      "install_hint": "kitout install affaan-m/everything-claude-code"
+    },
+    {
       "name": "docker-patterns",
       "description": "Docker and Docker Compose patterns for local development, container security, networking, volume strategies, and multi-service orchestration.",
       "body_preview": "# Docker Patterns\n\nDocker and Docker Compose best practices for containerized development.\n\n## When to Activate\n\n- Setting up Docker Compose for local development\n- Designing multi-container architectures\n- Troubleshooting container networking or volume issues\n- Reviewing Dockerfiles for security and size\n- Migrating from local dev to containerized workflow\n\n## Docker Compose for Local Development\n\n### Standard Web App Stack\n\n```yaml\n# docker-compose.yml\nservices:\n  app:\n    build:\n      context",
@@ -59521,6 +59776,45 @@
         "path": "skills/motion-patterns"
       },
       "id": "everything-claude-code/skills/motion-patterns",
+      "install_hint": "kitout install affaan-m/everything-claude-code"
+    },
+    {
+      "name": "intent-driven-development",
+      "description": "Turn ambiguous or high-impact product and engineering changes into scoped, verifiable acceptance criteria before or alongside implementation. Use when a user asks to clarify a feature, define acceptance criteria, de-risk a security/data/migration/integration change, prepare implementation requirements for another agent, or make a complex request testable. Do not trigger for trivial edits, straightforward fixes, active debugging, code review, or implementation requests whose acceptance conditions are already clear unless the user explicitly invokes this skill.",
+      "body_preview": "# Intent-Driven Development\n\nProduce useful acceptance criteria without turning specification into ceremony. Inspect\navailable context first, expose genuine ambiguity, and choose verification methods that fit\nthe work and its risk.\n\n## When to Activate\n\n- User asks to clarify a feature, define acceptance criteria, or de-risk a change before implementation\n- Request touches security, authentication, persistent data, migrations, external APIs, or compliance\n- User wants to prepare a handoff artifa",
+      "tags": [],
+      "triggers": [
+        "turn",
+        "ambiguous",
+        "high-impact",
+        "product",
+        "engineering",
+        "changes",
+        "scoped",
+        "verifiable",
+        "acceptance",
+        "criteria",
+        "before",
+        "alongside",
+        "implementation",
+        "user",
+        "asks",
+        "clarify",
+        "feature",
+        "define",
+        "acceptance",
+        "criteria"
+      ],
+      "domain": "code-review",
+      "harnesses": [
+        "claude-code"
+      ],
+      "source": {
+        "url": "https://github.com/affaan-m/everything-claude-code",
+        "ref": "main",
+        "path": "skills/intent-driven-development"
+      },
+      "id": "everything-claude-code/skills/intent-driven-development",
       "install_hint": "kitout install affaan-m/everything-claude-code"
     },
     {
@@ -60392,6 +60686,45 @@
       "install_hint": "kitout install affaan-m/everything-claude-code"
     },
     {
+      "name": "codehealth-mcp",
+      "description": "Real-time structural Code Health via CodeScene MCP \u2014 review before edits, verify score deltas after changes, gate commits and PRs. Use when reviewing code quality, refactoring, checking if AI changes degraded a file, or before commit/PR.",
+      "body_preview": "# Code Health MCP (CodeScene)\n\nStructural maintainability feedback for AI-assisted coding. Complements style/lint skills (`coding-standards`, `plankton-code-quality`) with **design-level** health scores and regression gates.\n\n**Upstream:** [codescene-oss/codescene-mcp-server](https://github.com/codescene-oss/codescene-mcp-server)\n**Package:** `@codescene/codehealth-mcp` (stdio via npx)\n\n## Security and boundaries\n\n**Opt-in (ECC):** The `codescene` block in `mcp-configs/mcp-servers.json` is a tem",
+      "tags": [],
+      "triggers": [
+        "real-time",
+        "structural",
+        "code",
+        "health",
+        "via",
+        "codescene",
+        "mcp",
+        "review",
+        "before",
+        "edits",
+        "verify",
+        "score",
+        "deltas",
+        "after",
+        "changes",
+        "gate",
+        "commits",
+        "prs",
+        "reviewing",
+        "code"
+      ],
+      "domain": "ai-ml",
+      "harnesses": [
+        "claude-code"
+      ],
+      "source": {
+        "url": "https://github.com/affaan-m/everything-claude-code",
+        "ref": "main",
+        "path": "skills/codehealth-mcp"
+      },
+      "id": "everything-claude-code/skills/codehealth-mcp",
+      "install_hint": "kitout install affaan-m/everything-claude-code"
+    },
+    {
       "name": "videodb",
       "description": "See, Understand, Act on video and audio. See- ingest from local files, URLs, RTSP/live feeds, or live record desktop; return realtime context and playable stream links. Understand- extract frames, build visual/semantic/temporal indexes, and search moments with timestamps and auto-clips. Act- transcode and normalize (codec, fps, resolution, aspect ratio), perform timeline edits (subtitles, text/image overlays, branding, audio overlays, dubbing, translation), generate media assets (image, audio, video), and create real time alerts for events from live streams or desktop capture.",
       "body_preview": "# VideoDB Skill\n\n**Perception + memory + actions for video, live streams, and desktop sessions.**\n\n## When to use\n\n### Desktop Perception\n- Start/stop a **desktop session** capturing **screen, mic, and system audio**\n- Stream **live context** and store **episodic session memory**\n- Run **real-time alerts/triggers** on what's spoken and what's happening on screen\n- Produce **session summaries**, a searchable timeline, and **playable evidence links**\n\n### Video ingest + stream\n- Ingest a **file or",
@@ -60688,27 +61021,26 @@
     },
     {
       "name": "laravel-security",
-      "description": "Laravel security best practices for authn/authz, validation, CSRF, mass assignment, file uploads, secrets, rate limiting, and secure deployment.",
-      "body_preview": "# Laravel Security Best Practices\n\nComprehensive security guidance for Laravel applications to protect against common vulnerabilities.\n\n## When to Activate\n\n- Adding authentication or authorization\n- Handling user input and file uploads\n- Building new API endpoints\n- Managing secrets and environment settings\n- Hardening production deployments\n\n## How It Works\n\n- Middleware provides baseline protections (CSRF via `VerifyCsrfToken`, security headers via `SecurityHeaders`).\n- Guards and policies en",
+      "description": "Laravel security best practices \u2014 authentication, authorization, Eloquent safety, CSRF, XSS prevention, API security, and secure deployment configurations.",
+      "body_preview": "# Laravel Security Best Practices\n\nComprehensive security guidelines for Laravel applications to protect against common vulnerabilities.\n\n## When to Activate\n\n- Setting up Laravel authentication and authorization (Sanctum, Passport, Jetstream, Breeze)\n- Implementing user roles, permissions, and policies\n- Configuring production security settings and environment variables\n- Reviewing Laravel applications for security vulnerabilities\n- Deploying Laravel applications to production\n- Writing secure ",
       "tags": [],
       "triggers": [
         "laravel",
         "security",
         "best",
         "practices",
-        "authn",
-        "authz",
-        "validation",
+        "authentication",
+        "authorization",
+        "eloquent",
+        "safety",
         "csrf",
-        "mass",
-        "assignment",
-        "file",
-        "uploads",
-        "secrets",
-        "rate",
-        "limiting",
+        "xss",
+        "prevention",
+        "api",
+        "security",
         "secure",
-        "deployment"
+        "deployment",
+        "configurations"
       ],
       "domain": "security",
       "harnesses": [
@@ -61277,23 +61609,26 @@
     },
     {
       "name": "laravel-tdd",
-      "description": "Test-driven development for Laravel with PHPUnit and Pest, factories, database testing, fakes, and coverage targets.",
-      "body_preview": "# Laravel TDD Workflow\n\nTest-driven development for Laravel applications using PHPUnit and Pest with 80%+ coverage (unit + feature).\n\n## When to Use\n\n- New features or endpoints in Laravel\n- Bug fixes or refactors\n- Testing Eloquent models, policies, jobs, and notifications\n- Prefer Pest for new tests unless the project already standardizes on PHPUnit\n\n## How It Works\n\n### Red-Green-Refactor Cycle\n\n1) Write a failing test\n2) Implement the minimal change to pass\n3) Refactor while keeping tests gr",
+      "description": "Laravel testing strategies with PHPUnit, Pest, model factories, HTTP tests, Sanctum authentication testing, mocking, and coverage.",
+      "body_preview": "# Laravel Testing with TDD\n\nTest-driven development for Laravel applications using PHPUnit, Pest, Laravel factories, and testing helpers.\n\n## When to Activate\n\n- Writing new Laravel applications or features\n- Implementing API endpoints with Sanctum or Passport authentication\n- Testing Eloquent models, relationships, scopes, and accessors\n- Setting up testing infrastructure for Laravel projects\n- Writing feature tests for HTTP controllers and form requests\n- Mocking external services (queues, mai",
       "tags": [],
       "triggers": [
-        "test-driven",
-        "development",
         "laravel",
+        "testing",
+        "strategies",
         "phpunit",
         "pest",
+        "model",
         "factories",
-        "database",
+        "http",
+        "tests",
+        "sanctum",
+        "authentication",
         "testing",
-        "fakes",
-        "coverage",
-        "targets"
+        "mocking",
+        "coverage"
       ],
-      "domain": "testing",
+      "domain": "backend",
       "harnesses": [
         "claude-code"
       ],
@@ -61377,26 +61712,30 @@
     },
     {
       "name": "fastapi-patterns",
-      "description": "FastAPI patterns for async APIs, dependency injection, Pydantic request and response models, OpenAPI docs, tests, security, and production readiness.",
-      "body_preview": "# FastAPI Patterns\n\nProduction-oriented patterns for FastAPI services.\n\n## When to Use\n\n- Building or reviewing a FastAPI app.\n- Splitting routers, schemas, dependencies, and database access.\n- Writing async endpoints that call a database or external service.\n- Adding authentication, authorization, OpenAPI docs, tests, or deployment settings.\n- Checking a FastAPI PR for copy-pasteable examples and production risks.\n\n## How It Works\n\nTreat the FastAPI app as a thin HTTP layer over explicit depend",
+      "description": "FastAPI best practices covering project structure, Pydantic v2 schemas, dependency injection, async handlers, authentication, authorization, transactional service layers, and testing with httpx and pytest.",
+      "body_preview": "# FastAPI Patterns\n\nModern, production-grade FastAPI development: project layout, Pydantic v2 schemas, dependency injection, async patterns, auth, transactional service methods, and testing.\n\n## Project Structure\n\n```text\nmy_app/\n|-- app/\n|   |-- main.py               # App factory, lifespan, middleware\n|   |-- config.py             # Settings via pydantic-settings\n|   |-- dependencies.py       # Shared FastAPI dependencies\n|   |-- database.py           # SQLAlchemy engine + session\n|   |-- rout",
       "tags": [],
       "triggers": [
         "fastapi",
-        "patterns",
-        "async",
-        "apis",
+        "best",
+        "practices",
+        "covering",
+        "project",
+        "structure",
+        "pydantic",
+        "schemas",
         "dependency",
         "injection",
-        "pydantic",
-        "request",
-        "response",
-        "models",
-        "openapi",
-        "docs",
-        "tests",
-        "security",
-        "production",
-        "readiness"
+        "async",
+        "handlers",
+        "authentication",
+        "authorization",
+        "transactional",
+        "service",
+        "layers",
+        "testing",
+        "httpx",
+        "pytest"
       ],
       "domain": "backend",
       "harnesses": [
@@ -62451,6 +62790,45 @@
       "install_hint": "kitout install affaan-m/everything-claude-code"
     },
     {
+      "name": "orch-build-mvp",
+      "description": "Orchestrate bootstrapping a working MVP from a design or spec document \u2014 ingest the doc, plan thin vertical slices, scaffold the first end-to-end slice, then TDD-implement, review, and gated commit. Use to turn an SDD/PRD into a running starting point.",
+      "body_preview": "# orch-build-mvp\n\nActor \u00b7 action \u00b7 target: **orch \u00b7 build \u00b7 mvp**. Thin wrapper over the shared\nengine in [`orch-pipeline`](../orch-pipeline/SKILL.md).\n\n## When to Use\n\n- The user has a **design / spec document** (SDD, PRD, system_design) and wants a\n  working vertical slice bootstrapped from it.\n- Takes a doc path as its argument, e.g. `civicpulse/docs/SDD-v0.6.md`.\n\n## Operation settings\n\n- **Default size floor:** large \u2014 this is the full pipeline including Scaffold.\n- **Phase mask:** 0 (read ",
+      "tags": [],
+      "triggers": [
+        "orchestrate",
+        "bootstrapping",
+        "working",
+        "mvp",
+        "design",
+        "spec",
+        "document",
+        "ingest",
+        "doc",
+        "plan",
+        "thin",
+        "vertical",
+        "slices",
+        "scaffold",
+        "first",
+        "end-to-end",
+        "slice",
+        "tdd-implement",
+        "review",
+        "gated"
+      ],
+      "domain": "design",
+      "harnesses": [
+        "claude-code"
+      ],
+      "source": {
+        "url": "https://github.com/affaan-m/everything-claude-code",
+        "ref": "main",
+        "path": "skills/orch-build-mvp"
+      },
+      "id": "everything-claude-code/skills/orch-build-mvp",
+      "install_hint": "kitout install affaan-m/everything-claude-code"
+    },
+    {
       "name": "django-patterns",
       "description": "Django architecture patterns, REST API design with DRF, ORM best practices, caching, signals, middleware, and production-grade Django apps.",
       "body_preview": "# Django Development Patterns\n\nProduction-grade Django architecture patterns for scalable, maintainable applications.\n\n## When to Activate\n\n- Building Django web applications\n- Designing Django REST Framework APIs\n- Working with Django ORM and models\n- Setting up Django project structure\n- Implementing caching, signals, middleware\n\n## Project Structure\n\n### Recommended Layout\n\n```\nmyproject/\n\u251c\u2500\u2500 config/\n\u2502   \u251c\u2500\u2500 __init__.py\n\u2502   \u251c\u2500\u2500 settings/\n\u2502   \u2502   \u251c\u2500\u2500 __init__.py\n\u2502   \u2502   \u251c\u2500\u2500 base.py          # ",
@@ -62707,6 +63085,45 @@
       "install_hint": "kitout install affaan-m/everything-claude-code"
     },
     {
+      "name": "orch-refine-code",
+      "description": "Orchestrate a behavior-preserving refactor \u2014 confirm tests are green, restructure without changing behavior, keep tests green, review, and gated commit. Use when the structure should improve but behavior must not change.",
+      "body_preview": "# orch-refine-code\n\nActor \u00b7 action \u00b7 target: **orch \u00b7 refine \u00b7 code**. Thin wrapper over the shared\nengine in [`orch-pipeline`](../orch-pipeline/SKILL.md).\n\n## When to Use\n\n- Same behavior, **better structure**: extract modules, remove duplication, kill\n  dead code, reduce nesting, rename for clarity.\n- Distinguish from siblings: if behavior is meant to change at all, this is the\n  wrong skill (`orch-change-feature` / `orch-fix-defect`).\n\n## Operation settings\n\n- **Default size floor:** standard",
+      "tags": [],
+      "triggers": [
+        "orchestrate",
+        "behavior-preserving",
+        "refactor",
+        "confirm",
+        "tests",
+        "green",
+        "restructure",
+        "without",
+        "changing",
+        "behavior",
+        "keep",
+        "tests",
+        "green",
+        "review",
+        "gated",
+        "commit",
+        "structure",
+        "improve",
+        "behavior",
+        "must"
+      ],
+      "domain": "code-review",
+      "harnesses": [
+        "claude-code"
+      ],
+      "source": {
+        "url": "https://github.com/affaan-m/everything-claude-code",
+        "ref": "main",
+        "path": "skills/orch-refine-code"
+      },
+      "id": "everything-claude-code/skills/orch-refine-code",
+      "install_hint": "kitout install affaan-m/everything-claude-code"
+    },
+    {
       "name": "homelab-wireguard-vpn",
       "description": "WireGuard VPN server setup, peer configuration, key generation, split tunneling vs full tunnel routing, and remote access to a home network from mobile and laptop clients.",
       "body_preview": "# Homelab WireGuard VPN\n\nWireGuard is a fast, modern VPN protocol. It is the right choice for remote access to a\nhome network \u2014 simpler to configure than OpenVPN and faster than most alternatives.\n\nAll configuration examples show common setups. Review each command \u2014 especially the\niptables forwarding rules and key file permissions \u2014 before applying them to your\nsystem, and make changes in a maintenance window.\n\n## When to Use\n\n- Setting up WireGuard server on a Raspberry Pi, Linux host, pfSense,",
@@ -62884,6 +63301,45 @@
         "path": "skills/google-workspace-ops"
       },
       "id": "everything-claude-code/skills/google-workspace-ops",
+      "install_hint": "kitout install affaan-m/everything-claude-code"
+    },
+    {
+      "name": "inherit-legacy-style",
+      "description": "Legacy-project style inheritance skill. Use when the user types /inherit-legacy-style, or when onboarding an AI coding agent onto a hand-written legacy project and you need to prevent \"style drift\" (the model imposing its pretrained mainstream idioms onto the project). Language- and framework-agnostic \u2014 it aligns meta-architecture only, not syntax. Once run, it becomes a behavioral constraint on all subsequent coding tasks. Do NOT use for pure research or one-off questions unrelated to code-style alignment.",
+      "body_preview": "# Inherit Legacy Style\n\nPrevents AI code style drift in legacy projects by scanning the codebase for implicit conventions across 4 meta-architecture dimensions, resolving conflicts with the user one at a time, and crystallizing the consensus into an enforceable `.ai-style-rules.md`. Fully language- and framework-agnostic.\n\n## When to Activate\n\n- User types `/inherit-legacy-style`\n- User mentions onboarding AI onto a hand-written legacy project\n- User is worried about AI-generated code \"drifting\"",
+      "tags": [],
+      "triggers": [
+        "legacy-project",
+        "style",
+        "inheritance",
+        "skill",
+        "user",
+        "types",
+        "inherit-legacy-style",
+        "onboarding",
+        "coding",
+        "agent",
+        "onto",
+        "hand-written",
+        "legacy",
+        "project",
+        "need",
+        "prevent",
+        "style",
+        "drift",
+        "model",
+        "imposing"
+      ],
+      "domain": "code-review",
+      "harnesses": [
+        "claude-code"
+      ],
+      "source": {
+        "url": "https://github.com/affaan-m/everything-claude-code",
+        "ref": "main",
+        "path": "skills/inherit-legacy-style"
+      },
+      "id": "everything-claude-code/skills/inherit-legacy-style",
       "install_hint": "kitout install affaan-m/everything-claude-code"
     },
     {
@@ -63587,6 +64043,40 @@
       "install_hint": "kitout install affaan-m/everything-claude-code"
     },
     {
+      "name": "kubernetes-patterns",
+      "description": "Kubernetes workload patterns, resource management, RBAC, probes, autoscaling, ConfigMap/Secret handling, and kubectl debugging for production-grade deployments.",
+      "body_preview": "# Kubernetes Patterns\n\nProduction-grade Kubernetes patterns for deploying, managing, and debugging workloads reliably.\n\n## When to Activate\n\n- Writing Kubernetes manifests (Deployments, Services, Ingress, Jobs)\n- Configuring resource requests/limits, liveness/readiness probes\n- Setting up RBAC, namespaces, or ServiceAccounts\n- Managing configuration and secrets in K8s\n- Debugging CrashLoopBackOff, OOMKilled, pending pods, or image pull errors\n- Configuring HPA (Horizontal Pod Autoscaler) or PodD",
+      "tags": [],
+      "triggers": [
+        "kubernetes",
+        "workload",
+        "patterns",
+        "resource",
+        "management",
+        "rbac",
+        "probes",
+        "autoscaling",
+        "configmap",
+        "secret",
+        "handling",
+        "kubectl",
+        "debugging",
+        "production-grade",
+        "deployments"
+      ],
+      "domain": "devops",
+      "harnesses": [
+        "claude-code"
+      ],
+      "source": {
+        "url": "https://github.com/affaan-m/everything-claude-code",
+        "ref": "main",
+        "path": "skills/kubernetes-patterns"
+      },
+      "id": "everything-claude-code/skills/kubernetes-patterns",
+      "install_hint": "kitout install affaan-m/everything-claude-code"
+    },
+    {
       "name": "video-editing",
       "description": "AI-assisted video editing workflows for cutting, structuring, and augmenting real footage. Covers the full pipeline from raw capture through FFmpeg, Remotion, ElevenLabs, fal.ai, and final polish in Descript or CapCut. Use when the user wants to edit video, cut footage, create vlogs, or build video content.",
       "body_preview": "# Video Editing\n\nAI-assisted editing for real footage. Not generation from prompts. Editing existing video fast.\n\n## When to Activate\n\n- User wants to edit, cut, or structure video footage\n- Turning long recordings into short-form content\n- Building vlogs, tutorials, or demo videos from raw capture\n- Adding overlays, subtitles, music, or voiceover to existing video\n- Reframing video for different platforms (YouTube, TikTok, Instagram)\n- User says \"edit video\", \"cut this footage\", \"make a vlog\", ",
@@ -64078,6 +64568,45 @@
       "install_hint": "kitout install affaan-m/everything-claude-code"
     },
     {
+      "name": "orch-fix-defect",
+      "description": "Orchestrate fixing a bug \u2014 reproduce it as a failing regression test, fix to green, review, and gated commit \u2014 by delegating each phase to the matching ECC agent. Use when existing behavior is broken or wrong.",
+      "body_preview": "# orch-fix-defect\n\nActor \u00b7 action \u00b7 target: **orch \u00b7 fix \u00b7 defect**. Thin wrapper over the shared\nengine in [`orch-pipeline`](../orch-pipeline/SKILL.md).\n\n## When to Use\n\n- Something is **broken**: wrong output, an error, a crash, a regression.\n- Distinguish from siblings:\n  - behavior is correct but you want it different \u2192 `orch-change-feature`.\n  - the capability does not exist yet \u2192 `orch-add-feature`.\n\n## Operation settings\n\n- **Default size floor:** small (often trivial).\n- **Phase mask:** ",
+      "tags": [],
+      "triggers": [
+        "orchestrate",
+        "fixing",
+        "bug",
+        "reproduce",
+        "failing",
+        "regression",
+        "test",
+        "fix",
+        "green",
+        "review",
+        "gated",
+        "commit",
+        "delegating",
+        "phase",
+        "matching",
+        "ecc",
+        "agent",
+        "existing",
+        "behavior",
+        "broken"
+      ],
+      "domain": "debugging",
+      "harnesses": [
+        "claude-code"
+      ],
+      "source": {
+        "url": "https://github.com/affaan-m/everything-claude-code",
+        "ref": "main",
+        "path": "skills/orch-fix-defect"
+      },
+      "id": "everything-claude-code/skills/orch-fix-defect",
+      "install_hint": "kitout install affaan-m/everything-claude-code"
+    },
+    {
       "name": "ito-basket-compare",
       "description": "Compare It\u00f4 prediction-market baskets against a user's knowledge base, portfolio notes, financial context, watchlist, or research thesis. Use for read-only basket comparison and gap analysis without investment advice or live trading.",
       "body_preview": "# It\u00f4 Basket Compare\n\nUse this skill to compare a basket, theme, or market set against a user's\nknowledge base, portfolio notes, research memo, CRM context, or stated thesis.\n\nThis skill is read-only. It does not recommend trades. It helps a user inspect\nfit, exposure, assumptions, and missing context before they decide what to do.\n\n## Guardrails\n\n- Do not provide investment advice or tell the user to buy, sell, hold, hedge,\n  lever, or size a trade.\n- Do not execute, prepare, or submit orders.\n",
@@ -64295,7 +64824,7 @@
     {
       "name": "claude-devfleet",
       "description": "Orchestrate multi-agent coding tasks via Claude DevFleet \u2014 plan projects, dispatch parallel agents in isolated worktrees, monitor progress, and read structured reports.",
-      "body_preview": "# Claude DevFleet Multi-Agent Orchestration\n\n## When to Use\n\nUse this skill when you need to dispatch multiple Claude Code agents to work on coding tasks in parallel. Each agent runs in an isolated git worktree with full tooling.\n\nRequires a running Claude DevFleet instance connected via MCP:\n```bash\nclaude mcp add devfleet --transport http http://localhost:18801/mcp\n```\n\n## How It Works\n\n```\nUser \u2192 \"Build a REST API with auth and tests\"\n  \u2193\nplan_project(prompt) \u2192 project_id + mission DAG\n  \u2193\nSh",
+      "body_preview": "# Claude DevFleet Multi-Agent Orchestration\n\n## When to Use\n\nUse this skill when you need to dispatch multiple Claude Code agents to work on coding tasks in parallel. Each agent runs in an isolated git worktree with full tooling.\n\n## Setup\n\nThe DevFleet server is a separate project, not bundled with ECC. Install and\nrun it from its repository first: <https://github.com/LEC-AI/claude-devfleet>\n\nThen connect the running instance via MCP:\n```bash\nclaude mcp add devfleet --transport http http://loca",
       "tags": [],
       "triggers": [
         "orchestrate",
@@ -64402,6 +64931,45 @@
         "path": "skills/automation-audit-ops"
       },
       "id": "everything-claude-code/skills/automation-audit-ops",
+      "install_hint": "kitout install affaan-m/everything-claude-code"
+    },
+    {
+      "name": "orch-add-feature",
+      "description": "Orchestrate building a brand-new feature end to end \u2014 research, plan, TDD implementation, review, and gated commit \u2014 by delegating each phase to the matching ECC agent. Use when adding a capability that does not exist yet.",
+      "body_preview": "# orch-add-feature\n\nActor \u00b7 action \u00b7 target: **orch \u00b7 add \u00b7 feature**. Thin wrapper over the shared\nengine in [`orch-pipeline`](../orch-pipeline/SKILL.md).\n\n## When to Use\n\n- The user wants a capability that does **not exist yet** (\"add\", \"build\",\n  \"implement\", \"support \u2026\").\n- It is net-new behavior \u2014 not a correction (`orch-fix-defect`) and not an\n  alteration of existing behavior (`orch-change-feature`).\n\n## Operation settings\n\n- **Default size floor:** standard \u2014 run Research + Plan unless c",
+      "tags": [],
+      "triggers": [
+        "orchestrate",
+        "building",
+        "brand-new",
+        "feature",
+        "end",
+        "end",
+        "research",
+        "plan",
+        "tdd",
+        "implementation",
+        "review",
+        "gated",
+        "commit",
+        "delegating",
+        "phase",
+        "matching",
+        "ecc",
+        "agent",
+        "adding",
+        "capability"
+      ],
+      "domain": "frontend",
+      "harnesses": [
+        "claude-code"
+      ],
+      "source": {
+        "url": "https://github.com/affaan-m/everything-claude-code",
+        "ref": "main",
+        "path": "skills/orch-add-feature"
+      },
+      "id": "everything-claude-code/skills/orch-add-feature",
       "install_hint": "kitout install affaan-m/everything-claude-code"
     },
     {
@@ -65464,6 +66032,45 @@
         "path": "skills/git-workflow"
       },
       "id": "everything-claude-code/skills/git-workflow",
+      "install_hint": "kitout install affaan-m/everything-claude-code"
+    },
+    {
+      "name": "orch-change-feature",
+      "description": "Orchestrate altering an existing, working feature to new desired behavior \u2014 update its tests to the new spec, change the implementation to match, review, and gated commit. Use when behavior is not broken but should be different.",
+      "body_preview": "# orch-change-feature\n\nActor \u00b7 action \u00b7 target: **orch \u00b7 change \u00b7 feature**. Thin wrapper over the\nshared engine in [`orch-pipeline`](../orch-pipeline/SKILL.md).\n\n## When to Use\n\n- An existing feature **works**, but the desired behavior is different (\"change\",\n  \"adjust\", \"make it also \u2026\", \"instead of X do Y\").\n- Distinguish from siblings:\n  - **not** broken \u2192 not `orch-fix-defect` (no bug to reproduce).\n  - **not** new \u2192 not `orch-add-feature` (the capability already exists).\n\n## Operation sett",
+      "tags": [],
+      "triggers": [
+        "orchestrate",
+        "altering",
+        "existing",
+        "working",
+        "feature",
+        "new",
+        "desired",
+        "behavior",
+        "update",
+        "tests",
+        "new",
+        "spec",
+        "change",
+        "implementation",
+        "match",
+        "review",
+        "gated",
+        "commit",
+        "behavior",
+        "broken"
+      ],
+      "domain": "debugging",
+      "harnesses": [
+        "claude-code"
+      ],
+      "source": {
+        "url": "https://github.com/affaan-m/everything-claude-code",
+        "ref": "main",
+        "path": "skills/orch-change-feature"
+      },
+      "id": "everything-claude-code/skills/orch-change-feature",
       "install_hint": "kitout install affaan-m/everything-claude-code"
     },
     {

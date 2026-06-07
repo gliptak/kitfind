@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-06-06T22:59:33.248654+00:00",
+  "generated_at": "2026-06-07T15:02:45.356759+00:00",
   "sources": [
     {
       "url": "https://github.com/obra/superpowers",
@@ -10,7 +10,7 @@
     {
       "url": "https://github.com/sickn33/antigravity-awesome-skills",
       "ref": "main",
-      "commit": "9d486d0899e0c4474939861469ac43339f128344"
+      "commit": "d89c349f775bff02124a1bbd345450115c1c8705"
     },
     {
       "url": "https://github.com/mattpocock/skills",
@@ -20,7 +20,7 @@
     {
       "url": "https://github.com/affaan-m/everything-claude-code",
       "ref": "main",
-      "commit": "7113b5bf63694b716f8b2413c5919824a82fc095"
+      "commit": "90dfd9505dc860714cf3cc8216ad7bbb96d93365"
     },
     {
       "url": "https://github.com/le-diegz/claude-skills-registry",

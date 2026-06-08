@@ -154,7 +154,7 @@ def load_config() -> list[dict]:
         sys.exit(1)
     with open(TOML_PATH, "rb") as f:
         data = tomli.load(f)
-    return data.get("repos", [])
+    return data.get("repo", [])
 
 
 # ── Domain classification (keyword-based) ─────────────────────────

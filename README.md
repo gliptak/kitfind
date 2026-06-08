@@ -4,7 +4,7 @@
 [![Deploy](https://github.com/gliptak/kitfind/actions/workflows/deploy.yml/badge.svg)](https://github.com/gliptak/kitfind/actions/workflows/deploy.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python >=3.11](https://img.shields.io/badge/Python-%3E%3D3.11-blue.svg)](pyproject.toml)
-[![Last commit](https://img.shields.io/github/last-commit/gliptak/kitfind)](https://github.com/gliptak/kitfind)
+[![Last commit](https://img.shields.io/github/last-commit/gliptak/kitfind/main)](https://github.com/gliptak/kitfind)
 
 A searchable index of AI coding agent skills, deployed as a GitHub Pages static site.
 
@@ -38,7 +38,7 @@ See [`kitfind.toml`](kitfind.toml) — the curated list of repos is the single s
 Edit `kitfind.toml` and add an entry:
 
 ```toml
-[[repos]]
+[[repo]]
 url = "https://github.com/owner/repo"
 ref = "main"
 description = "Brief description"

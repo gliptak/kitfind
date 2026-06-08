@@ -6,87 +6,87 @@
 
 version = 1
 
-[[repos]]
+[[repo]]
 url = "https://github.com/obra/superpowers"
 ref = "main"
 description = "Agentic skills framework & software development methodology"
 
-[[repos]]
+[[repo]]
 url = "https://github.com/sickn33/antigravity-awesome-skills"
 ref = "main"
 description = "1,400+ agentic skills for Claude Code, Cursor, Codex, Gemini CLI, and more"
 
-[[repos]]
+[[repo]]
 url = "https://github.com/mattpocock/skills"
 ref = "main"
 description = "Skills for real engineers — TDD, design, debugging, productivity"
 
-[[repos]]
+[[repo]]
 url = "https://github.com/affaan-m/everything-claude-code"
 ref = "main"
 description = "ECC Tools — agent harness performance optimization system"
 
-[[repos]]
+[[repo]]
 url = "https://github.com/le-diegz/claude-skills-registry"
 ref = "main"
 description = "Open-source registry of reusable Claude skills"
 
-[[repos]]
+[[repo]]
 url = "https://github.com/alirezarezvani/claude-skills"
 ref = "main"
 description = "Curated collection of Claude Code skills"
 
-[[repos]]
+[[repo]]
 url = "https://github.com/K-Dense-AI/scientific-agent-skills"
 ref = "main"
 description = "AI scientist skills — biology, chemistry, medicine, and drug discovery"
 
-[[repos]]
+[[repo]]
 url = "https://github.com/addyosmani/agent-skills"
 ref = "main"
 description = "Production-grade engineering skills for AI coding agents"
 
-[[repos]]
+[[repo]]
 url = "https://github.com/ComposioHQ/awesome-claude-skills"
 ref = "master"
 description = "Curated list of Claude skills and tools for workflow automation"
 
-[[repos]]
+[[repo]]
 url = "https://github.com/coreyhaines31/marketingskills"
 ref = "main"
 description = "Marketing skills — CRO, copywriting, SEO, analytics, and growth engineering"
 
-[[repos]]
+[[repo]]
 url = "https://github.com/anthropics/skills"
 ref = "main"
 description = "Anthropic's official public Agent Skills repository"
 
-[[repos]]
+[[repo]]
 url = "https://github.com/kepano/obsidian-skills"
 ref = "main"
 description = "Skills for Obsidian — Markdown, Bases, JSON Canvas, and CLI tools"
 
-[[repos]]
+[[repo]]
 url = "https://github.com/Imbad0202/academic-research-skills"
 ref = "main"
 description = "Academic research pipeline: research → write → review → revise → finalize"
 
-[[repos]]
+[[repo]]
 url = "https://github.com/vercel-labs/agent-skills"
 ref = "main"
 description = "Vercel's official collection of agent skills"
 
-[[repos]]
+[[repo]]
 url = "https://github.com/zarazhangrui/frontend-slides"
 ref = "main"
 description = "Create beautiful slides using a coding agent's frontend skills"
 
-[[repos]]
+[[repo]]
 url = "https://github.com/Orchestra-Research/AI-Research-SKILLs"
 ref = "main"
 description = "Comprehensive AI research and engineering skills library"
 
-[[repos]]
+[[repo]]
 url = "https://github.com/trailofbits/skills"
 ref = "main"
 description = "Security research, vulnerability detection, and audit workflow skills"

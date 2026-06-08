@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-06-07T17:35:03.953109+00:00",
+  "generated_at": "2026-06-08T14:59:40.197260+00:00",
   "sources": [
     {
       "url": "https://github.com/obra/superpowers",
@@ -10,12 +10,12 @@
     {
       "url": "https://github.com/sickn33/antigravity-awesome-skills",
       "ref": "main",
-      "commit": "d89c349f775bff02124a1bbd345450115c1c8705"
+      "commit": "afc403de16917b418c301b690970047b2109542f"
     },
     {
       "url": "https://github.com/mattpocock/skills",
       "ref": "main",
-      "commit": "be55a7970319ede7965edbb02b5e41cba1ca82c9"
+      "commit": "2bf70051928429983de3b5718d277150926f8c89"
     },
     {
       "url": "https://github.com/affaan-m/everything-claude-code",
@@ -35,12 +35,12 @@
     {
       "url": "https://github.com/K-Dense-AI/scientific-agent-skills",
       "ref": "main",
-      "commit": "b2a969eb56d92c454e682138cd93587d77b64b11"
+      "commit": "9881fe4690a3dfae92e081634068cb417880d924"
     },
     {
       "url": "https://github.com/addyosmani/agent-skills",
       "ref": "main",
-      "commit": "2e0dfbfb436ef3307bbe8ba172f14996de980784"
+      "commit": "c076972e2626fe2acc30b00a6c7240d4c5fb786a"
     },
     {
       "url": "https://github.com/ComposioHQ/awesome-claude-skills",
@@ -55,17 +55,17 @@
     {
       "url": "https://github.com/anthropics/skills",
       "ref": "main",
-      "commit": "da20c92503b2e8ff1cf28ca81a0df4673debdbf7"
+      "commit": "c30d329f5814647c1e2f071020c1e8c1c9893ef1"
     },
     {
       "url": "https://github.com/kepano/obsidian-skills",
       "ref": "main",
-      "commit": "c4728b3e751e089592812becea7ffc5bec0dbcd6"
+      "commit": "084643c6e1dcef9034ceb8e87709e8f7f80c6a84"
     },
     {
       "url": "https://github.com/Imbad0202/academic-research-skills",
       "ref": "main",
-      "commit": "1be5cbbe1368232698bfb19f07901c25ab98b7e7"
+      "commit": "7c128a4a0f09b1201434a515db5002e116f5297f"
     },
     {
       "url": "https://github.com/vercel-labs/agent-skills",

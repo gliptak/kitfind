@@ -90,3 +90,8 @@ description = "Comprehensive AI research and engineering skills library"
 url = "https://github.com/trailofbits/skills"
 ref = "main"
 description = "Security research, vulnerability detection, and audit workflow skills"
+
+[[repo]]
+url = "https://github.com/Xquik-dev/x-twitter-scraper"
+ref = "master"
+description = "Xquik skill for X/Twitter data, monitoring, MCP, and API workflows"

@@ -90,3 +90,8 @@ description = "Comprehensive AI research and engineering skills library"
 url = "https://github.com/trailofbits/skills"
 ref = "main"
 description = "Security research, vulnerability detection, and audit workflow skills"
+
+[[repo]]
+url = "https://github.com/EveryInc/compound-engineering-plugin"
+ref = "main"
+description = "Compound engineering skills plugin"

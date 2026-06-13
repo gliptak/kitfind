@@ -92,6 +92,11 @@ ref = "main"
 description = "Security research, vulnerability detection, and audit workflow skills"
 
 [[repo]]
+url = "https://github.com/EveryInc/compound-engineering-plugin"
+ref = "main"
+description = "Compound engineering skills plugin"
+
+[[repo]]
 url = "https://github.com/Xquik-dev/x-twitter-scraper"
 ref = "master"
 description = "Xquik skill for X/Twitter data, monitoring, MCP, and API workflows"

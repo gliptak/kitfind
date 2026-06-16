@@ -22,7 +22,7 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v6
-      - uses: astral-sh/setup-uv@v8
+      - uses: astral-sh/setup-uv@v8.2.0
       - name: Build and validate
         run: uv sync --all-extras && uv run tools/build.py && uv run python tools/validate.py --all
       - name: Type check

@@ -9,8 +9,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
 
 concurrency:
   group: preview-${{ github.ref }}
@@ -19,6 +18,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v5
@@ -30,6 +31,18 @@ jobs:
         run: node --test tools/tests/search.test.mjs
       - name: Template JS syntax
         run: uv run python tools/validate.py --html
+
+  preview:
+    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - name: Build site
+        run: uv sync --all-extras && uv run tools/build.py
       - name: Deploy preview
         uses: rossjrw/pr-preview-action@v1
         with:

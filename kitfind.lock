@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated_at": "2026-06-16T21:38:14.739790+00:00",
+  "generated_at": "2026-06-17T00:51:22.226448+00:00",
   "sources": [
     {
       "url": "https://github.com/obra/superpowers",
       "ref": "main",
-      "commit": "284be5905ed540d34ce5bcde24728b9b7f413ea0"
+      "commit": "a21956e48c1324737257c0d9562e5397d1fbed6c"
     },
     {
       "url": "https://github.com/sickn33/antigravity-awesome-skills",
@@ -65,7 +65,7 @@
     {
       "url": "https://github.com/Imbad0202/academic-research-skills",
       "ref": "main",
-      "commit": "d54d43a00132d328cde5ee587c4830fd6e7ed134"
+      "commit": "88fc003e6abf5fe9fe86dc8200f8d4aa8d511956"
     },
     {
       "url": "https://github.com/vercel-labs/agent-skills",

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-06-20T17:08:28.064427+00:00",
+  "generated_at": "2026-06-20T19:53:49.961900+00:00",
   "sources": [
     {
       "url": "https://github.com/obra/superpowers",
@@ -20,7 +20,7 @@
     {
       "url": "https://github.com/affaan-m/everything-claude-code",
       "ref": "main",
-      "commit": "34faa39bd3cd496a0aece0245f2b7e38b7923abc"
+      "commit": "7df803935ac8f63adfd158d99e7adf548fa80103"
     },
     {
       "url": "https://github.com/le-diegz/claude-skills-registry",

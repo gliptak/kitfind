@@ -1,26 +1,26 @@
 {
   "version": 1,
-  "generated_at": "2026-06-17T00:51:22.226448+00:00",
+  "generated_at": "2026-06-20T17:08:28.064427+00:00",
   "sources": [
     {
       "url": "https://github.com/obra/superpowers",
       "ref": "main",
-      "commit": "a21956e48c1324737257c0d9562e5397d1fbed6c"
+      "commit": "896224c4b1879920ab573417e68fd51d2ccc9072"
     },
     {
       "url": "https://github.com/sickn33/antigravity-awesome-skills",
       "ref": "main",
-      "commit": "be20b372ace937526b142057aa4ac18b562af853"
+      "commit": "ebb61f1ae394b869264596aa217cc2ad9e57d06d"
     },
     {
       "url": "https://github.com/mattpocock/skills",
       "ref": "main",
-      "commit": "694fa30311e02c2639942308513555e61ee84a6f"
+      "commit": "6eeb81b5fcfeeb5bd531dd47ab2f9f2bbea27461"
     },
     {
       "url": "https://github.com/affaan-m/everything-claude-code",
       "ref": "main",
-      "commit": "ec92b528471df708c2384ebbcc82b390b60f535a"
+      "commit": "34faa39bd3cd496a0aece0245f2b7e38b7923abc"
     },
     {
       "url": "https://github.com/le-diegz/claude-skills-registry",
@@ -40,7 +40,7 @@
     {
       "url": "https://github.com/addyosmani/agent-skills",
       "ref": "main",
-      "commit": "a5f0b176381e9fea24a61aefc243506686aa2435"
+      "commit": "13e43f2310224d5770a7fb0a8c24c02b73da69e9"
     },
     {
       "url": "https://github.com/ComposioHQ/awesome-claude-skills",
@@ -50,7 +50,7 @@
     {
       "url": "https://github.com/coreyhaines31/marketingskills",
       "ref": "main",
-      "commit": "3bea48edea99dc3ff4fdbdf0ad5768c8965f1401"
+      "commit": "8bfcdffb655f16e713940cd04fb08891899c47db"
     },
     {
       "url": "https://github.com/anthropics/skills",
@@ -65,7 +65,7 @@
     {
       "url": "https://github.com/Imbad0202/academic-research-skills",
       "ref": "main",
-      "commit": "88fc003e6abf5fe9fe86dc8200f8d4aa8d511956"
+      "commit": "c22c17eed8a5753aa60681be9734919f2e2f5b42"
     },
     {
       "url": "https://github.com/vercel-labs/agent-skills",
@@ -90,7 +90,12 @@
     {
       "url": "https://github.com/EveryInc/compound-engineering-plugin",
       "ref": "main",
-      "commit": "d8d688b30d97eb5efc3142cec16dd8314ac48e47"
+      "commit": "c759a26041559360e7b10148dd407406e716fc3b"
+    },
+    {
+      "url": "https://github.com/Xquik-dev/x-twitter-scraper",
+      "ref": "master",
+      "commit": "139e9ae696d0a9e0490a5b8b9f12e8f3f92934f8"
     }
   ]
 }

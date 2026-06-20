@@ -228,7 +228,8 @@ def spotcheck_embeddings(model_dir: Path, embed_path: Path, skills_path: Path) -
 
     try:
         session = onnxruntime.InferenceSession(
-            str(model_dir / "onnx/model_quantized.onnx")
+            str(model_dir / "onnx/model_quantized.onnx"),
+            providers=["CPUExecutionProvider"],
         )
         tokenizer = Tokenizer.from_file(str(model_dir / "tokenizer.json"))
     except Exception as e:

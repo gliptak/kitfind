@@ -546,7 +546,7 @@ def compute_embeddings(skills: list[dict], model_path: Path) -> "np.ndarray":
     tok_dir = model_path.parent.parent  # model/onnx/model_quantized.onnx -> model/
     tokenizer = Tokenizer.from_file(str(tok_dir / "tokenizer.json"))
 
-    session = onnxruntime.InferenceSession(str(model_path))
+    session = onnxruntime.InferenceSession(str(model_path), providers=["CPUExecutionProvider"])
     input_name = session.get_inputs()[0].name
     mask_name = session.get_inputs()[1].name
 

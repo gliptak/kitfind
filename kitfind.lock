@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-06-20T19:53:49.961900+00:00",
+  "generated_at": "2026-06-20T22:54:32.296226+00:00",
   "sources": [
     {
       "url": "https://github.com/obra/superpowers",
@@ -20,7 +20,7 @@
     {
       "url": "https://github.com/affaan-m/everything-claude-code",
       "ref": "main",
-      "commit": "7df803935ac8f63adfd158d99e7adf548fa80103"
+      "commit": "bd1be0c1ce38ed3dda065c3a21574b58445c54f9"
     },
     {
       "url": "https://github.com/le-diegz/claude-skills-registry",
@@ -40,7 +40,7 @@
     {
       "url": "https://github.com/addyosmani/agent-skills",
       "ref": "main",
-      "commit": "13e43f2310224d5770a7fb0a8c24c02b73da69e9"
+      "commit": "0300ca444c8c362b7b88bb0971949fe1327aab90"
     },
     {
       "url": "https://github.com/ComposioHQ/awesome-claude-skills",

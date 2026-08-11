@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-08-08T23:29:06.445293+00:00",
+  "generated_at": "2026-08-11T19:11:20.670127+00:00",
   "sources": [
     {
       "url": "https://github.com/obra/superpowers",
@@ -10,7 +10,7 @@
     {
       "url": "https://github.com/sickn33/antigravity-awesome-skills",
       "ref": "main",
-      "commit": "75c558b7ea89a023877b96eac74ced7aa1ee93f6"
+      "commit": "9e4b5fa51fef6323170a81d66ec5cbb9c951192e"
     },
     {
       "url": "https://github.com/mattpocock/skills",
@@ -20,7 +20,7 @@
     {
       "url": "https://github.com/affaan-m/everything-claude-code",
       "ref": "main",
-      "commit": "51a6950bde756fe3ebc8879aa0c8ee49b9c53e78"
+      "commit": "a15c8e853309818e96fe495d373a7aea47b1298d"
     },
     {
       "url": "https://github.com/le-diegz/claude-skills-registry",
@@ -35,7 +35,7 @@
     {
       "url": "https://github.com/K-Dense-AI/scientific-agent-skills",
       "ref": "main",
-      "commit": "9b1d761c67c310e6538f1d5d88759b2bcfc65ce2"
+      "commit": "f2f77ff889e0454e2bbdf0729f811ba7da3d40ff"
     },
     {
       "url": "https://github.com/addyosmani/agent-skills",
@@ -65,7 +65,7 @@
     {
       "url": "https://github.com/Imbad0202/academic-research-skills",
       "ref": "main",
-      "commit": "74540f8e9f12231d8a1a623a6979596a76c6c79b"
+      "commit": "bc1478d8747b8fa2665aef5c8260f19999ce59cb"
     },
     {
       "url": "https://github.com/vercel-labs/agent-skills",
@@ -85,17 +85,17 @@
     {
       "url": "https://github.com/trailofbits/skills",
       "ref": "main",
-      "commit": "7b9bd5f950f89a9ba71b249b9801c1a95be3928e"
+      "commit": "304c81a8cefb6e3c029ebd0d12940ccf0713eccb"
     },
     {
       "url": "https://github.com/EveryInc/compound-engineering-plugin",
       "ref": "main",
-      "commit": "0a2957852e2034d04eb01120fd7da6ed5307dc56"
+      "commit": "d344f7f6a7ead38b30b3bd261a67ca633e4faece"
     },
     {
       "url": "https://github.com/Xquik-dev/x-twitter-scraper",
       "ref": "master",
-      "commit": "922f6caff8a3e16e0cea129877dfcca865ee4de2"
+      "commit": "6351e9fc9c0d74d0b74d9206bf9a7647498b854a"
     }
   ]
 }

@@ -1,26 +1,26 @@
 {
   "version": 1,
-  "generated_at": "2026-08-11T19:11:20.670127+00:00",
+  "generated_at": "2026-08-13T17:22:14.299874+00:00",
   "sources": [
     {
       "url": "https://github.com/obra/superpowers",
       "ref": "main",
-      "commit": "44c9b2d6e889982ac18c27d05a19fefe335194e1"
+      "commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797"
     },
     {
       "url": "https://github.com/sickn33/antigravity-awesome-skills",
       "ref": "main",
-      "commit": "9e4b5fa51fef6323170a81d66ec5cbb9c951192e"
+      "commit": "1dd6daec9f43c59b5c2082c36abc59c9418b41c6"
     },
     {
       "url": "https://github.com/mattpocock/skills",
       "ref": "main",
-      "commit": "84fdeffd12f2ee307994d1eb6feb48173b6e0502"
+      "commit": "8b78b531ab965735c5dc74f6f7a219e1e37326df"
     },
     {
       "url": "https://github.com/affaan-m/everything-claude-code",
       "ref": "main",
-      "commit": "a15c8e853309818e96fe495d373a7aea47b1298d"
+      "commit": "eb4970265169fec82371c92f615e2e133d875e27"
     },
     {
       "url": "https://github.com/le-diegz/claude-skills-registry",
@@ -35,12 +35,12 @@
     {
       "url": "https://github.com/K-Dense-AI/scientific-agent-skills",
       "ref": "main",
-      "commit": "f2f77ff889e0454e2bbdf0729f811ba7da3d40ff"
+      "commit": "5ad4aae76bc40257b914367afacc6fd686a282d5"
     },
     {
       "url": "https://github.com/addyosmani/agent-skills",
       "ref": "main",
-      "commit": "7676817c12a1317454ae3898a0c5c1eacf5dd3d5"
+      "commit": "be42637c5af93fdc8526b68ec2f2651b930f316c"
     },
     {
       "url": "https://github.com/ComposioHQ/awesome-claude-skills",
@@ -65,12 +65,12 @@
     {
       "url": "https://github.com/Imbad0202/academic-research-skills",
       "ref": "main",
-      "commit": "bc1478d8747b8fa2665aef5c8260f19999ce59cb"
+      "commit": "9965e0317c50c87df09baff43bba17476665683b"
     },
     {
       "url": "https://github.com/vercel-labs/agent-skills",
       "ref": "main",
-      "commit": "7c180d9044c9ae2b442b567aad4e42a28dd5ed62"
+      "commit": "b8caa260a420a73042e35521de4b5c8baf6446cc"
     },
     {
       "url": "https://github.com/zarazhangrui/frontend-slides",
@@ -90,12 +90,12 @@
     {
       "url": "https://github.com/EveryInc/compound-engineering-plugin",
       "ref": "main",
-      "commit": "d344f7f6a7ead38b30b3bd261a67ca633e4faece"
+      "commit": "77c38caeb30f6e5b1c4f643f531332a88d01681d"
     },
     {
       "url": "https://github.com/Xquik-dev/x-twitter-scraper",
       "ref": "master",
-      "commit": "6351e9fc9c0d74d0b74d9206bf9a7647498b854a"
+      "commit": "cec8d63a5501d2fcc7192628a67e09ac1311a788"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-08-17T20:47:45.283766+00:00",
+  "generated_at": "2026-08-19T15:45:42.215207+00:00",
   "sources": [
     {
       "url": "https://github.com/obra/superpowers",
@@ -10,12 +10,12 @@
     {
       "url": "https://github.com/sickn33/antigravity-awesome-skills",
       "ref": "main",
-      "commit": "1f67c44dc9aeaad2baa5130460a1f850d357a9ff"
+      "commit": "746ad69f2524d2cc4ef1bd00eb73614592eee489"
     },
     {
       "url": "https://github.com/mattpocock/skills",
       "ref": "main",
-      "commit": "9c9f36ccd3995266cd675468af71639c8dde1ec5"
+      "commit": "885e2ca4d842d139e9aef4e48d366c63cb1b8013"
     },
     {
       "url": "https://github.com/affaan-m/everything-claude-code",
@@ -35,7 +35,7 @@
     {
       "url": "https://github.com/K-Dense-AI/scientific-agent-skills",
       "ref": "main",
-      "commit": "4934681cd273d1d41bffe40d3bed0e769dce6ab6"
+      "commit": "48dc1cf173f01aea114a62d634066f6b272aaaf1"
     },
     {
       "url": "https://github.com/addyosmani/agent-skills",
@@ -55,7 +55,7 @@
     {
       "url": "https://github.com/anthropics/skills",
       "ref": "main",
-      "commit": "f379e5ad66e2febc1616cf8d6284666fecbe514e"
+      "commit": "0a64e398ec6bb34a494f0c347e8ccae53a862f8e"
     },
     {
       "url": "https://github.com/kepano/obsidian-skills",
@@ -65,7 +65,7 @@
     {
       "url": "https://github.com/Imbad0202/academic-research-skills",
       "ref": "main",
-      "commit": "cdd48d916de759c71c97ec3d0eb1bd4ece51cec1"
+      "commit": "5714f3a3eb837a66514d2d3e6cf460df95b72a7f"
     },
     {
       "url": "https://github.com/vercel-labs/agent-skills",
@@ -85,17 +85,22 @@
     {
       "url": "https://github.com/trailofbits/skills",
       "ref": "main",
-      "commit": "04b241176fd9c10738a61df53d2c677c53e42990"
+      "commit": "07bce8a2c8ccc56c5b44b7067a04b8bf46128f05"
     },
     {
       "url": "https://github.com/EveryInc/compound-engineering-plugin",
       "ref": "main",
-      "commit": "dec2598e71ec5639f3f52daf579b2e162d4b1f76"
+      "commit": "67cc7dc7a11ab3724ca8e0723fcf18ee08e605de"
     },
     {
       "url": "https://github.com/Xquik-dev/x-twitter-scraper",
       "ref": "master",
-      "commit": "cec8d63a5501d2fcc7192628a67e09ac1311a788"
+      "commit": "6952397c16f34618f8e95687fe2a12e504f52f5d"
+    },
+    {
+      "url": "https://github.com/cursor/plugins",
+      "ref": "main",
+      "commit": "60c641e4fad674784b30abcf9f8915dea39df38d"
     }
   ]
 }

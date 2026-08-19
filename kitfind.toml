@@ -100,3 +100,8 @@ description = "Compound engineering skills plugin"
 url = "https://github.com/Xquik-dev/x-twitter-scraper"
 ref = "master"
 description = "Xquik skill for X/Twitter data, monitoring, MCP, and API workflows"
+
+[[repo]]
+url = "https://github.com/cursor/plugins"
+ref = "main"
+description = "Cursor's official skills and plugins repository"

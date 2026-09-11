@@ -109,6 +109,15 @@ def extract_keywords(text: str, max_len: int = 40) -> list[str]:
     return [w.lower() for w in words if len(w) <= max_len and w.lower() not in _SW][:20]
 
 
+def _normalize_string_list(value: object) -> list[str]:
+    """Normalize string-list metadata, coercing non-string scalars safely."""
+    if isinstance(value, str):
+        value = [item.strip() for item in value.replace("[", "").replace("]", "").split(",")]
+    if not isinstance(value, list):
+        return []
+    return [str(item).strip() for item in value if str(item).strip()]
+
+
 def git_clone(url: str, ref: str, target: Path) -> str | None:
     """Shallow-clone a repo at a ref. Returns commit SHA or None."""
     if target.exists():
@@ -334,19 +343,11 @@ def discover_skills(repo_dir: Path) -> list[dict]:
                 pass
 
         # Extract tags/triggers
-        raw_tags = meta.get("tags")
-        if raw_tags and isinstance(raw_tags, str):
-            raw_tags = [t.strip() for t in raw_tags.replace("[", "").replace("]", "").split(",") if t.strip()]
-        skill["tags"] = raw_tags if isinstance(raw_tags, list) else []
+        skill["tags"] = _normalize_string_list(meta.get("tags"))
         if "trigger" in meta:
-            raw = meta["trigger"]
-            skill["triggers"] = [raw] if isinstance(raw, str) else raw
+            skill["triggers"] = _normalize_string_list(meta["trigger"])
         elif "triggers" in meta:
-            raw = meta["triggers"]
-            if isinstance(raw, str):
-                skill["triggers"] = [t.strip() for t in raw.replace("[", "").replace("]", "").split(",") if t.strip()]
-            else:
-                skill["triggers"] = raw if isinstance(raw, list) else []
+            skill["triggers"] = _normalize_string_list(meta["triggers"])
         else:
             # Derive triggers from description keywords
             skill["triggers"] = extract_keywords(meta.get("description", ""))
@@ -361,8 +362,8 @@ def discover_skills(repo_dir: Path) -> list[dict]:
 
         # Harness compatibility
         skill["harnesses"] = (
-            meta.get("harnesses")
-            or meta.get("model_compatibility")
+            _normalize_string_list(meta.get("harnesses"))
+            or _normalize_string_list(meta.get("model_compatibility"))
             or ["claude-code"]
         )
 

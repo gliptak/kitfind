@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-10-16T19:32:00.543606+00:00",
+  "generated_at": "2026-10-17T00:51:32.027241+00:00",
   "catalog": {
     "sources": [
       {
@@ -8,7 +8,7 @@
         "ref": "main",
         "description": "Agentic skills framework & software development methodology",
         "commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
-        "fetched_at": "2026-10-16T19:30:13.047560+00:00",
+        "fetched_at": "2026-10-17T00:48:48.252122+00:00",
         "skill_count": 15
       },
       {
@@ -16,7 +16,7 @@
         "ref": "main",
         "description": "1,400+ agentic skills for Claude Code, Cursor, Codex, Gemini CLI, and more",
         "commit": "c564f9f4aee8a143c48218805b65f0f6956c6264",
-        "fetched_at": "2026-10-16T19:30:24.609595+00:00",
+        "fetched_at": "2026-10-17T00:49:02.787090+00:00",
         "skill_count": 8339
       },
       {
@@ -24,7 +24,7 @@
         "ref": "main",
         "description": "Skills for real engineers \u2014 TDD, design, debugging, productivity",
         "commit": "49dd158d1076134a641b33efb035946536778336",
-        "fetched_at": "2026-10-16T19:30:25.912355+00:00",
+        "fetched_at": "2026-10-17T00:49:04.112391+00:00",
         "skill_count": 38
       },
       {
@@ -32,7 +32,7 @@
         "ref": "main",
         "description": "ECC Tools \u2014 agent harness performance optimization system",
         "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
-        "fetched_at": "2026-10-16T19:30:27.951092+00:00",
+        "fetched_at": "2026-10-17T00:49:06.451700+00:00",
         "skill_count": 961
       },
       {
@@ -40,7 +40,7 @@
         "ref": "main",
         "description": "Open-source registry of reusable Claude skills",
         "commit": "02370623a724900f1680baff4c6cdfed2d55fa89",
-        "fetched_at": "2026-10-16T19:30:28.522274+00:00",
+        "fetched_at": "2026-10-17T00:49:06.826826+00:00",
         "skill_count": 5
       },
       {
@@ -48,7 +48,7 @@
         "ref": "main",
         "description": "Curated collection of Claude Code skills",
         "commit": "19392f7a08264ed00486a251f5b2098321771f94",
-        "fetched_at": "2026-10-16T19:30:30.913780+00:00",
+        "fetched_at": "2026-10-17T00:49:09.058122+00:00",
         "skill_count": 388
       },
       {
@@ -56,7 +56,7 @@
         "ref": "main",
         "description": "AI scientist skills \u2014 biology, chemistry, medicine, and drug discovery",
         "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677",
-        "fetched_at": "2026-10-16T19:30:38.489300+00:00",
+        "fetched_at": "2026-10-17T00:49:16.342747+00:00",
         "skill_count": 177
       },
       {
@@ -64,7 +64,7 @@
         "ref": "main",
         "description": "Production-grade engineering skills for AI coding agents",
         "commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
-        "fetched_at": "2026-10-16T19:30:39.080049+00:00",
+        "fetched_at": "2026-10-17T00:49:16.739903+00:00",
         "skill_count": 25
       },
       {
@@ -72,7 +72,7 @@
         "ref": "master",
         "description": "Curated list of Claude skills and tools for workflow automation",
         "commit": "be2a406907dbc61b73e6827ded415c96139d13a2",
-        "fetched_at": "2026-10-16T19:30:40.270165+00:00",
+        "fetched_at": "2026-10-17T00:49:17.694891+00:00",
         "skill_count": 864
       },
       {
@@ -80,7 +80,7 @@
         "ref": "main",
         "description": "Marketing skills \u2014 CRO, copywriting, SEO, analytics, and growth engineering",
         "commit": "365b412152b9542499ca1439426f7fc3cc92bb65",
-        "fetched_at": "2026-10-16T19:30:41.177269+00:00",
+        "fetched_at": "2026-10-17T00:49:18.385738+00:00",
         "skill_count": 50
       },
       {
@@ -88,7 +88,7 @@
         "ref": "main",
         "description": "Anthropic's official public Agent Skills repository",
         "commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
-        "fetched_at": "2026-10-16T19:30:42.058212+00:00",
+        "fetched_at": "2026-10-17T00:49:18.783838+00:00",
         "skill_count": 20
       },
       {
@@ -96,7 +96,7 @@
         "ref": "main",
         "description": "Skills for Obsidian \u2014 Markdown, Bases, JSON Canvas, and CLI tools",
         "commit": "3ccff5338ea700537839b21900aa5358a0402c98",
-        "fetched_at": "2026-10-16T19:30:42.525320+00:00",
+        "fetched_at": "2026-10-17T00:49:18.957058+00:00",
         "skill_count": 6
       },
       {
@@ -104,7 +104,7 @@
         "ref": "main",
         "description": "Academic research pipeline: research \u2192 write \u2192 review \u2192 revise \u2192 finalize",
         "commit": "060cb3cbffc2ca1bdfb8f7c6d2ffa4883cf09b1a",
-        "fetched_at": "2026-10-16T19:30:44.167287+00:00",
+        "fetched_at": "2026-10-17T00:49:20.272195+00:00",
         "skill_count": 5
       },
       {
@@ -112,7 +112,7 @@
         "ref": "main",
         "description": "Vercel's official collection of agent skills",
         "commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
-        "fetched_at": "2026-10-16T19:30:44.966242+00:00",
+        "fetched_at": "2026-10-17T00:49:20.677855+00:00",
         "skill_count": 9
       },
       {
@@ -120,7 +120,7 @@
         "ref": "main",
         "description": "Create beautiful slides using a coding agent's frontend skills",
         "commit": "9906a34d640d2111f724544cbc50f7f130569ae1",
-        "fetched_at": "2026-10-16T19:30:45.459581+00:00",
+        "fetched_at": "2026-10-17T00:49:20.891871+00:00",
         "skill_count": 1
       },
       {
@@ -128,7 +128,7 @@
         "ref": "main",
         "description": "Comprehensive AI research and engineering skills library",
         "commit": "773a52944ba4747a18bd4ae9ade53fff041adcbc",
-        "fetched_at": "2026-10-16T19:30:46.712960+00:00",
+        "fetched_at": "2026-10-17T00:49:21.716975+00:00",
         "skill_count": 98
       },
       {
@@ -136,15 +136,15 @@
         "ref": "main",
         "description": "Security research, vulnerability detection, and audit workflow skills",
         "commit": "5c99c03fb8a9ea568432ecbcba5d86e9f4ac2bf0",
-        "fetched_at": "2026-10-16T19:30:47.797015+00:00",
+        "fetched_at": "2026-10-17T00:49:22.408074+00:00",
         "skill_count": 85
       },
       {
         "url": "https://github.com/EveryInc/compound-engineering-plugin",
         "ref": "main",
         "description": "Compound engineering skills plugin",
-        "commit": "9ab8391e70d739c5fcc43327c3382879c401f9a5",
-        "fetched_at": "2026-10-16T19:30:49.020687+00:00",
+        "commit": "94bda01bd5f7eb6e102c34f3797483aea5fa9b98",
+        "fetched_at": "2026-10-17T00:49:23.389679+00:00",
         "skill_count": 42
       },
       {
@@ -152,36 +152,44 @@
         "ref": "master",
         "description": "Xquik skill for X/Twitter data, monitoring, MCP, and API workflows",
         "commit": "bab33f8b2a9c8a8e551ccec1012b5a62fdc08fc5",
-        "fetched_at": "2026-10-16T19:30:49.974187+00:00",
+        "fetched_at": "2026-10-17T00:49:23.974493+00:00",
         "skill_count": 3
       },
       {
         "url": "https://github.com/cursor/plugins",
         "ref": "main",
         "description": "Cursor's official skills and plugins repository",
-        "commit": "2f8377461fd533f5af782e1fd643783b1067b847",
-        "fetched_at": "2026-10-16T19:30:50.813188+00:00",
-        "skill_count": 111
+        "commit": "ac4e25a0064cd600afdd605208bad72748cb019a",
+        "fetched_at": "2026-10-17T00:49:24.483237+00:00",
+        "skill_count": 165
+      },
+      {
+        "url": "https://github.com/yylo-dev/yylo-skills",
+        "ref": "main",
+        "description": "YYLO agent skills \u2014 Ledger tasks, wiki, workflows, artifacts, and benchmarks for coding agents",
+        "commit": "d0f7c91fb5681d027bbf40d2dde574bb6c4f6de7",
+        "fetched_at": "2026-10-17T00:49:24.692348+00:00",
+        "skill_count": 8
       }
     ],
     "stats": {
-      "total_skills": 4944,
-      "total_sources": 20,
+      "total_skills": 4952,
+      "total_sources": 21,
       "by_domain": {
-        "code-review": 770,
-        "productivity": 749,
-        "ai-ml": 675,
+        "code-review": 773,
+        "productivity": 750,
+        "ai-ml": 676,
         "frontend": 566,
         "security": 344,
         "backend": 295,
         "devops": 200,
         "data": 145,
-        "design": 143,
+        "design": 144,
         "testing": 113,
         "writing": 110,
         "business": 107,
+        "project-management": 84,
         "debugging": 83,
-        "project-management": 82,
         "development": 60,
         "cli": 55,
         "mobile": 44,
@@ -278,7 +286,7 @@
         "sales-intelligence": 1,
         "email-intelligence": 1
       },
-      "generated_at": "2026-10-16T19:30:50.851954+00:00"
+      "generated_at": "2026-10-17T00:49:24.703856+00:00"
     }
   },
   "skills": [
@@ -185530,7 +185538,7 @@
     },
     {
       "name": "X MCP guide",
-      "description": "ALWAYS read this when a user connects the X plugin or any X MCP, before using any X tool, including Grok Bot's built-in public reads (no X connection or credits needed), and again on any X error. Do not call an X tool until this file has been read in the current turn. On first connect, confirm X tools exist, fetch get_usage_credits BEFORE any user-facing text, then send the capabilities message. Never tell the user to buy credits until that check returns ~$0 or a job would exceed the balance. tools=0 / user-X-* not found is a setup failure, not a paywall. X Chat, XChat, inbox, DMs, message requests, accepting a request, Chat PIN, juicebox, and xchat_lite live in THIS file: clone xchat-grokbot-helper and run xchat_lite.py locally \u2014 do not wait for the user to name the helper or another skill. Missing chat tools or dm.read/dm.write while other X tools work: reconnect the X plugin. Estimate every X call and confirm before anything expensive.",
+      "description": "ALWAYS read this when a user connects the X plugin or any X MCP, before using any X tool, including Grok Bot's built-in public reads (no X connection or credits needed), and again on any X error. Do not call an X tool until this file has been read in the current turn. On first connect, confirm X tools exist, fetch get_usage_credits BEFORE any user-facing text, then send the capabilities message. Never tell the user to buy credits until that check returns ~$0 or a job would exceed the balance. tools=0 / user-X-* not found is a setup failure, not a paywall. X Chat, XChat, inbox, DMs, message requests, accepting a request, Chat PIN, juicebox, and xchat_lite live in THIS file: clone xchat-grokbot-helper and run xchat_lite.py locally \u2014 do not wait for the user to name the helper or another skill. Missing chat tools or dm.read/dm.write while other X tools work: reconnect the X plugin. Scheduled X calls use schedule_call, list_scheduled_calls, get_scheduled_call, update_scheduled_call, cancel_scheduled_call, and respond_to_scheduled_call. Missing those tools or calls.read/calls.write while other X tools work: reconnect the X plugin. Estimate every X call and confirm before anything expensive.",
       "body_preview": "# X MCP guide\n\nThis plugin uses **X MCP**. The user taps Connect and signs in with X. Developer accounts are auto-created and auto-credited. They are not setting up an API app.\n\nOn a core error, stop. Name the simple issue, then the next step. Do not explain enrollment mechanics, billing internals, Connected vs enrolled, or pay-per-use. Never retry 401 / 403-enrollment / credits-blocked / missing-tools unchanged. Never ask for keys or Bearer tokens. Chat PIN is allowed only via secret-request (n",
       "tags": [],
       "triggers": [
@@ -186258,6 +186266,291 @@
       },
       "id": "plugins/orchestrate/skills/orchestrate",
       "install_hint": "kitout install cursor/plugins"
+    },
+    {
+      "name": "ledger-tasks-yylo",
+      "description": "Retrieve any YYLO Ledger Record by ID, discover PDRs and artifacts, and manage tasks and dependencies. Use for unknown record types, universal get/search, task operations, and source-of-truth boundaries.",
+      "body_preview": "## YYLO Ledger CLI Reference\n\nUse `yy ledger` from the controller, or `yylo-ledger` standalone. Ledger exposes compatible flat task commands and native ID-first `record|task|wiki|pdr|workflow|artifact` groups, subject to installed help. `yy kanban` is a labelled compatibility alias for the same controller-routed runtime.\n\n### Retrieve any Record first\n\nPreflight `yy ledger get --help`. When it advertises universal retrieval, use\n`yy ledger get RECORD_ID -f json` for tasks, documents, PDRs and ar",
+      "tags": [],
+      "triggers": [
+        "retrieve",
+        "any",
+        "yylo",
+        "ledger",
+        "record",
+        "discover",
+        "pdrs",
+        "artifacts",
+        "manage",
+        "tasks",
+        "dependencies",
+        "unknown",
+        "record",
+        "types",
+        "universal",
+        "get",
+        "search",
+        "task",
+        "operations",
+        "source-of-truth"
+      ],
+      "domain": "project-management",
+      "harnesses": [
+        "claude-code"
+      ],
+      "source": {
+        "url": "https://github.com/yylo-dev/yylo-skills",
+        "ref": "main",
+        "path": "skills/ledger-tasks-yylo"
+      },
+      "id": "yylo-skills/skills/ledger-tasks-yylo",
+      "install_hint": "kitout install yylo-dev/yylo-skills"
+    },
+    {
+      "name": "understand-project-yylo",
+      "description": "Inspect the current product architecture, dependencies, and validation loops before planning or implementing a requested change.",
+      "body_preview": "# Understand the project\n\n1. Read `AGENTS.md`/`CLAUDE.md`, repository status, relevant source, tests, and existing product documentation in the integration or assigned feature worktree.\n2. Read related Kanban tasks and durable specs through the canonical metadata controller. Do not assume `.juno_task/plan.md` exists and do not materialize controller-private metadata in a product worktree.\n3. Trace only the dependencies and runtime paths needed for the requested goal. Use bounded parallel investi",
+      "tags": [],
+      "triggers": [
+        "inspect",
+        "current",
+        "product",
+        "architecture",
+        "dependencies",
+        "validation",
+        "loops",
+        "before",
+        "planning",
+        "implementing",
+        "requested",
+        "change"
+      ],
+      "domain": "design",
+      "harnesses": [
+        "claude-code"
+      ],
+      "source": {
+        "url": "https://github.com/yylo-dev/yylo-skills",
+        "ref": "main",
+        "path": "skills/understand-project-yylo"
+      },
+      "id": "yylo-skills/skills/understand-project-yylo",
+      "install_hint": "kitout install yylo-dev/yylo-skills"
+    },
+    {
+      "name": "workflow-yylo",
+      "description": "Create and maintain validated YYLO Ledger workflow Records while keeping storage, execution, and run evidence as separate explicit boundaries.",
+      "body_preview": "# Use YYLO workflow Records\n\nTreat Ledger as the source of truth for workflow identity, validated definition,\nand revision history. Use `yy ledger` in a YYLO controller or `yylo-ledger`\nstandalone. Inspect `COMMAND workflow --help`; if the namespace is absent, do not\ninvent it or edit Ledger storage directly.\n\n## Keep three boundaries distinct\n\n1. **Ledger stores and validates workflow data.** It does not execute workflows.\n2. **A separately selected YYLO runner executes reviewed workflow data.*",
+      "tags": [],
+      "triggers": [
+        "create",
+        "maintain",
+        "validated",
+        "yylo",
+        "ledger",
+        "workflow",
+        "records",
+        "keeping",
+        "storage",
+        "execution",
+        "run",
+        "evidence",
+        "separate",
+        "explicit",
+        "boundaries"
+      ],
+      "domain": "productivity",
+      "harnesses": [
+        "claude-code"
+      ],
+      "source": {
+        "url": "https://github.com/yylo-dev/yylo-skills",
+        "ref": "main",
+        "path": "skills/workflow-yylo"
+      },
+      "id": "yylo-skills/skills/workflow-yylo",
+      "install_hint": "kitout install yylo-dev/yylo-skills"
+    },
+    {
+      "name": "ralph-loop-yylo",
+      "description": "Execute exactly one explicitly assigned YYLO Ledger task through the Ralph loop to a validated queued commit. Use only when the user explicitly requests ralph-loop-yylo.",
+      "body_preview": "# Execute one assigned task in the Ralph loop\n\nRead [references/implement.md](references/implement.md) completely and follow it.\n\nStay within the assigned task. Do not select unrelated work, edit `tasks.md`, auto-tag releases, push, deploy, mutate production, or broaden scope because another issue is noticed. Record a bounded related Kanban follow-up when necessary.\n\nKeep durable instructions concise and evidence-backed. Status belongs in the task response and runtime receipts, not `AGENTS.md`.\n",
+      "tags": [],
+      "triggers": [
+        "execute",
+        "exactly",
+        "one",
+        "explicitly",
+        "assigned",
+        "yylo",
+        "ledger",
+        "task",
+        "ralph",
+        "loop",
+        "validated",
+        "queued",
+        "commit",
+        "user",
+        "explicitly",
+        "requests",
+        "ralph-loop-yylo"
+      ],
+      "domain": "project-management",
+      "harnesses": [
+        "claude-code"
+      ],
+      "source": {
+        "url": "https://github.com/yylo-dev/yylo-skills",
+        "ref": "main",
+        "path": "skills/ralph-loop-yylo"
+      },
+      "id": "yylo-skills/skills/ralph-loop-yylo",
+      "install_hint": "kitout install yylo-dev/yylo-skills"
+    },
+    {
+      "name": "wiki-yylo",
+      "description": "Use YYLO Ledger wiki Records as durable project knowledge. Search before creating, classify information correctly, and make revision-safe Markdown updates without editing Ledger storage directly.",
+      "body_preview": "# Use YYLO wiki Records\n\nTreat Ledger as the source of truth. Use `yy ledger` in a YYLO controller and\n`yylo-ledger` in a standalone Ledger project. Inspect `COMMAND wiki --help` before\nacting; if `wiki` is absent, the installed Ledger version does not expose native\nRecord commands and must not be bypassed with direct file edits.\n\n## Choose the right record\n\nBefore writing, decide where the information belongs:\n\n- **Wiki**: durable explanatory project or domain knowledge that future work must di",
+      "tags": [],
+      "triggers": [
+        "yylo",
+        "ledger",
+        "wiki",
+        "records",
+        "durable",
+        "project",
+        "knowledge",
+        "search",
+        "before",
+        "creating",
+        "classify",
+        "information",
+        "correctly",
+        "make",
+        "revision-safe",
+        "markdown",
+        "updates",
+        "without",
+        "editing",
+        "ledger"
+      ],
+      "domain": "code-review",
+      "harnesses": [
+        "claude-code"
+      ],
+      "source": {
+        "url": "https://github.com/yylo-dev/yylo-skills",
+        "ref": "main",
+        "path": "skills/wiki-yylo"
+      },
+      "id": "yylo-skills/skills/wiki-yylo",
+      "install_hint": "kitout install yylo-dev/yylo-skills"
+    },
+    {
+      "name": "plan-ledger-tasks-yylo",
+      "description": "Create a concise Product Development Requirement and one or more implementation-sized YYLO Ledger tasks when the user explicitly asks to plan or register work.",
+      "body_preview": "# Plan Kanban work\n\n1. Read the project instructions and relevant product code from the integration or feature worktree. Read existing task/spec metadata through the canonical controller; do not assume `.juno_task/plan.md` exists.\n2. Produce one concise PDR covering the goal, current behavior, scope, exclusions, risks, dependencies, acceptance criteria, and focused tests. Draft it in a fresh external file; do not place it in the product tree or a task body.\n3. Preflight `yy ledger --help` and `y",
+      "tags": [],
+      "triggers": [
+        "create",
+        "concise",
+        "product",
+        "development",
+        "requirement",
+        "one",
+        "implementation-sized",
+        "yylo",
+        "ledger",
+        "tasks",
+        "user",
+        "explicitly",
+        "asks",
+        "plan",
+        "register",
+        "work"
+      ],
+      "domain": "code-review",
+      "harnesses": [
+        "claude-code"
+      ],
+      "source": {
+        "url": "https://github.com/yylo-dev/yylo-skills",
+        "ref": "main",
+        "path": "skills/plan-ledger-tasks-yylo"
+      },
+      "id": "yylo-skills/skills/plan-ledger-tasks-yylo",
+      "install_hint": "kitout install yylo-dev/yylo-skills"
+    },
+    {
+      "name": "benchmark-yylo",
+      "description": "Prepare reviewed cases and frozen checklists, compare models and harnesses, and independently evaluate retained outputs with YYLO Benchmark's thin trusted-host runner.",
+      "body_preview": "# Run a Benchmark experiment\n\n## Discover the actual runtime\n\nInspect `yylo-benchmark --version` and `yylo-benchmark --help` (or delegated\n`yy benchmark --help`) before using commands. This guidance targets Benchmark\n0.2.1's thin-runner/checklist contract, not retired 0.1.x. A source merge or\nskill update does not install, activate or publish that runtime. Stop on version\nmismatch; never silently substitute a checkout or upgrade an installation.\n\nThe lifecycle is **case -> run -> evaluate -> rep",
+      "tags": [],
+      "triggers": [
+        "prepare",
+        "reviewed",
+        "cases",
+        "frozen",
+        "checklists",
+        "compare",
+        "models",
+        "harnesses",
+        "independently",
+        "evaluate",
+        "retained",
+        "outputs",
+        "yylo",
+        "benchmark",
+        "thin",
+        "trusted-host",
+        "runner"
+      ],
+      "domain": "ai-ml",
+      "harnesses": [
+        "claude-code"
+      ],
+      "source": {
+        "url": "https://github.com/yylo-dev/yylo-skills",
+        "ref": "main",
+        "path": "skills/benchmark-yylo"
+      },
+      "id": "yylo-skills/skills/benchmark-yylo",
+      "install_hint": "kitout install yylo-dev/yylo-skills"
+    },
+    {
+      "name": "artifact-yylo",
+      "description": "Capture and retrieve durable YYLO Ledger artifact Records with intentional profiles, payload modes, provenance, retention, and secret-safe immutable evidence.",
+      "body_preview": "# Use YYLO artifact Records\n\nTreat Ledger as the source of truth for artifact identity and metadata. Use\n`yy ledger` in a YYLO controller or `yylo-ledger` standalone. Inspect\n`COMMAND artifact --help`; if unavailable, do not create store files manually.\nA Ledger Artifact Record is durable evidence, not an npm/Python release artifact\nand not an implicit request to publish or deploy.\n\n## Classify before capture\n\nChoose the profile matching the evidence:\n\n- `stdout`: bounded process output;\n- `mode",
+      "tags": [],
+      "triggers": [
+        "capture",
+        "retrieve",
+        "durable",
+        "yylo",
+        "ledger",
+        "artifact",
+        "records",
+        "intentional",
+        "profiles",
+        "payload",
+        "modes",
+        "provenance",
+        "retention",
+        "secret-safe",
+        "immutable",
+        "evidence"
+      ],
+      "domain": "code-review",
+      "harnesses": [
+        "claude-code"
+      ],
+      "source": {
+        "url": "https://github.com/yylo-dev/yylo-skills",
+        "ref": "main",
+        "path": "skills/artifact-yylo"
+      },
+      "id": "yylo-skills/skills/artifact-yylo",
+      "install_hint": "kitout install yylo-dev/yylo-skills"
     }
   ]
 }

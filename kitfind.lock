@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-10-16T19:32:00.480300+00:00",
+  "generated_at": "2026-10-17T00:51:31.931715+00:00",
   "sources": [
     {
       "url": "https://github.com/obra/superpowers",
@@ -90,7 +90,7 @@
     {
       "url": "https://github.com/EveryInc/compound-engineering-plugin",
       "ref": "main",
-      "commit": "9ab8391e70d739c5fcc43327c3382879c401f9a5"
+      "commit": "94bda01bd5f7eb6e102c34f3797483aea5fa9b98"
     },
     {
       "url": "https://github.com/Xquik-dev/x-twitter-scraper",
@@ -100,7 +100,12 @@
     {
       "url": "https://github.com/cursor/plugins",
       "ref": "main",
-      "commit": "2f8377461fd533f5af782e1fd643783b1067b847"
+      "commit": "ac4e25a0064cd600afdd605208bad72748cb019a"
+    },
+    {
+      "url": "https://github.com/yylo-dev/yylo-skills",
+      "ref": "main",
+      "commit": "d0f7c91fb5681d027bbf40d2dde574bb6c4f6de7"
     }
   ]
 }

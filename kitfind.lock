@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-10-17T00:51:31.931715+00:00",
+  "generated_at": "2026-10-17T01:47:09.892175+00:00",
   "sources": [
     {
       "url": "https://github.com/obra/superpowers",
@@ -100,7 +100,7 @@
     {
       "url": "https://github.com/cursor/plugins",
       "ref": "main",
-      "commit": "ac4e25a0064cd600afdd605208bad72748cb019a"
+      "commit": "09d06eb4b97a1020ab31e84030e38baf1099c7dc"
     },
     {
       "url": "https://github.com/yylo-dev/yylo-skills",

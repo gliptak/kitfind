@@ -36,11 +36,3 @@ jobs:
         with:
           name: site
           path: site/
-
-  preview:
-    needs: build
-    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
-    uses: ./.github/workflows/preview.yml
-    permissions:
-      contents: write
-      pull-requests: write

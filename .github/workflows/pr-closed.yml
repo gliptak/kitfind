@@ -1,0 +1,17 @@
+name: PR Closed
+
+# CI does not run when a PR is closed. This unprivileged workflow only exists
+# so that preview.yml (workflow_run, trusted context) can clean up previews.
+on:
+  pull_request:
+    branches: [main]
+    types: [closed]
+
+permissions: {}
+
+jobs:
+  closed:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-26.04
+    steps:
+      - run: echo "PR #${{ github.event.pull_request.number }} closed"

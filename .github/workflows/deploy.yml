@@ -1,19 +1,38 @@
 name: Deploy to GitHub Pages
 
 on:
-  push:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
     branches: [main]
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+
 jobs:
-  build:
+  deploy:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.event == 'push' &&
+       github.event.workflow_run.conclusion == 'success')
     runs-on: ubuntu-26.04
+    permissions:
+      contents: write
+      actions: read
     steps:
       - uses: actions/checkout@v7
-      - uses: astral-sh/setup-uv@v10.3.0
-      - run: uv sync && uv run tools/build.py
+      - if: github.event_name == 'workflow_dispatch'
+        uses: astral-sh/setup-uv@v10.3.0
+      - if: github.event_name == 'workflow_dispatch'
+        run: uv sync && uv run tools/build.py
+      - if: github.event_name == 'workflow_run'
+        uses: actions/download-artifact@v8
+        with:
+          name: site
+          path: site/
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
       - uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

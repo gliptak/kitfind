@@ -1,18 +1,18 @@
-name: CI + Preview
+name: CI
 
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
-    types: [opened, reopened, synchronize, closed]
+    types: [opened, reopened, synchronize]
   workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-  group: preview-${{ github.ref }}
+  group: ci-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -36,25 +36,3 @@ jobs:
         with:
           name: site
           path: site/
-
-  preview:
-    needs: build
-    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
-    steps:
-      - uses: actions/checkout@v7
-      - name: Download site artifact
-        uses: actions/download-artifact@v8
-        with:
-          name: site
-          path: site/
-      - name: Deploy preview
-        uses: rossjrw/pr-preview-action@v1
-        with:
-          source-dir: ./site
-          preview-branch: gh-pages
-          umbrella-dir: pr-preview
-          comment: true

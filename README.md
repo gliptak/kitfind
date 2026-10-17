@@ -1,6 +1,7 @@
 # Kitfind
 
 [![CI](https://github.com/gliptak/kitfind/actions/workflows/ci.yml/badge.svg)](https://github.com/gliptak/kitfind/actions/workflows/ci.yml)
+[![Preview](https://github.com/gliptak/kitfind/actions/workflows/preview.yml/badge.svg)](https://github.com/gliptak/kitfind/actions/workflows/preview.yml)
 [![Deploy](https://github.com/gliptak/kitfind/actions/workflows/deploy.yml/badge.svg)](https://github.com/gliptak/kitfind/actions/workflows/deploy.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python >=3.11](https://img.shields.io/badge/Python-%3E%3D3.11-blue.svg)](pyproject.toml)

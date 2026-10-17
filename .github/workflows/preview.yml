@@ -1,9 +1,7 @@
 name: Preview
 
 on:
-  workflow_run:
-    workflows: [CI]
-    types: [completed]
+  workflow_call:
   pull_request:
     branches: [main]
     types: [closed]
@@ -11,37 +9,28 @@ on:
 permissions:
   contents: read
 
-concurrency:
-  group: preview-${{ github.event.pull_request.number || github.event.workflow_run.pull_requests[0].number || github.run_id }}
-  cancel-in-progress: false
-
 jobs:
   deploy:
-    # Only after a successful CI run for a same-repo pull request (never forks)
+    # Called from CI after a successful build; never for forks
     if: >-
-      github.event_name == 'workflow_run' &&
-      github.event.workflow_run.event == 'pull_request' &&
-      github.event.workflow_run.conclusion == 'success' &&
-      github.event.workflow_run.head_repository.full_name == github.repository &&
-      github.event.workflow_run.pull_requests[0].number != null
+      github.event_name == 'pull_request' &&
+      github.event.action != 'closed' &&
+      github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     permissions:
       contents: write
       pull-requests: write
-      actions: read
     steps:
+      - uses: actions/checkout@v7
       - name: Download site artifact
         uses: actions/download-artifact@v8
         with:
           name: site
           path: site/
-          run-id: ${{ github.event.workflow_run.id }}
-          github-token: ${{ github.token }}
       - name: Deploy preview
         uses: rossjrw/pr-preview-action@v1
         with:
           action: deploy
-          pr-number: ${{ github.event.workflow_run.pull_requests[0].number }}
           source-dir: ./site
           preview-branch: gh-pages
           umbrella-dir: pr-preview
@@ -51,12 +40,14 @@ jobs:
     # Runs on PR close regardless of CI result; skipped for forks
     if: >-
       github.event_name == 'pull_request' &&
+      github.event.action == 'closed' &&
       github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     permissions:
       contents: write
       pull-requests: write
     steps:
+      - uses: actions/checkout@v7
       - name: Remove preview
         uses: rossjrw/pr-preview-action@v1
         with:

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-10-21T21:47:11.372548+00:00",
+  "generated_at": "2026-10-22T12:12:20.333666+00:00",
   "catalog": {
     "sources": [
       {
@@ -8,15 +8,15 @@
         "ref": "main",
         "description": "Agentic skills framework & software development methodology",
         "commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
-        "fetched_at": "2026-10-21T21:45:34.361040+00:00",
+        "fetched_at": "2026-10-22T12:09:19.596122+00:00",
         "skill_count": 15
       },
       {
         "url": "https://github.com/sickn33/antigravity-awesome-skills",
         "ref": "main",
         "description": "1,400+ agentic skills for Claude Code, Cursor, Codex, Gemini CLI, and more",
-        "commit": "2984de11956e413008c6f98121cd141c499e47a3",
-        "fetched_at": "2026-10-21T21:45:43.922624+00:00",
+        "commit": "e3ae112bf3bd0c4540fef5a1413ad176f0ced2d8",
+        "fetched_at": "2026-10-22T12:09:31.989332+00:00",
         "skill_count": 8434
       },
       {
@@ -24,7 +24,7 @@
         "ref": "main",
         "description": "Skills for real engineers \u2014 TDD, design, debugging, productivity",
         "commit": "5beb35b040e3de97e54fa9e386d7e42d15c295c2",
-        "fetched_at": "2026-10-21T21:45:44.595474+00:00",
+        "fetched_at": "2026-10-22T12:09:33.073261+00:00",
         "skill_count": 38
       },
       {
@@ -32,7 +32,7 @@
         "ref": "main",
         "description": "ECC Tools \u2014 agent harness performance optimization system",
         "commit": "90606c8315ee09cafc303515c5f33024db6b9882",
-        "fetched_at": "2026-10-21T21:45:46.073669+00:00",
+        "fetched_at": "2026-10-22T12:09:36.105728+00:00",
         "skill_count": 961
       },
       {
@@ -40,7 +40,7 @@
         "ref": "main",
         "description": "Open-source registry of reusable Claude skills",
         "commit": "02370623a724900f1680baff4c6cdfed2d55fa89",
-        "fetched_at": "2026-10-21T21:45:47.493834+00:00",
+        "fetched_at": "2026-10-22T12:09:36.667218+00:00",
         "skill_count": 5
       },
       {
@@ -48,7 +48,7 @@
         "ref": "main",
         "description": "Curated collection of Claude Code skills",
         "commit": "27cfcd0fb0a41f60adffcbd5271fdf8839f86ed2",
-        "fetched_at": "2026-10-21T21:45:49.643286+00:00",
+        "fetched_at": "2026-10-22T12:09:39.863904+00:00",
         "skill_count": 398
       },
       {
@@ -56,7 +56,7 @@
         "ref": "main",
         "description": "AI scientist skills \u2014 biology, chemistry, medicine, and drug discovery",
         "commit": "593377bb048752abb0152deab9fbb1083a6087df",
-        "fetched_at": "2026-10-21T21:45:54.097423+00:00",
+        "fetched_at": "2026-10-22T12:09:55.303884+00:00",
         "skill_count": 177
       },
       {
@@ -64,7 +64,7 @@
         "ref": "main",
         "description": "Production-grade engineering skills for AI coding agents",
         "commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
-        "fetched_at": "2026-10-21T21:45:54.580308+00:00",
+        "fetched_at": "2026-10-22T12:09:55.911167+00:00",
         "skill_count": 25
       },
       {
@@ -72,7 +72,7 @@
         "ref": "master",
         "description": "Curated list of Claude skills and tools for workflow automation",
         "commit": "be2a406907dbc61b73e6827ded415c96139d13a2",
-        "fetched_at": "2026-10-21T21:45:55.358624+00:00",
+        "fetched_at": "2026-10-22T12:09:57.254267+00:00",
         "skill_count": 864
       },
       {
@@ -80,7 +80,7 @@
         "ref": "main",
         "description": "Marketing skills \u2014 CRO, copywriting, SEO, analytics, and growth engineering",
         "commit": "e85f3cbc2e4a79bf33b2a12e9bdd9087d414735b",
-        "fetched_at": "2026-10-21T21:45:55.785297+00:00",
+        "fetched_at": "2026-10-22T12:09:57.845587+00:00",
         "skill_count": 52
       },
       {
@@ -88,7 +88,7 @@
         "ref": "main",
         "description": "Anthropic's official public Agent Skills repository",
         "commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
-        "fetched_at": "2026-10-21T21:45:56.186098+00:00",
+        "fetched_at": "2026-10-22T12:09:58.476953+00:00",
         "skill_count": 20
       },
       {
@@ -96,7 +96,7 @@
         "ref": "main",
         "description": "Skills for Obsidian \u2014 Markdown, Bases, JSON Canvas, and CLI tools",
         "commit": "3ccff5338ea700537839b21900aa5358a0402c98",
-        "fetched_at": "2026-10-21T21:45:56.449583+00:00",
+        "fetched_at": "2026-10-22T12:09:58.889606+00:00",
         "skill_count": 6
       },
       {
@@ -104,7 +104,7 @@
         "ref": "main",
         "description": "Academic research pipeline: research \u2192 write \u2192 review \u2192 revise \u2192 finalize",
         "commit": "3224a27a2571cefef0fddfd437004cb006f2b0cb",
-        "fetched_at": "2026-10-21T21:45:57.733674+00:00",
+        "fetched_at": "2026-10-22T12:10:00.424865+00:00",
         "skill_count": 5
       },
       {
@@ -112,7 +112,7 @@
         "ref": "main",
         "description": "Vercel's official collection of agent skills",
         "commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
-        "fetched_at": "2026-10-21T21:45:58.139276+00:00",
+        "fetched_at": "2026-10-22T12:10:01.076412+00:00",
         "skill_count": 9
       },
       {
@@ -120,7 +120,7 @@
         "ref": "main",
         "description": "Create beautiful slides using a coding agent's frontend skills",
         "commit": "9906a34d640d2111f724544cbc50f7f130569ae1",
-        "fetched_at": "2026-10-21T21:45:58.470452+00:00",
+        "fetched_at": "2026-10-22T12:10:01.586277+00:00",
         "skill_count": 1
       },
       {
@@ -128,7 +128,7 @@
         "ref": "main",
         "description": "Comprehensive AI research and engineering skills library",
         "commit": "773a52944ba4747a18bd4ae9ade53fff041adcbc",
-        "fetched_at": "2026-10-21T21:45:59.338474+00:00",
+        "fetched_at": "2026-10-22T12:10:02.840293+00:00",
         "skill_count": 98
       },
       {
@@ -136,15 +136,15 @@
         "ref": "main",
         "description": "Security research, vulnerability detection, and audit workflow skills",
         "commit": "f0dd11d2b1da17a1ff8c403741fbe1f6bca0f871",
-        "fetched_at": "2026-10-21T21:46:00.098416+00:00",
+        "fetched_at": "2026-10-22T12:10:03.796032+00:00",
         "skill_count": 97
       },
       {
         "url": "https://github.com/EveryInc/compound-engineering-plugin",
         "ref": "main",
         "description": "Compound engineering skills plugin",
-        "commit": "8673dfb96ad62c5e0cb6bc50fce312e7a66487a0",
-        "fetched_at": "2026-10-21T21:46:00.637289+00:00",
+        "commit": "738067a599c68f1f0f4a32273fa9d7d2476f0715",
+        "fetched_at": "2026-10-22T12:10:04.539181+00:00",
         "skill_count": 42
       },
       {
@@ -152,28 +152,28 @@
         "ref": "master",
         "description": "Xquik skill for X/Twitter data, monitoring, MCP, and API workflows",
         "commit": "8c54c050158e2da665597ad663453e791d4e693e",
-        "fetched_at": "2026-10-21T21:46:01.275753+00:00",
+        "fetched_at": "2026-10-22T12:10:05.393653+00:00",
         "skill_count": 3
       },
       {
         "url": "https://github.com/cursor/plugins",
         "ref": "main",
         "description": "Cursor's official skills and plugins repository",
-        "commit": "699e1e7488c53c05ca13409f40da83cd37682091",
-        "fetched_at": "2026-10-21T21:46:02.004088+00:00",
-        "skill_count": 169
+        "commit": "eb4db2b55b2b7dec3d9282754cddf0a56bf4ff10",
+        "fetched_at": "2026-10-22T12:10:06.074094+00:00",
+        "skill_count": 171
       },
       {
         "url": "https://github.com/yylo-dev/yylo-skills",
         "ref": "main",
         "description": "YYLO agent skills \u2014 Ledger tasks, wiki, workflows, artifacts, and benchmarks for coding agents",
         "commit": "035023f66153d032d08da9203eb15f0cdaedb616",
-        "fetched_at": "2026-10-21T21:46:02.310188+00:00",
+        "fetched_at": "2026-10-22T12:10:06.638489+00:00",
         "skill_count": 8
       }
     ],
     "stats": {
-      "total_skills": 5008,
+      "total_skills": 5009,
       "total_sources": 21,
       "by_domain": {
         "code-review": 771,
@@ -188,7 +188,7 @@
         "testing": 111,
         "writing": 108,
         "business": 108,
-        "debugging": 82,
+        "debugging": 83,
         "project-management": 79,
         "development": 64,
         "cli": 55,
@@ -286,7 +286,7 @@
         "conversation-intelligence": 1,
         "sales-intelligence": 1
       },
-      "generated_at": "2026-10-21T21:46:02.317783+00:00"
+      "generated_at": "2026-10-22T12:10:06.647521+00:00"
     }
   },
   "skills": [
@@ -182691,6 +182691,45 @@
         "path": "harness/pstack/claude-code/skills/swarm"
       },
       "id": "plugins/harness/pstack/claude-code/skills/swarm",
+      "install_hint": "kitout install cursor/plugins"
+    },
+    {
+      "name": "statechart",
+      "description": "Draw what an app's user sees as a Mermaid statechart from a TLA+ model. States are gray if they work, red if still wrong, and green if fixed. Each bug TLC finds is a numbered path. Use for /statechart, \"show the PM the bug\", or to turn an agreed chart into a TLA+ skeleton.",
+      "body_preview": "# Statechart\n\nThe chart shows what an app's user sees. A PM reads it to decide whether that behavior is right. Label each state with what is on the screen, such as \"Paying\". Label each step with what the user does or sees happen, such as \"tap Pay\" or \"the charge goes through\". Keep variable and action names out of labels. The scripts call this user the reader, as in `readerActions` and reader steps.\n\nRun `node <skill dir>/scripts/statechart.mjs --help` for the commands and for how to read a char",
+      "tags": [],
+      "triggers": [
+        "draw",
+        "what",
+        "app",
+        "user",
+        "sees",
+        "mermaid",
+        "statechart",
+        "tla",
+        "model",
+        "states",
+        "gray",
+        "work",
+        "red",
+        "still",
+        "wrong",
+        "green",
+        "fixed",
+        "bug",
+        "tlc",
+        "finds"
+      ],
+      "domain": "debugging",
+      "harnesses": [
+        "claude-code"
+      ],
+      "source": {
+        "url": "https://github.com/cursor/plugins",
+        "ref": "main",
+        "path": "harness/pstack/claude-code/skills/statechart"
+      },
+      "id": "plugins/harness/pstack/claude-code/skills/statechart",
       "install_hint": "kitout install cursor/plugins"
     },
     {

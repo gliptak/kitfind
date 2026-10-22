@@ -23,7 +23,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - if: github.event_name == 'workflow_dispatch'
-        uses: astral-sh/setup-uv@v10.3.0
+        uses: astral-sh/setup-uv@v10.3.2
       - if: github.event_name == 'workflow_dispatch'
         run: uv sync && uv run tools/build.py
       - if: github.event_name == 'workflow_run'

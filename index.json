@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-11-04T22:14:07.608006+00:00",
+  "generated_at": "2026-11-04T22:29:44.471647+00:00",
   "catalog": {
     "sources": [
       {
@@ -8,7 +8,7 @@
         "ref": "main",
         "description": "Agentic skills framework & software development methodology",
         "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
-        "fetched_at": "2026-11-04T22:11:06.174351+00:00",
+        "fetched_at": "2026-11-04T22:24:52.011826+00:00",
         "skill_count": 15
       },
       {
@@ -16,7 +16,7 @@
         "ref": "main",
         "description": "1,400+ agentic skills for Claude Code, Cursor, Codex, Gemini CLI, and more",
         "commit": "48de968b4615c294de601f72268aa7be88dde863",
-        "fetched_at": "2026-11-04T22:11:23.048538+00:00",
+        "fetched_at": "2026-11-04T22:25:07.362393+00:00",
         "skill_count": 8988
       },
       {
@@ -24,7 +24,7 @@
         "ref": "main",
         "description": "Skills for real engineers \u2014 TDD, design, debugging, productivity",
         "commit": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
-        "fetched_at": "2026-11-04T22:11:24.651502+00:00",
+        "fetched_at": "2026-11-04T22:25:08.496200+00:00",
         "skill_count": 39
       },
       {
@@ -32,7 +32,7 @@
         "ref": "main",
         "description": "ECC Tools \u2014 agent harness performance optimization system",
         "commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-        "fetched_at": "2026-11-04T22:11:27.190629+00:00",
+        "fetched_at": "2026-11-04T22:25:10.795414+00:00",
         "skill_count": 966
       },
       {
@@ -40,7 +40,7 @@
         "ref": "main",
         "description": "Open-source registry of reusable Claude skills",
         "commit": "02370623a724900f1680baff4c6cdfed2d55fa89",
-        "fetched_at": "2026-11-04T22:11:27.837738+00:00",
+        "fetched_at": "2026-11-04T22:25:11.403728+00:00",
         "skill_count": 5
       },
       {
@@ -48,7 +48,7 @@
         "ref": "main",
         "description": "Curated collection of Claude Code skills",
         "commit": "c85b17e1fb621ba760478baaacc4fcb9be225e74",
-        "fetched_at": "2026-11-04T22:11:30.214983+00:00",
+        "fetched_at": "2026-11-04T22:25:13.916237+00:00",
         "skill_count": 411
       },
       {
@@ -56,7 +56,7 @@
         "ref": "main",
         "description": "AI scientist skills \u2014 biology, chemistry, medicine, and drug discovery",
         "commit": "a25cf9ec00e2745d03f8704acf6f6919694ccd9a",
-        "fetched_at": "2026-11-04T22:11:37.341014+00:00",
+        "fetched_at": "2026-11-04T22:25:22.689400+00:00",
         "skill_count": 177
       },
       {
@@ -64,7 +64,7 @@
         "ref": "main",
         "description": "Production-grade engineering skills for AI coding agents",
         "commit": "301b02b12bff98e4688e6984af6556802322bbde",
-        "fetched_at": "2026-11-04T22:11:37.985105+00:00",
+        "fetched_at": "2026-11-04T22:25:23.397987+00:00",
         "skill_count": 25
       },
       {
@@ -72,7 +72,7 @@
         "ref": "master",
         "description": "Curated list of Claude skills and tools for workflow automation",
         "commit": "be2a406907dbc61b73e6827ded415c96139d13a2",
-        "fetched_at": "2026-11-04T22:11:39.126779+00:00",
+        "fetched_at": "2026-11-04T22:25:24.675163+00:00",
         "skill_count": 864
       },
       {
@@ -80,7 +80,7 @@
         "ref": "main",
         "description": "Marketing skills \u2014 CRO, copywriting, SEO, analytics, and growth engineering",
         "commit": "88c79f6528a9347420e57ceb1fff9a60de651768",
-        "fetched_at": "2026-11-04T22:11:39.795344+00:00",
+        "fetched_at": "2026-11-04T22:25:25.466357+00:00",
         "skill_count": 53
       },
       {
@@ -88,7 +88,7 @@
         "ref": "main",
         "description": "Anthropic's official public Agent Skills repository",
         "commit": "ca45fc496a3436251f191354091d557da31c15b5",
-        "fetched_at": "2026-11-04T22:11:40.348861+00:00",
+        "fetched_at": "2026-11-04T22:25:26.354612+00:00",
         "skill_count": 20
       },
       {
@@ -96,7 +96,7 @@
         "ref": "main",
         "description": "Skills for Obsidian \u2014 Markdown, Bases, JSON Canvas, and CLI tools",
         "commit": "3ccff5338ea700537839b21900aa5358a0402c98",
-        "fetched_at": "2026-11-04T22:11:40.669940+00:00",
+        "fetched_at": "2026-11-04T22:25:26.764555+00:00",
         "skill_count": 6
       },
       {
@@ -104,7 +104,7 @@
         "ref": "main",
         "description": "Academic research pipeline: research \u2192 write \u2192 review \u2192 revise \u2192 finalize",
         "commit": "530659d983c2f4aa584ba3f2df224df08d90b264",
-        "fetched_at": "2026-11-04T22:11:42.307305+00:00",
+        "fetched_at": "2026-11-04T22:25:28.667872+00:00",
         "skill_count": 5
       },
       {
@@ -112,7 +112,7 @@
         "ref": "main",
         "description": "Vercel's official collection of agent skills",
         "commit": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
-        "fetched_at": "2026-11-04T22:11:42.867197+00:00",
+        "fetched_at": "2026-11-04T22:25:29.441884+00:00",
         "skill_count": 9
       },
       {
@@ -120,7 +120,7 @@
         "ref": "main",
         "description": "Create beautiful slides using a coding agent's frontend skills",
         "commit": "9906a34d640d2111f724544cbc50f7f130569ae1",
-        "fetched_at": "2026-11-04T22:11:43.387937+00:00",
+        "fetched_at": "2026-11-04T22:25:30.072926+00:00",
         "skill_count": 1
       },
       {
@@ -128,7 +128,7 @@
         "ref": "main",
         "description": "Comprehensive AI research and engineering skills library",
         "commit": "773a52944ba4747a18bd4ae9ade53fff041adcbc",
-        "fetched_at": "2026-11-04T22:11:44.472336+00:00",
+        "fetched_at": "2026-11-04T22:25:31.440984+00:00",
         "skill_count": 98
       },
       {
@@ -136,7 +136,7 @@
         "ref": "main",
         "description": "Security research, vulnerability detection, and audit workflow skills",
         "commit": "470419e16f97e112d01fc32f4898aea1755015d9",
-        "fetched_at": "2026-11-04T22:11:45.229896+00:00",
+        "fetched_at": "2026-11-04T22:25:32.318289+00:00",
         "skill_count": 97
       },
       {
@@ -144,7 +144,7 @@
         "ref": "main",
         "description": "Compound engineering skills plugin",
         "commit": "799ac9aeb97bf1c51238c38122915470413c26c5",
-        "fetched_at": "2026-11-04T22:11:46.115297+00:00",
+        "fetched_at": "2026-11-04T22:25:33.240983+00:00",
         "skill_count": 43
       },
       {
@@ -152,7 +152,7 @@
         "ref": "master",
         "description": "Xquik skill for X/Twitter data, monitoring, MCP, and API workflows",
         "commit": "6c8216141102a3c940f0ce533efbaff93b917376",
-        "fetched_at": "2026-11-04T22:11:47.190244+00:00",
+        "fetched_at": "2026-11-04T22:25:34.526614+00:00",
         "skill_count": 3
       },
       {
@@ -160,7 +160,7 @@
         "ref": "main",
         "description": "Cursor's official skills and plugins repository",
         "commit": "bb68f2365eceafa0cb2d253112f675acf5f144cc",
-        "fetched_at": "2026-11-04T22:11:48.079383+00:00",
+        "fetched_at": "2026-11-04T22:25:35.558375+00:00",
         "skill_count": 173
       },
       {
@@ -168,7 +168,7 @@
         "ref": "main",
         "description": "YYLO agent skills \u2014 Ledger tasks, wiki, workflows, artifacts, and benchmarks for coding agents",
         "commit": "035023f66153d032d08da9203eb15f0cdaedb616",
-        "fetched_at": "2026-11-04T22:11:48.524206+00:00",
+        "fetched_at": "2026-11-04T22:25:36.061537+00:00",
         "skill_count": 8
       },
       {
@@ -176,15 +176,23 @@
         "ref": "main",
         "description": "deed.page skill \u2014 publish files or a folder to a permanent public URL with one curl request",
         "commit": "236a5800b5b926670a19e3131b3e220f5d4d97a1",
-        "fetched_at": "2026-11-04T22:11:48.878824+00:00",
+        "fetched_at": "2026-11-04T22:25:36.641418+00:00",
         "skill_count": 1
+      },
+      {
+        "url": "https://github.com/t3dotgg/tstack",
+        "ref": "main",
+        "description": "The agent skills I use every day \u2014 Claude Code and Codex",
+        "commit": "1085050f3baed1ac724caa4a8166145fb2ac88af",
+        "fetched_at": "2026-11-04T22:25:37.057801+00:00",
+        "skill_count": 9
       }
     ],
     "stats": {
-      "total_skills": 5212,
-      "total_sources": 22,
+      "total_skills": 5221,
+      "total_sources": 23,
       "by_domain": {
-        "code-review": 788,
+        "code-review": 796,
         "productivity": 757,
         "ai-ml": 674,
         "frontend": 611,
@@ -196,8 +204,8 @@
         "business": 111,
         "writing": 109,
         "testing": 101,
+        "debugging": 85,
         "project-management": 85,
-        "debugging": 84,
         "development": 74,
         "cli": 52,
         "mobile": 43,
@@ -310,7 +318,7 @@
         "email-outreach": 1,
         "conversation-intelligence": 1
       },
-      "generated_at": "2026-11-04T22:11:48.887985+00:00"
+      "generated_at": "2026-11-04T22:25:37.065987+00:00"
     }
   },
   "skills": [
@@ -195927,6 +195935,243 @@
       },
       "id": "deed-page-skill/skills/deed-page",
       "install_hint": "kitout install f-o-x11/deed-page-skill"
+    },
+    {
+      "name": "babysit-pr",
+      "description": "Monitor a pull request through review and CI. Use when the user asks to monitor, watch, or babysit a PR.",
+      "body_preview": "# Babysit PR\n\nMany repos have AI review bots. They're helpful, even if they are not always\nright.\n\n## Waiting\n\nNever write your own watcher, polling loop, or `sleep` loop. Use one watcher\nper PR: `watch_pull_request` in T3 Code, `pr-wait` everywhere else. Never run\nboth on the same PR. Every watcher on a GitHub account shares one rate limit.\n\n### In T3 Code: `watch_pull_request`\n\nHandle the existing checks and comments first. Then call\n`watch_pull_request` and end your turn. T3 Code wakes you wi",
+      "tags": [],
+      "triggers": [
+        "monitor",
+        "pull",
+        "request",
+        "review",
+        "user",
+        "asks",
+        "monitor",
+        "watch",
+        "babysit"
+      ],
+      "domain": "code-review",
+      "harnesses": [
+        "claude-code"
+      ],
+      "source": {
+        "url": "https://github.com/t3dotgg/tstack",
+        "ref": "main",
+        "path": "skills/babysit-pr"
+      },
+      "id": "tstack/skills/babysit-pr",
+      "install_hint": "kitout install t3dotgg/tstack"
+    },
+    {
+      "name": "takeover",
+      "description": "Take over existing work. Use when the user asks to take over a PR, branch, or agent thread, or requests a takeover.",
+      "body_preview": "# Takeover\n\nTake responsibility for finishing the original goal while preserving the\noriginal contributors' credit. Do not defend an implementation just because\nanother agent already built it.\n\nRead the source PR, branch, or thread, including review findings and the user's\nlater corrections. Resolve the handoff to the actual code and current head,\nand account for uncommitted work. Treat the handoff as context, not proof.\n\nFor a replacement PR, import the original commits onto a new branch and ad",
+      "tags": [],
+      "triggers": [
+        "take",
+        "over",
+        "existing",
+        "work",
+        "user",
+        "asks",
+        "take",
+        "over",
+        "branch",
+        "agent",
+        "thread",
+        "requests",
+        "takeover"
+      ],
+      "domain": "code-review",
+      "harnesses": [
+        "claude-code"
+      ],
+      "source": {
+        "url": "https://github.com/t3dotgg/tstack",
+        "ref": "main",
+        "path": "skills/takeover"
+      },
+      "id": "tstack/skills/takeover",
+      "install_hint": "kitout install t3dotgg/tstack"
+    },
+    {
+      "name": "council",
+      "description": "Trigger this if the user says 'council'.",
+      "body_preview": "# Council\n\nBefore an audit, address outstanding PR comments, fix known issues, and run\nrelevant checks. Give council the updated implementation; do not defer known\nfixes until reviews return. If the user wants to discard the implementation\nand explore new ideas, skip fixes to code being replaced.\n\nBring in three delegates to help with the user's request, usually for review\nor feedback. Use one strong model from each of three different providers, at\nhigh reasoning effort. If the user's instructio",
+      "tags": [],
+      "triggers": [
+        "trigger",
+        "user",
+        "says",
+        "council"
+      ],
+      "domain": "debugging",
+      "harnesses": [
+        "claude-code"
+      ],
+      "source": {
+        "url": "https://github.com/t3dotgg/tstack",
+        "ref": "main",
+        "path": "skills/council"
+      },
+      "id": "tstack/skills/council",
+      "install_hint": "kitout install t3dotgg/tstack"
+    },
+    {
+      "name": "full-send",
+      "description": "Trigger this if the user says 'full send'.",
+      "body_preview": "# Full Send\n\nIf the user triggered this, it's because they are not watching this thread, and\nthey want you to complete the work end-to-end autonomously. Your updates and\nyour final message go unread until long after you stop. You own the work from\nits current state to a merged PR.\n\nIf the user did not explicitly request \"full send\" in some clear way, do not\nassume full autonomy. If they did, everything below applies.\n\nThe user grants you permission to:\n\n- Merge the PR once the merge gate passes.",
+      "tags": [],
+      "triggers": [
+        "trigger",
+        "user",
+        "says",
+        "full",
+        "send"
+      ],
+      "domain": "code-review",
+      "harnesses": [
+        "claude-code"
+      ],
+      "source": {
+        "url": "https://github.com/t3dotgg/tstack",
+        "ref": "main",
+        "path": "skills/full-send"
+      },
+      "id": "tstack/skills/full-send",
+      "install_hint": "kitout install t3dotgg/tstack"
+    },
+    {
+      "name": "modernize",
+      "description": "For getting old prs up to date. Use when asked to rebase a pr or \"modernize\".",
+      "body_preview": "# Modernize\n\nModernize the idea, not just the branch. A clean rebase does not prove that the\nPR still belongs in the product.\n\n## Guardrails\n\n- Always check to make sure you have pulled latest origin for your branch, main\n  branch, and any other branch related to your work before starting.\n- Treat existing worktree changes as user-owned. Use a disposable worktree when\n  the active worktree is dirty or is being used for other work.\n- Modernizing authorizes rebasing and updating the PR branch. It ",
+      "tags": [],
+      "triggers": [
+        "getting",
+        "old",
+        "prs",
+        "date",
+        "asked",
+        "rebase",
+        "modernize"
+      ],
+      "domain": "code-review",
+      "harnesses": [
+        "claude-code"
+      ],
+      "source": {
+        "url": "https://github.com/t3dotgg/tstack",
+        "ref": "main",
+        "path": "skills/modernize"
+      },
+      "id": "tstack/skills/modernize",
+      "install_hint": "kitout install t3dotgg/tstack"
+    },
+    {
+      "name": "file-pr",
+      "description": "File a concise pull request. Use when the user asks to file, open, or create a PR.",
+      "body_preview": "# File PR\n\nBefore filing, check whether a PR for this branch already exists. Review the\ndiff locally against the base branch (usually `origin/main`) to make sure its\ncontents match the goal.\n\nPR titles usually become commit messages, so follow the repository's title\nconventions. Look at recently merged PRs and Git history for examples. Prefer a\nconcise, human-readable title that explains why the change matters:\n\nBAD\n\n> \u274c perf(server): negotiate permessage-deflate on the websocket\n\nGOOD\n\n> \u2705 perf",
+      "tags": [],
+      "triggers": [
+        "file",
+        "concise",
+        "pull",
+        "request",
+        "user",
+        "asks",
+        "file",
+        "open",
+        "create"
+      ],
+      "domain": "code-review",
+      "harnesses": [
+        "claude-code"
+      ],
+      "source": {
+        "url": "https://github.com/t3dotgg/tstack",
+        "ref": "main",
+        "path": "skills/file-pr"
+      },
+      "id": "tstack/skills/file-pr",
+      "install_hint": "kitout install t3dotgg/tstack"
+    },
+    {
+      "name": "leaving-pr-comments",
+      "description": "Use whenever leaving comments on GitHub.",
+      "body_preview": "# Leaving PR Comments\n\nPrefix every agent-authored comment left on the user's behalf with this GitHub\nnote callout:\n\n```md\n> [!NOTE]\n> \ud83e\udd16 **<model> responding on behalf of <user>**\n\nActual comment starts here.\n```\n\nUse the verified public name of the model that wrote the comment, and the\nuser's name or GitHub login.\n\nIf the harness does not expose a model name, use the harness name. Do not guess.\n\nBefore posting, check the entire comment, including quoted text and\nattachments, for secrets and pri",
+      "tags": [],
+      "triggers": [
+        "whenever",
+        "leaving",
+        "comments",
+        "github"
+      ],
+      "domain": "code-review",
+      "harnesses": [
+        "claude-code"
+      ],
+      "source": {
+        "url": "https://github.com/t3dotgg/tstack",
+        "ref": "main",
+        "path": "skills/leaving-pr-comments"
+      },
+      "id": "tstack/skills/leaving-pr-comments",
+      "install_hint": "kitout install t3dotgg/tstack"
+    },
+    {
+      "name": "full-stop",
+      "description": "Trigger this if the user says 'full stop', even as a closing \"Full stop.\" that reads like emphasis.",
+      "body_preview": "# Full Stop\n\nDo the same work as `full-send`, but stop with the PR ready for the user to merge.\nNever merge it.\n\nRead [full-send](../full-send/SKILL.md) and follow its workflow, proof rules,\nreview, and babysitting steps. An explicit \"full stop\" request authorizes that\nwork without a separate \"full send\" request. That includes full-send's\ntesting permission. A \"full stop\" request is the permission for the test\nmethods Proof needs, even when a project file says to ask first, for\nexample before co",
+      "tags": [],
+      "triggers": [
+        "trigger",
+        "user",
+        "says",
+        "full",
+        "stop",
+        "even",
+        "closing",
+        "full",
+        "stop",
+        "reads",
+        "emphasis"
+      ],
+      "domain": "code-review",
+      "harnesses": [
+        "claude-code"
+      ],
+      "source": {
+        "url": "https://github.com/t3dotgg/tstack",
+        "ref": "main",
+        "path": "skills/full-stop"
+      },
+      "id": "tstack/skills/full-stop",
+      "install_hint": "kitout install t3dotgg/tstack"
+    },
+    {
+      "name": "sol-loop",
+      "description": "Use when the user says \"sol loop\".",
+      "body_preview": "# sol-loop\n\nThis is a workflow for making your code changes more correct before (or\nsometimes after) filing a pull request. tl;dr - use OpenAI's GPT Sol to review\nyour code in a loop.\n\nMake the most minimal possible changes to appease the Sol reviewers. Be careful\nof scope creep and don't be scared to push back.\n\n## Budget\n\n- Default: 3 rounds total. Round 1 is full. Later rounds check only\n  changed code and open findings.\n- Extend to 5 only for security, permissions, auth, data loss, or\n  stat",
+      "tags": [],
+      "triggers": [
+        "user",
+        "says",
+        "sol",
+        "loop"
+      ],
+      "domain": "code-review",
+      "harnesses": [
+        "claude-code"
+      ],
+      "source": {
+        "url": "https://github.com/t3dotgg/tstack",
+        "ref": "main",
+        "path": "skills/sol-loop"
+      },
+      "id": "tstack/skills/sol-loop",
+      "install_hint": "kitout install t3dotgg/tstack"
     }
   ]
 }

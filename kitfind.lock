@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-11-04T22:14:07.578231+00:00",
+  "generated_at": "2026-11-04T22:29:44.445715+00:00",
   "sources": [
     {
       "url": "https://github.com/obra/superpowers",
@@ -111,6 +111,11 @@
       "url": "https://github.com/f-o-x11/deed-page-skill",
       "ref": "main",
       "commit": "236a5800b5b926670a19e3131b3e220f5d4d97a1"
+    },
+    {
+      "url": "https://github.com/t3dotgg/tstack",
+      "ref": "main",
+      "commit": "1085050f3baed1ac724caa4a8166145fb2ac88af"
     }
   ]
 }

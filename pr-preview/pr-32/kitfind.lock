@@ -1,0 +1,121 @@
+{
+  "version": 1,
+  "generated_at": "2026-11-04T22:18:43.937018+00:00",
+  "sources": [
+    {
+      "url": "https://github.com/obra/superpowers",
+      "ref": "main",
+      "commit": "22f0b463e7a5e579904dd6211a520321035526f7"
+    },
+    {
+      "url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "ref": "main",
+      "commit": "48de968b4615c294de601f72268aa7be88dde863"
+    },
+    {
+      "url": "https://github.com/mattpocock/skills",
+      "ref": "main",
+      "commit": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d"
+    },
+    {
+      "url": "https://github.com/affaan-m/everything-claude-code",
+      "ref": "main",
+      "commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1"
+    },
+    {
+      "url": "https://github.com/le-diegz/claude-skills-registry",
+      "ref": "main",
+      "commit": "02370623a724900f1680baff4c6cdfed2d55fa89"
+    },
+    {
+      "url": "https://github.com/alirezarezvani/claude-skills",
+      "ref": "main",
+      "commit": "c85b17e1fb621ba760478baaacc4fcb9be225e74"
+    },
+    {
+      "url": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "ref": "main",
+      "commit": "a25cf9ec00e2745d03f8704acf6f6919694ccd9a"
+    },
+    {
+      "url": "https://github.com/addyosmani/agent-skills",
+      "ref": "main",
+      "commit": "301b02b12bff98e4688e6984af6556802322bbde"
+    },
+    {
+      "url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "ref": "master",
+      "commit": "be2a406907dbc61b73e6827ded415c96139d13a2"
+    },
+    {
+      "url": "https://github.com/coreyhaines31/marketingskills",
+      "ref": "main",
+      "commit": "88c79f6528a9347420e57ceb1fff9a60de651768"
+    },
+    {
+      "url": "https://github.com/anthropics/skills",
+      "ref": "main",
+      "commit": "ca45fc496a3436251f191354091d557da31c15b5"
+    },
+    {
+      "url": "https://github.com/kepano/obsidian-skills",
+      "ref": "main",
+      "commit": "3ccff5338ea700537839b21900aa5358a0402c98"
+    },
+    {
+      "url": "https://github.com/Imbad0202/academic-research-skills",
+      "ref": "main",
+      "commit": "530659d983c2f4aa584ba3f2df224df08d90b264"
+    },
+    {
+      "url": "https://github.com/vercel-labs/agent-skills",
+      "ref": "main",
+      "commit": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62"
+    },
+    {
+      "url": "https://github.com/zarazhangrui/frontend-slides",
+      "ref": "main",
+      "commit": "9906a34d640d2111f724544cbc50f7f130569ae1"
+    },
+    {
+      "url": "https://github.com/Orchestra-Research/AI-Research-SKILLs",
+      "ref": "main",
+      "commit": "773a52944ba4747a18bd4ae9ade53fff041adcbc"
+    },
+    {
+      "url": "https://github.com/trailofbits/skills",
+      "ref": "main",
+      "commit": "470419e16f97e112d01fc32f4898aea1755015d9"
+    },
+    {
+      "url": "https://github.com/EveryInc/compound-engineering-plugin",
+      "ref": "main",
+      "commit": "799ac9aeb97bf1c51238c38122915470413c26c5"
+    },
+    {
+      "url": "https://github.com/Xquik-dev/x-twitter-scraper",
+      "ref": "master",
+      "commit": "6c8216141102a3c940f0ce533efbaff93b917376"
+    },
+    {
+      "url": "https://github.com/cursor/plugins",
+      "ref": "main",
+      "commit": "bb68f2365eceafa0cb2d253112f675acf5f144cc"
+    },
+    {
+      "url": "https://github.com/yylo-dev/yylo-skills",
+      "ref": "main",
+      "commit": "035023f66153d032d08da9203eb15f0cdaedb616"
+    },
+    {
+      "url": "https://github.com/f-o-x11/deed-page-skill",
+      "ref": "main",
+      "commit": "236a5800b5b926670a19e3131b3e220f5d4d97a1"
+    },
+    {
+      "url": "https://github.com/t3dotgg/tstack",
+      "ref": "main",
+      "commit": "1085050f3baed1ac724caa4a8166145fb2ac88af"
+    }
+  ]
+}

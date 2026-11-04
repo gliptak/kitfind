@@ -115,3 +115,8 @@ description = "YYLO agent skills — Ledger tasks, wiki, workflows, artifacts, a
 url = "https://github.com/f-o-x11/deed-page-skill"
 ref = "main"
 description = "deed.page skill — publish files or a folder to a permanent public URL with one curl request"
+
+[[repo]]
+url = "https://github.com/t3dotgg/tstack"
+ref = "main"
+description = "The agent skills I use every day — Claude Code and Codex"

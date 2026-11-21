@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-11-04T22:29:44.445715+00:00",
+  "generated_at": "2026-11-21T14:16:32.730341+00:00",
   "sources": [
     {
       "url": "https://github.com/obra/superpowers",
@@ -10,37 +10,37 @@
     {
       "url": "https://github.com/sickn33/antigravity-awesome-skills",
       "ref": "main",
-      "commit": "48de968b4615c294de601f72268aa7be88dde863"
+      "commit": "e6fb3ca87fc820e176028dfd2333aecc1856beff"
     },
     {
       "url": "https://github.com/mattpocock/skills",
       "ref": "main",
-      "commit": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d"
+      "commit": "abeeaf95660ba9e8b7c753eb38f441ca707a8823"
     },
     {
       "url": "https://github.com/affaan-m/everything-claude-code",
       "ref": "main",
-      "commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1"
+      "commit": "4adeee6732a12d1540f49a4d50a38ce8c97f9a53"
     },
     {
       "url": "https://github.com/le-diegz/claude-skills-registry",
       "ref": "main",
-      "commit": "02370623a724900f1680baff4c6cdfed2d55fa89"
+      "commit": "d5ce8060d289df28aa1468c3f069e07f871038c4"
     },
     {
       "url": "https://github.com/alirezarezvani/claude-skills",
       "ref": "main",
-      "commit": "c85b17e1fb621ba760478baaacc4fcb9be225e74"
+      "commit": "5909a72e62b5fbb809935fb6a55b58bdbe175074"
     },
     {
       "url": "https://github.com/K-Dense-AI/scientific-agent-skills",
       "ref": "main",
-      "commit": "a25cf9ec00e2745d03f8704acf6f6919694ccd9a"
+      "commit": "ec59a29a03d5c40f73ab40878df04860bc00e876"
     },
     {
       "url": "https://github.com/addyosmani/agent-skills",
       "ref": "main",
-      "commit": "301b02b12bff98e4688e6984af6556802322bbde"
+      "commit": "8c99fa36d90068c82d547f7c12a9d67a3e95f4ee"
     },
     {
       "url": "https://github.com/ComposioHQ/awesome-claude-skills",
@@ -50,27 +50,27 @@
     {
       "url": "https://github.com/coreyhaines31/marketingskills",
       "ref": "main",
-      "commit": "88c79f6528a9347420e57ceb1fff9a60de651768"
+      "commit": "5b2b400eec1e7e1cec76245a715d0b0d4fd2a9c1"
     },
     {
       "url": "https://github.com/anthropics/skills",
       "ref": "main",
-      "commit": "ca45fc496a3436251f191354091d557da31c15b5"
+      "commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba"
     },
     {
       "url": "https://github.com/kepano/obsidian-skills",
       "ref": "main",
-      "commit": "3ccff5338ea700537839b21900aa5358a0402c98"
+      "commit": "b110b2f8e9eb1f287892f937050dfd40af862cbb"
     },
     {
       "url": "https://github.com/Imbad0202/academic-research-skills",
       "ref": "main",
-      "commit": "530659d983c2f4aa584ba3f2df224df08d90b264"
+      "commit": "00315dfea67cba974583debae32b77bdce659301"
     },
     {
       "url": "https://github.com/vercel-labs/agent-skills",
       "ref": "main",
-      "commit": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62"
+      "commit": "5a37a6329fbad3666c3207392a6a7c0110e92efb"
     },
     {
       "url": "https://github.com/zarazhangrui/frontend-slides",
@@ -85,22 +85,22 @@
     {
       "url": "https://github.com/trailofbits/skills",
       "ref": "main",
-      "commit": "470419e16f97e112d01fc32f4898aea1755015d9"
+      "commit": "149d7b21f4067765b82e67029730b42d228ef4b4"
     },
     {
       "url": "https://github.com/EveryInc/compound-engineering-plugin",
       "ref": "main",
-      "commit": "799ac9aeb97bf1c51238c38122915470413c26c5"
+      "commit": "58d1a83d9207c96c9fb4934589b8b5967849dfdb"
     },
     {
       "url": "https://github.com/Xquik-dev/x-twitter-scraper",
       "ref": "master",
-      "commit": "6c8216141102a3c940f0ce533efbaff93b917376"
+      "commit": "f50422fbf46876a48df9b12237d37e1e31b4f081"
     },
     {
       "url": "https://github.com/cursor/plugins",
       "ref": "main",
-      "commit": "bb68f2365eceafa0cb2d253112f675acf5f144cc"
+      "commit": "792440e8a560a4a3f63748cdee70491ecd412982"
     },
     {
       "url": "https://github.com/yylo-dev/yylo-skills",
@@ -110,12 +110,12 @@
     {
       "url": "https://github.com/f-o-x11/deed-page-skill",
       "ref": "main",
-      "commit": "236a5800b5b926670a19e3131b3e220f5d4d97a1"
+      "commit": "75fb9a5699251b3838ef1e7237eb986a07af0d07"
     },
     {
       "url": "https://github.com/t3dotgg/tstack",
       "ref": "main",
-      "commit": "1085050f3baed1ac724caa4a8166145fb2ac88af"
+      "commit": "11e37a74d0a6868c121cd0910ab2b3bd9873b92a"
     }
   ]
 }
